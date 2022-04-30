@@ -326,7 +326,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         except:
             self.message_critical('MUNICIPE NÃO ENCONTRADO')
             self.le_delete_municipe.setText('')
-    print('estou aqui')
+
 
 
 
