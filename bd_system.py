@@ -791,7 +791,7 @@ class DataBase():
 
     def create_table_users(self):
         try:
-            cursor = self.conection
+            cursor = self.conection.cursor()
             cursor.execute('''
             CREATE TABLE IF NOT EXISTS users(
             ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -802,8 +802,24 @@ class DataBase():
         except:
             print('erro ao criar a tabela users')
 
-    def creat_table_agendamentos(self):
-        cursor = db.conection.cursor()
+    def create_table_agendamentos(self):
+        # try:
+            cursor = self.conection.cursor()
+            cursor.execute('''
+            CREATE TABLE IF NOT EXISTS agendamentos(
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            Horario_08h30 TEXT NOT NULL,
+            Horario_09h30 TEXT NOT NULL,
+            Horario_010h30 TEXT NOT NULL,
+            Horario_11h30 TEXT NOT NULL,
+            Horario_12h30 TEXT NOT NULL,
+            Horario_13h30 TEXT NOT NULL,
+            Horario_14h30 TEXT NOT NULL,
+            Horario_15h30 TEXT NOT NULL,
+            Horario_16h30 TEXT NOT NULL,
+            Horario_17h30 TEXT NOT NULL);
+            ''')
+        # except:
 
 
     def check_table_municipes(self):
@@ -842,8 +858,8 @@ if __name__ == '__main__':
     db.conect_db()
     db.create_table_municipes()
     db.create_table_users()
+    db.create_table_agendamentos()
     # db.insert_user('douglas','1234')
-    # db.insO PEREIRA', '474737731', '38068854860', '16/04/1991','15991564200','Prefeitura Municipal de Sorocaba', '18053365', 'Rua Guarino Fernandes dos Santos','328','Jardim Santa Barbara','Sorocaba')
     print('tabela municipes')
     # for x in municipes: db.insert_municipes(x['nome'],x['rg'],x['cpf'],x['data_nasc'],x['celular'],x['cep'],x['endereco'],x['numero'],x['bairro'],x['cidade'])
     db.check_table_municipes()

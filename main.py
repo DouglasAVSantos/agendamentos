@@ -72,18 +72,27 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.le_cep.textChanged.connect(self.busca_cep)
         self.le_cpf.textChanged.connect(self.cpf_validate)
         self.btn_update_municipe_id.clicked.connect(self.get_dados_municipe)
+        # **************************************************************************************************
+
         # *******************BOTOES DA PAGINA DE MUNICIPES CADASTRADOS***************************************************
 
         self.btn_update_municipe.clicked.connect(self.update_table_municipes)
         self.btn_delete_municipe.clicked.connect(self.delete_municipe)
+        # **************************************************************************************************
 
-        # ******************************************FILTRO DA TABELA MUNICIPES********************************************************
+        # ********************FILTRO DA TABELA MUNICIPES********************************************************
         self.le_pesquisa_municipe.textChanged.connect(self.filtro_municipes)
         # **************************************************************************************************
 
+        # *******************ADICIONA A LISTA DE MUNICIPES AO COMBO BOX DA PAGINA AGENDAMENTOS*******************************************************************************
         self.add_municipes_combobox()
-        self.table_reset()
+        # **************************************************************************************************
 
+        # *********************ATUALIZA AS TABELAS DO SISTEMA*****************************************************************************
+        self.table_reset()
+        # **************************************************************************************************
+
+    #FUNÇÃO QUE CRIA CAIXA DE DIALOGO DE ERRO
     def message_critical(self,txt):
         msg = QMessageBox(self)
         msg.setWindowTitle('ERRO DE DADOS')
@@ -91,6 +100,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         msg.setText(f'{txt}')
         msg.exec_()
 
+    #FUNÇÃO QUE CRIA CAIXA DE DIALOGO DE INFORMAÇÃO
     def message_information(self,txt):
         msg = QMessageBox(self)
         msg.setWindowTitle('DADOS ACEITOS')
@@ -98,6 +108,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         msg.setText(f'{txt}')
         msg.exec_()
 
+    #FUNÇÃO QUE CADASTRA UM NOVO MUNICIPE AO BANCO DE DADOS ATRAVÉS DO SISTEMA
     def novo_municipe(self):
         db = DataBase()
         db.conect_db()
@@ -161,6 +172,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.message_information('CADASTRO REALIZADO COM SUCESSO!!!')
             db.close_db()
 
+    #FUNÇÃO QUE CONSOME A API DOS CORREIOS PARA VALIDAR O CEP E INCREMENTAR OS CAMPOS ENDEREÇO,BAIRRO,CIDADE NO CADASTRO
     def busca_cep(self,s):
         try:
             if len(s) == 8:
@@ -174,6 +186,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.message_critical('CEP INVÁLIDO')
             self.le_cep.setText('')
 
+    #FUNÇÃO QUE VALIDA O CPF
     def cpf_validate(self, numbers):
         if len(numbers) == 11:
             #  Obtém os números do CPF e ignora outros caracteres
@@ -196,6 +209,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
             self.le_cpf.setText(numbers)
 
+    #FUNÇÃO QUE PUXA OS DADOS DO BANCO DE DADOS E INCREMENTA OS CAMPOS DO CADASTRO PARA FAZER ALTERAÇÃO
     def get_dados_municipe(self):
         try:
             id = self.le_update_municipe.text()
@@ -226,6 +240,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.le_update_municipe.setText('')
             self.message_critical('MUNICIPE NÃO ENCONTRADO')
 
+    #FUNÇÃO QUE ATUALIZA A TABLEVIEW DO SISTEMA
     def update_table_municipes(self):
         msg = QMessageBox(self)
         msg.setWindowTitle('INFORMATIVO')
@@ -275,7 +290,8 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         else:
             pass
 
-    def table_municipe(self):
+    #FUNÇÃO QUE PASSA DO BANCO DE DADOS MUNICIPE PARA A TABLEVIEW DO SISTEMA
+    def show_table_municipe(self):
         db = QSqlDatabase('QSQLITE')
         db.setDatabaseName('system.db')
         db.open()
@@ -285,15 +301,32 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.model.setTable('municipes')
         self.model.select()
 
+    # FUNÇÃO QUE PASSA DO BANCO DE DADOS AGENDAMENTOS PARA A TABLEVIEW DO SISTEMA
+    def show_table_agendamentos(self):
+        db = QSqlDatabase('QSQLITE')
+        db.setDatabaseName('system.db')
+        db.open()
+
+        self.model = QSqlTableModel(db=db)
+        self.tableView_agendamento.setModel(self.model)
+        self.model.setTable('agendamentos')
+        self.model.select()
+
+
+    #FUNÇÃO QUE CARREGA AS TABLEVIEW NO SISTEMA AO SER INICIADO
     def table_reset(self):
         self.tb_municipes_cadastrados.update()
-        self.table_municipe()
+        self.tableView_agendamento.update()
+        self.show_table_municipe()
+        self.show_table_agendamentos()
 
+    #FUNÇÃO PARA FILTRAR ATRAVÉS DO NOME OS MUNICIPES NA JANELA CADASTRADOS
     def filtro_municipes(self,s):
         s = re.sub('[\W_]+','',s)
         filter_str = f'NOME LIKE "%{s}%"'
         self.model.setFilter(filter_str)
 
+    #FUNÇÃO QUE ADICIONA A LISTA DE MUNICIPES CADASTRADOS AO COMBO BOX
     def add_municipes_combobox(self):
         db = DataBase()
         db.conect_db()
@@ -303,6 +336,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.comboBox_municipe.addItem(nome[0])
         db.close_db()
 
+    #FUNÇÃO QUE DELETA O MUNICIPE DO BANCO DE DADOS
     def delete_municipe(self):
         id = self.le_delete_municipe.text().strip()
         try:
