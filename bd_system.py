@@ -807,7 +807,6 @@ class DataBase():
             cursor = self.conection.cursor()
             cursor.execute('''
             CREATE TABLE IF NOT EXISTS agendamentos(
-            ID INTEGER PRIMARY KEY AUTOINCREMENT,
             DATA TEXT NOT NULL,
             Horario_08h30 TEXT NULL,
             Horario_09h30 TEXT NULL,

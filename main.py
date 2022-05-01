@@ -12,7 +12,6 @@ import re
 
 
 
-
 class Login(QWidget, Ui_Form):
     def __init__(self):
         super(Login,self).__init__()
@@ -169,6 +168,8 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.le_bairro.setText('')
             self.le_cidade.setText('')
             self.message_information('CADASTRO REALIZADO COM SUCESSO!!!')
+            self.table_reset()
+            self.add_municipes_combobox()
             db.close_db()
 
     # FUNÇÃO QUE CADASTRA UM NOVO AGENDAMENTO AO BANCO DE DADOS ATRAVÉS DO SISTEMA
@@ -469,6 +470,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                 self.le_cidade.setText('')
                 self.message_information('CADASTRO ALTERADO COM SUCESSO!!!')
                 self.table_reset()
+                self.add_municipes_combobox()
                 db.close_db()
             except:
                 pass
@@ -551,6 +553,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                 db.conection.commit()
                 self.le_delete_municipe.setText('')
                 self.table_reset()
+                self.add_municipes_combobox()
                 db.conect_db()
         except:
             self.message_critical('MUNICIPE NÃO ENCONTRADO')
