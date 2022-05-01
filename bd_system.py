@@ -808,16 +808,17 @@ class DataBase():
             cursor.execute('''
             CREATE TABLE IF NOT EXISTS agendamentos(
             ID INTEGER PRIMARY KEY AUTOINCREMENT,
-            Horario_08h30 TEXT NOT NULL,
-            Horario_09h30 TEXT NOT NULL,
-            Horario_010h30 TEXT NOT NULL,
-            Horario_11h30 TEXT NOT NULL,
-            Horario_12h30 TEXT NOT NULL,
-            Horario_13h30 TEXT NOT NULL,
-            Horario_14h30 TEXT NOT NULL,
-            Horario_15h30 TEXT NOT NULL,
-            Horario_16h30 TEXT NOT NULL,
-            Horario_17h30 TEXT NOT NULL);
+            DATA TEXT NOT NULL,
+            Horario_08h30 TEXT NULL,
+            Horario_09h30 TEXT NULL,
+            Horario_10h30 TEXT NULL,
+            Horario_11h30 TEXT NULL,
+            Horario_12h30 TEXT NULL,
+            Horario_13h30 TEXT NULL,
+            Horario_14h30 TEXT NULL,
+            Horario_15h30 TEXT NULL,
+            Horario_16h30 TEXT NULL,
+            Horario_17h30 TEXT NULL);
             ''')
         # except:
 

@@ -92,6 +92,11 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.table_reset()
         # **************************************************************************************************
 
+        # **************************************************************************************************
+        self.btn_agendar.clicked.connect(self.novo_agendamento)
+        # **************************************************************************************************
+
+
     #FUNÇÃO QUE CRIA CAIXA DE DIALOGO DE ERRO
     def message_critical(self,txt):
         msg = QMessageBox(self)
@@ -171,6 +176,192 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.le_cidade.setText('')
             self.message_information('CADASTRO REALIZADO COM SUCESSO!!!')
             db.close_db()
+
+    # FUNÇÃO QUE CADASTRA UM NOVO AGENDAMENTO AO BANCO DE DADOS ATRAVÉS DO SISTEMA
+    def novo_agendamento(self):
+        db = DataBase()
+        db.conect_db()
+        cursor = db.conection.cursor()
+        municipe = self.comboBox_municipe.currentText()
+        data = self.de_data_do_agendamento.text()
+        horario = self.te_horario_agendamento.text()
+        msg = QMessageBox(self)
+        msg.setWindowTitle('INFORMATIVO')
+        msg.setText(f'TEM CERTEZA QUE DESEJA CADASTRAR O AGENDAMENTO:\n"{municipe}" NO DIA: {data} ÀS "{horario}"')
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        result = msg.exec_()
+        if result == QMessageBox.Yes:
+            if horario == '08:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_08h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_08h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+
+            elif horario == '09:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_09h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_09h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+            elif horario == '10:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_10h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_10h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+            elif horario == '11:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_11h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_11h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+            elif horario == '12:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_12h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_12h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+            elif horario == '13:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_13h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_13h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+            elif horario == '14:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_14h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_14h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+            elif horario == '15:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_15h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_15h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+            elif horario == '16:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_16h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_16h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+            elif horario == '17:30':
+                if not self.check_data(data):
+                    cursor.execute(f'''
+                    INSERT INTO agendamentos (DATA,Horario_17h30) VALUES ('{data}','{municipe}');
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+                else:
+                    cursor.execute(f'''
+                    UPDATE agendamentos set Horario_17h30 = '{municipe}' WHERE DATA = '{data}';
+                    ''')
+                    db.conection.commit()
+                    self.table_reset()
+                    db.close_db()
+
+        else:
+            pass
+
+        db.close_db()
+
+    def check_data(self,s):
+        # try:
+            db = DataBase()
+            db.conect_db()
+            cursor = db.conection.cursor()
+            cursor.execute('select data from agendamentos;')
+            for linha in cursor.fetchall():
+                if linha[0] == s: return True
+                else: continue
+            return False
+            db.close_db()
+        # except:
+        #     print(erro)
+
 
     #FUNÇÃO QUE CONSOME A API DOS CORREIOS PARA VALIDAR O CEP E INCREMENTAR OS CAMPOS ENDEREÇO,BAIRRO,CIDADE NO CADASTRO
     def busca_cep(self,s):
@@ -311,7 +502,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.tableView_agendamento.setModel(self.model)
         self.model.setTable('agendamentos')
         self.model.select()
-
 
     #FUNÇÃO QUE CARREGA AS TABLEVIEW NO SISTEMA AO SER INICIADO
     def table_reset(self):
