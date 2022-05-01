@@ -57,7 +57,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.btn_home.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_home))
         self.btn_cadastrar.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_cadastrar))
         self.btn_cadastrados.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_cadastrados))
-        self.btn_agendamento.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_agendamento))
+        self.btn_agendamento.clicked.connect(self.get_agendamentos)
         #**************************************************************************************************
 
         #*********************BOTOES DA PAGINA DE CADASTRO DE MUNICIPE******************************************
@@ -501,16 +501,18 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def table_reset(self):
         self.tb_municipes_cadastrados.update()
         self.tableView_agendamento.update()
-        self.show_table_municipe()
         self.show_table_agendamentos()
+        self.show_table_municipe()
 
     #FUNÇÃO PARA FILTRAR ATRAVÉS DO NOME OS MUNICIPES NA JANELA CADASTRADOS
     def filtro_municipes(self,s):
+        self.show_table_municipe()
         s = re.sub('[\W_]+','',s)
-        filter_str = f'NOME LIKE "%{s}%"'
-        self.model.setFilter(filter_str)
+        filter_str2 = f'NOME LIKE "%{s}%"'
+        self.model.setFilter(filter_str2)
 
     def filtro_datas(self,s):
+        self.show_table_agendamentos()
         s = re.sub('[\W_]+','',s)
         filter_str = f'DATA LIKE "%{s}%"'
         self.model.setFilter(filter_str)
@@ -524,6 +526,10 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         for nome in cursor.fetchall():
             self.comboBox_municipe.addItem(nome[0])
         db.close_db()
+
+    def get_agendamentos(self):
+        self.stackedWidget.setCurrentWidget(self.page_agendamento)
+        self.table_reset()
 
     #FUNÇÃO QUE DELETA O MUNICIPE DO BANCO DE DADOS
     def delete_municipe(self):
