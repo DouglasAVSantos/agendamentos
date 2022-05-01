@@ -17,14 +17,14 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1239, 819)
+        MainWindow.resize(1168, 859)
         icon = QIcon()
         icon.addFile(u"logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.horizontalLayout_27 = QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
+        self.verticalLayout_13 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout = QHBoxLayout()
@@ -115,35 +115,6 @@ class Ui_MainWindow(object):
 "}")
 
         self.horizontalLayout.addWidget(self.btn_cadastrados)
-
-        self.btn_calendario = QPushButton(self.centralwidget)
-        self.btn_calendario.setObjectName(u"btn_calendario")
-        self.btn_calendario.setMinimumSize(QSize(186, 0))
-        self.btn_calendario.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_calendario.setStyleSheet(u"QPushButton {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(238, 238, 0);\n"
-"    border-style: inset;\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}")
-
-        self.horizontalLayout.addWidget(self.btn_calendario)
 
         self.btn_agendamento = QPushButton(self.centralwidget)
         self.btn_agendamento.setObjectName(u"btn_agendamento")
@@ -520,19 +491,17 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_cadastrados)
         self.page_agendamento = QWidget()
         self.page_agendamento.setObjectName(u"page_agendamento")
-        self.verticalLayout_18 = QVBoxLayout(self.page_agendamento)
-        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.verticalLayout_13 = QVBoxLayout()
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.label_46 = QLabel(self.page_agendamento)
-        self.label_46.setObjectName(u"label_46")
-
-        self.verticalLayout_13.addWidget(self.label_46)
-
+        self.verticalLayout_6 = QVBoxLayout(self.page_agendamento)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.horizontalLayout_19 = QHBoxLayout()
         self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
         self.label_45 = QLabel(self.page_agendamento)
         self.label_45.setObjectName(u"label_45")
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_45.sizePolicy().hasHeightForWidth())
+        self.label_45.setSizePolicy(sizePolicy)
 
         self.horizontalLayout_19.addWidget(self.label_45)
 
@@ -554,31 +523,18 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_19.addWidget(self.label_44)
 
-        self.label_48 = QLabel(self.page_agendamento)
-        self.label_48.setObjectName(u"label_48")
+        self.calendarWidget_2 = QCalendarWidget(self.page_agendamento)
+        self.calendarWidget_2.setObjectName(u"calendarWidget_2")
+        self.calendarWidget_2.setMinimumSize(QSize(321, 183))
+        self.calendarWidget_2.setMaximumSize(QSize(321, 183))
 
-        self.horizontalLayout_19.addWidget(self.label_48)
-
-
-        self.verticalLayout_13.addLayout(self.horizontalLayout_19)
-
-        self.label_47 = QLabel(self.page_agendamento)
-        self.label_47.setObjectName(u"label_47")
-
-        self.verticalLayout_13.addWidget(self.label_47)
+        self.horizontalLayout_19.addWidget(self.calendarWidget_2)
 
 
-        self.verticalLayout_18.addLayout(self.verticalLayout_13)
+        self.verticalLayout_6.addLayout(self.horizontalLayout_19)
 
-        self.verticalLayout_17 = QVBoxLayout()
-        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
-        self.label_50 = QLabel(self.page_agendamento)
-        self.label_50.setObjectName(u"label_50")
-
-        self.verticalLayout_17.addWidget(self.label_50)
-
-        self.horizontalLayout_14 = QHBoxLayout()
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.horizontalLayout_27 = QHBoxLayout()
+        self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
         self.verticalLayout_8 = QVBoxLayout()
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.label_25 = QLabel(self.page_agendamento)
@@ -619,7 +575,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addWidget(self.comboBox_municipe)
 
 
-        self.horizontalLayout_14.addLayout(self.verticalLayout_8)
+        self.horizontalLayout_27.addLayout(self.verticalLayout_8)
 
         self.verticalLayout_9 = QVBoxLayout()
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
@@ -662,7 +618,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.addWidget(self.de_data_do_agendamento)
 
 
-        self.horizontalLayout_14.addLayout(self.verticalLayout_9)
+        self.horizontalLayout_27.addLayout(self.verticalLayout_9)
 
         self.verticalLayout_12 = QVBoxLayout()
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
@@ -704,7 +660,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.addWidget(self.te_horario_agendamento)
 
 
-        self.horizontalLayout_14.addLayout(self.verticalLayout_12)
+        self.horizontalLayout_27.addLayout(self.verticalLayout_12)
 
         self.btn_agendar = QPushButton(self.page_agendamento)
         self.btn_agendar.setObjectName(u"btn_agendar")
@@ -734,23 +690,65 @@ class Ui_MainWindow(object):
 "    border-style: inset;\n"
 "}")
 
-        self.horizontalLayout_14.addWidget(self.btn_agendar)
+        self.horizontalLayout_27.addWidget(self.btn_agendar)
 
 
-        self.verticalLayout_17.addLayout(self.horizontalLayout_14)
+        self.verticalLayout_6.addLayout(self.horizontalLayout_27)
 
-        self.label_49 = QLabel(self.page_agendamento)
-        self.label_49.setObjectName(u"label_49")
+        self.label_50 = QLabel(self.page_agendamento)
+        self.label_50.setObjectName(u"label_50")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.label_50.sizePolicy().hasHeightForWidth())
+        self.label_50.setSizePolicy(sizePolicy1)
 
-        self.verticalLayout_17.addWidget(self.label_49)
+        self.verticalLayout_6.addWidget(self.label_50)
+
+        self.horizontalLayout_14 = QHBoxLayout()
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.label_72 = QLabel(self.page_agendamento)
+        self.label_72.setObjectName(u"label_72")
+        self.label_72.setMinimumSize(QSize(131, 20))
+        self.label_72.setMaximumSize(QSize(131, 20))
+        self.label_72.setFont(font1)
+        self.label_72.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_72.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_14.addWidget(self.label_72)
+
+        self.le_filtro_data = QLineEdit(self.page_agendamento)
+        self.le_filtro_data.setObjectName(u"le_filtro_data")
+        self.le_filtro_data.setMinimumSize(QSize(132, 0))
+        self.le_filtro_data.setLayoutDirection(Qt.LeftToRight)
+        self.le_filtro_data.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 0.5px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}\n"
+"")
+        self.le_filtro_data.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_14.addWidget(self.le_filtro_data)
 
 
-        self.verticalLayout_18.addLayout(self.verticalLayout_17)
+        self.verticalLayout_6.addLayout(self.horizontalLayout_14)
 
         self.tableView_agendamento = QTableView(self.page_agendamento)
         self.tableView_agendamento.setObjectName(u"tableView_agendamento")
 
-        self.verticalLayout_18.addWidget(self.tableView_agendamento)
+        self.verticalLayout_6.addWidget(self.tableView_agendamento)
 
         self.stackedWidget.addWidget(self.page_agendamento)
         self.page_cadastrar = QWidget()
@@ -1464,23 +1462,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.addLayout(self.horizontalLayout_16)
 
         self.stackedWidget.addWidget(self.page_cadastrar)
-        self.page_calendario = QWidget()
-        self.page_calendario.setObjectName(u"page_calendario")
-        self.verticalLayout_6 = QVBoxLayout(self.page_calendario)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.calendarWidget = QCalendarWidget(self.page_calendario)
-        self.calendarWidget.setObjectName(u"calendarWidget")
-        self.calendarWidget.setMinimumSize(QSize(0, 183))
-        self.calendarWidget.setMaximumSize(QSize(16777215, 183))
-
-        self.verticalLayout_6.addWidget(self.calendarWidget)
-
-        self.tableView = QTableView(self.page_calendario)
-        self.tableView.setObjectName(u"tableView")
-
-        self.verticalLayout_6.addWidget(self.tableView)
-
-        self.stackedWidget.addWidget(self.page_calendario)
         self.page_sobre = QWidget()
         self.page_sobre.setObjectName(u"page_sobre")
         self.verticalLayout_5 = QVBoxLayout(self.page_sobre)
@@ -1573,13 +1554,13 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.stackedWidget)
 
 
-        self.horizontalLayout_27.addLayout(self.verticalLayout)
+        self.verticalLayout_13.addLayout(self.verticalLayout)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1589,8 +1570,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Sistema de Agendamentos DGS", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
         self.btn_cadastrar.setText(QCoreApplication.translate("MainWindow", u"CADASTRAR", None))
-        self.btn_cadastrados.setText(QCoreApplication.translate("MainWindow", u"CADASTRADOS", None))
-        self.btn_calendario.setText(QCoreApplication.translate("MainWindow", u"CALENDARIO", None))
+        self.btn_cadastrados.setText(QCoreApplication.translate("MainWindow", u"MUNICIPES", None))
         self.btn_agendamento.setText(QCoreApplication.translate("MainWindow", u"AGENDAMENTO", None))
         self.btn_sobre.setText(QCoreApplication.translate("MainWindow", u"SOBRE", None))
         self.label_20.setText("")
@@ -1600,7 +1580,7 @@ class Ui_MainWindow(object):
         self.label_22.setText("")
         self.label_39.setText("")
         self.label_17.setText("")
-        self.label_27.setText(QCoreApplication.translate("MainWindow", u"USU\u00c1RIOS CADASTRADOS", None))
+        self.label_27.setText(QCoreApplication.translate("MainWindow", u"MUNICIPES CADASTRADOS", None))
         self.label_26.setText("")
         self.label_38.setText("")
         self.label_41.setText("")
@@ -1614,17 +1594,15 @@ class Ui_MainWindow(object):
         self.label_54.setText("")
         self.le_pesquisa_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Filtro", None))
         self.label_55.setText("")
-        self.label_46.setText("")
         self.label_45.setText("")
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"AGENDAMENTO", None))
-        self.label_48.setText("")
-        self.label_47.setText("")
-        self.label_50.setText("")
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"Selecione um Municipe Cadastrado", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"Data do Agendamento", None))
         self.label_43.setText(QCoreApplication.translate("MainWindow", u"Hor\u00e1rio do Agendamento", None))
         self.btn_agendar.setText(QCoreApplication.translate("MainWindow", u"AGENDAR", None))
-        self.label_49.setText("")
+        self.label_50.setText("")
+        self.label_72.setText(QCoreApplication.translate("MainWindow", u"DATA", None))
+        self.le_filtro_data.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Filtro", None))
         self.label_68.setText("")
         self.label_69.setText("")
         self.label_12.setText("")

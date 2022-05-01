@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1239</width>
-    <height>819</height>
+    <width>1168</width>
+    <height>859</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <normaloff>logo.png</normaloff>logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_27">
+   <layout class="QVBoxLayout" name="verticalLayout_13">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -139,47 +139,7 @@ QPushButton:pressed {
 }</string>
           </property>
           <property name="text">
-           <string>CADASTRADOS</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_calendario">
-          <property name="minimumSize">
-           <size>
-            <width>186</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-	color: rgb(255, 255, 255);
-    
-	background-color: rgb(144, 0, 0);
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: black;
-    font: bold 14px;
-    min-width: 10em;
-    padding: 6px;
-}
-
-QPushButton:hover {
-	background-color: rgb(238, 238, 0);
-    border-style: inset;
-	color: rgb(0, 0, 0);
-}
-QPushButton:pressed {
-    background-color: red;
-    border-style: inset;
-}</string>
-          </property>
-          <property name="text">
-           <string>CALENDARIO</string>
+           <string>MUNICIPES</string>
           </property>
          </widget>
         </item>
@@ -268,7 +228,7 @@ QPushButton:pressed {
       <item>
        <widget class="QStackedWidget" name="stackedWidget">
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="page_home">
          <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -392,7 +352,7 @@ QPushButton:pressed {
 }</string>
                 </property>
                 <property name="text">
-                 <string>USUÁRIOS CADASTRADOS</string>
+                 <string>MUNICIPES CADASTRADOS</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -747,46 +707,98 @@ QPushButton:pressed {
          </layout>
         </widget>
         <widget class="QWidget" name="page_agendamento">
-         <layout class="QVBoxLayout" name="verticalLayout_18">
+         <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_13">
+           <layout class="QHBoxLayout" name="horizontalLayout_19">
             <item>
-             <widget class="QLabel" name="label_46">
+             <widget class="QLabel" name="label_45">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string/>
               </property>
              </widget>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_19">
+             <widget class="QLabel" name="label_44">
+              <property name="minimumSize">
+               <size>
+                <width>311</width>
+                <height>61</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>311</width>
+                <height>61</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>15</pointsize>
+                <weight>75</weight>
+                <italic>false</italic>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+    
+	background-color: rgb(144, 0, 0);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+}</string>
+              </property>
+              <property name="text">
+               <string>AGENDAMENTO</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCalendarWidget" name="calendarWidget_2">
+              <property name="minimumSize">
+               <size>
+                <width>321</width>
+                <height>183</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>321</width>
+                <height>183</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_27">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
-               <widget class="QLabel" name="label_45">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_44">
+               <widget class="QLabel" name="label_25">
                 <property name="minimumSize">
                  <size>
-                  <width>311</width>
-                  <height>61</height>
+                  <width>174</width>
+                  <height>31</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>311</width>
-                  <height>61</height>
+                  <width>16777215</width>
+                  <height>31</height>
                  </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>15</pointsize>
-                  <weight>75</weight>
-                  <italic>false</italic>
-                  <bold>true</bold>
-                 </font>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel {
@@ -797,10 +809,11 @@ QPushButton:pressed {
     border-width: 2px;
     border-radius: 10px;
     border-color: black;
-}</string>
+    font: bold 14px;
+    min-width: 10em;}</string>
                 </property>
                 <property name="text">
-                 <string>AGENDAMENTO</string>
+                 <string>Selecione um Municipe Cadastrado</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -808,89 +821,24 @@ QPushButton:pressed {
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_48">
-                <property name="text">
-                 <string/>
+               <widget class="QComboBox" name="comboBox_municipe">
+                <property name="minimumSize">
+                 <size>
+                  <width>174</width>
+                  <height>31</height>
+                 </size>
                 </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_47">
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_17">
-            <item>
-             <widget class="QLabel" name="label_50">
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_14">
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_8">
-                <item>
-                 <widget class="QLabel" name="label_25">
-                  <property name="minimumSize">
-                   <size>
-                    <width>174</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel {
-	color: rgb(255, 255, 255);
-    
-	background-color: rgb(144, 0, 0);
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: black;
-    font: bold 14px;
-    min-width: 10em;}</string>
-                  </property>
-                  <property name="text">
-                   <string>Selecione um Municipe Cadastrado</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBox_municipe">
-                  <property name="minimumSize">
-                   <size>
-                    <width>174</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QComboBox {
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
 	color: rgb(0, 0, 0);
     
 ;
@@ -900,191 +848,61 @@ QPushButton:pressed {
     border-color: black;
     font: bold 14px;
     min-width: 10em;}</string>
-                  </property>
-                  <property name="maxVisibleItems">
-                   <number>10</number>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+                </property>
+                <property name="maxVisibleItems">
+                 <number>10</number>
+                </property>
+               </widget>
               </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_9">
-                <item>
-                 <widget class="QLabel" name="label_24">
-                  <property name="minimumSize">
-                   <size>
-                    <width>174</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>174</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel {
-	color: rgb(255, 255, 255);
-    
-	background-color: rgb(144, 0, 0);
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: black;
-    font: bold 14px;
-    min-width: 10em;}</string>
-                  </property>
-                  <property name="text">
-                   <string>Data do Agendamento</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QDateEdit" name="de_data_do_agendamento">
-                  <property name="minimumSize">
-                   <size>
-                    <width>174</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>174</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QDateEdit {
-	color: rgb(0, 0, 0);
-    
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: black;
-    font: bold 14px;
-    min-width: 10em;}</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
-                  </property>
-                  <property name="dateTime">
-                   <datetime>
-                    <hour>0</hour>
-                    <minute>0</minute>
-                    <second>0</second>
-                    <year>2022</year>
-                    <month>1</month>
-                    <day>1</day>
-                   </datetime>
-                  </property>
-                  <property name="calendarPopup">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_12">
-                <item>
-                 <widget class="QLabel" name="label_43">
-                  <property name="minimumSize">
-                   <size>
-                    <width>174</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>211</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel {
-	color: rgb(255, 255, 255);
-    
-	background-color: rgb(144, 0, 0);
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: black;
-    font: bold 14px;
-    min-width: 10em;}</string>
-                  </property>
-                  <property name="text">
-                   <string>Horário do Agendamento</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QTimeEdit" name="te_horario_agendamento">
-                  <property name="minimumSize">
-                   <size>
-                    <width>174</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>211</width>
-                    <height>31</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QTimeEdit {
-	color: rgb(0, 0, 0);
-    
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: black;
-    font: bold 14px;
-    min-width: 10em;}</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
-                  </property>
-                  <property name="maximumTime">
-                   <time>
-                    <hour>17</hour>
-                    <minute>30</minute>
-                    <second>0</second>
-                   </time>
-                  </property>
-                  <property name="minimumTime">
-                   <time>
-                    <hour>8</hour>
-                    <minute>30</minute>
-                    <second>0</second>
-                   </time>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_agendar">
+               <widget class="QLabel" name="label_24">
                 <property name="minimumSize">
                  <size>
-                  <width>186</width>
+                  <width>174</width>
                   <height>31</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>151</width>
+                  <width>174</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+    
+	background-color: rgb(144, 0, 0);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    font: bold 14px;
+    min-width: 10em;}</string>
+                </property>
+                <property name="text">
+                 <string>Data do Agendamento</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateEdit" name="de_data_do_agendamento">
+                <property name="minimumSize">
+                 <size>
+                  <width>174</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>174</width>
                   <height>31</height>
                  </size>
                 </property>
@@ -1092,7 +910,137 @@ QPushButton:pressed {
                  <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">QPushButton {
+                 <string notr="true">QDateEdit {
+	color: rgb(0, 0, 0);
+    
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    font: bold 14px;
+    min-width: 10em;}</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="dateTime">
+                 <datetime>
+                  <hour>0</hour>
+                  <minute>0</minute>
+                  <second>0</second>
+                  <year>2022</year>
+                  <month>1</month>
+                  <day>1</day>
+                 </datetime>
+                </property>
+                <property name="calendarPopup">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <item>
+               <widget class="QLabel" name="label_43">
+                <property name="minimumSize">
+                 <size>
+                  <width>174</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>211</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+    
+	background-color: rgb(144, 0, 0);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    font: bold 14px;
+    min-width: 10em;}</string>
+                </property>
+                <property name="text">
+                 <string>Horário do Agendamento</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTimeEdit" name="te_horario_agendamento">
+                <property name="minimumSize">
+                 <size>
+                  <width>174</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>211</width>
+                  <height>31</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QTimeEdit {
+	color: rgb(0, 0, 0);
+    
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    font: bold 14px;
+    min-width: 10em;}</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="maximumTime">
+                 <time>
+                  <hour>17</hour>
+                  <minute>30</minute>
+                  <second>0</second>
+                 </time>
+                </property>
+                <property name="minimumTime">
+                 <time>
+                  <hour>8</hour>
+                  <minute>30</minute>
+                  <second>0</second>
+                 </time>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_agendar">
+              <property name="minimumSize">
+               <size>
+                <width>186</width>
+                <height>31</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>151</width>
+                <height>31</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
 	color: rgb(255, 255, 255);
     
 	background-color: rgb(144, 0, 0);
@@ -1114,18 +1062,97 @@ QPushButton:pressed {
     background-color: red;
     border-style: inset;
 }</string>
-                </property>
-                <property name="text">
-                 <string>AGENDAR</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+              </property>
+              <property name="text">
+               <string>AGENDAR</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_50">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_14">
+            <item>
+             <widget class="QLabel" name="label_72">
+              <property name="minimumSize">
+               <size>
+                <width>131</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>131</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <italic>false</italic>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+	color: rgb(255, 255, 255);
+    
+	background-color: rgb(144, 0, 0);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+}</string>
+              </property>
+              <property name="text">
+               <string>DATA</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_49">
-              <property name="text">
-               <string/>
+             <widget class="QLineEdit" name="le_filtro_data">
+              <property name="minimumSize">
+               <size>
+                <width>132</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit{	
+	color: rgb(0, 0, 0);
+    border-style: outset;
+    border-width: 0.5px;
+    border-radius: 10px;
+    border-color: black;
+    min-width: 10em;
+}
+</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>Filtro</string>
               </property>
              </widget>
             </item>
@@ -2454,29 +2481,6 @@ QPushButton:pressed {
              </widget>
             </item>
            </layout>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QWidget" name="page_calendario">
-         <layout class="QVBoxLayout" name="verticalLayout_6">
-          <item>
-           <widget class="QCalendarWidget" name="calendarWidget">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>183</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>183</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QTableView" name="tableView"/>
           </item>
          </layout>
         </widget>

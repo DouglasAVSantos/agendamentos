@@ -46,12 +46,6 @@ class Login(QWidget, Ui_Form):
             self.message_critical('LOGIN INVÁLIDO')
 
 
-
-
-
-
-
-
 class MainWindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -64,7 +58,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.btn_cadastrar.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_cadastrar))
         self.btn_cadastrados.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_cadastrados))
         self.btn_agendamento.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_agendamento))
-        self.btn_calendario.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_calendario))
         #**************************************************************************************************
 
         #*********************BOTOES DA PAGINA DE CADASTRO DE MUNICIPE******************************************
@@ -80,8 +73,9 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.btn_delete_municipe.clicked.connect(self.delete_municipe)
         # **************************************************************************************************
 
-        # ********************FILTRO DA TABELA MUNICIPES********************************************************
+        # ********************FILTROS********************************************************
         self.le_pesquisa_municipe.textChanged.connect(self.filtro_municipes)
+        self.le_filtro_data.textChanged.connect(self.filtro_datas)
         # **************************************************************************************************
 
         # *******************ADICIONA A LISTA DE MUNICIPES AO COMBO BOX DA PAGINA AGENDAMENTOS*******************************************************************************
@@ -516,6 +510,11 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         filter_str = f'NOME LIKE "%{s}%"'
         self.model.setFilter(filter_str)
 
+    def filtro_datas(self,s):
+        s = re.sub('[\W_]+','',s)
+        filter_str = f'DATA LIKE "%{s}%"'
+        self.model.setFilter(filter_str)
+
     #FUNÇÃO QUE ADICIONA A LISTA DE MUNICIPES CADASTRADOS AO COMBO BOX
     def add_municipes_combobox(self):
         db = DataBase()
@@ -550,24 +549,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         except:
             self.message_critical('MUNICIPE NÃO ENCONTRADO')
             self.le_delete_municipe.setText('')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
