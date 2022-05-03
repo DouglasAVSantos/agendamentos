@@ -772,7 +772,6 @@ class DataBase():
             cursor = self.conection.cursor()
             cursor.execute('''
             CREATE TABLE IF NOT EXISTS municipes (
-            ID INTEGER PRIMARY KEY AUTOINCREMENT,
             NOME TEXT NOT NULL,
             RG TEXT NOT NULL,
             CPF TEXT NOT NULL,
@@ -794,7 +793,6 @@ class DataBase():
             cursor = self.conection.cursor()
             cursor.execute('''
             CREATE TABLE IF NOT EXISTS users(
-            ID INTEGER PRIMARY KEY AUTOINCREMENT,
             USUARIO TEXT UNIQUE NOT NULL,
             SENHA TEXT NOT NULL
             );

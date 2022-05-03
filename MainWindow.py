@@ -495,16 +495,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.horizontalLayout_19 = QHBoxLayout()
         self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
-        self.label_45 = QLabel(self.page_agendamento)
-        self.label_45.setObjectName(u"label_45")
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_45.sizePolicy().hasHeightForWidth())
-        self.label_45.setSizePolicy(sizePolicy)
-
-        self.horizontalLayout_19.addWidget(self.label_45)
-
         self.label_44 = QLabel(self.page_agendamento)
         self.label_44.setObjectName(u"label_44")
         self.label_44.setMinimumSize(QSize(311, 61))
@@ -525,13 +515,27 @@ class Ui_MainWindow(object):
 
         self.calendarWidget_2 = QCalendarWidget(self.page_agendamento)
         self.calendarWidget_2.setObjectName(u"calendarWidget_2")
-        self.calendarWidget_2.setMinimumSize(QSize(321, 183))
-        self.calendarWidget_2.setMaximumSize(QSize(321, 183))
+        self.calendarWidget_2.setMinimumSize(QSize(491, 281))
+        self.calendarWidget_2.setMaximumSize(QSize(491, 281))
+        self.calendarWidget_2.setGridVisible(True)
+        self.calendarWidget_2.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)
+        self.calendarWidget_2.setNavigationBarVisible(True)
+        self.calendarWidget_2.setDateEditEnabled(True)
 
         self.horizontalLayout_19.addWidget(self.calendarWidget_2)
 
 
         self.verticalLayout_6.addLayout(self.horizontalLayout_19)
+
+        self.label_45 = QLabel(self.page_agendamento)
+        self.label_45.setObjectName(u"label_45")
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_45.sizePolicy().hasHeightForWidth())
+        self.label_45.setSizePolicy(sizePolicy)
+
+        self.verticalLayout_6.addWidget(self.label_45)
 
         self.horizontalLayout_27 = QHBoxLayout()
         self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
@@ -1560,7 +1564,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1594,8 +1598,8 @@ class Ui_MainWindow(object):
         self.label_54.setText("")
         self.le_pesquisa_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Filtro", None))
         self.label_55.setText("")
-        self.label_45.setText("")
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"AGENDAMENTO", None))
+        self.label_45.setText("")
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"Selecione um Municipe Cadastrado", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"Data do Agendamento", None))
         self.label_43.setText(QCoreApplication.translate("MainWindow", u"Hor\u00e1rio do Agendamento", None))

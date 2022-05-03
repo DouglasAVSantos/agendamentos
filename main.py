@@ -7,6 +7,8 @@ from bd_system import DataBase
 import requests
 from PySide2.QtSql import QSqlDatabase, QSqlTableModel
 import re
+from datetime import datetime
+from PySide2.QtCore import Qt
 
 
 
@@ -35,7 +37,7 @@ class Login(QWidget, Ui_Form):
         cursor.execute("""SELECT * FROM users""")
 
         for linha in cursor.fetchall():
-            if linha[1] == usuario and linha[2] == senha:
+            if linha[0] == usuario and linha[1] == senha:
                 window.close()
                 w = MainWindow()
                 w.show()
@@ -74,7 +76,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
         # ********************FILTROS********************************************************
         self.le_pesquisa_municipe.textChanged.connect(self.filtro_municipes)
-        self.le_filtro_data.textChanged.connect(self.filtro_datas)
+        # self.le_filtro_data.textChanged.connect(self.filtro_datas)
         # **************************************************************************************************
 
         # *******************ADICIONA A LISTA DE MUNICIPES AO COMBO BOX DA PAGINA AGENDAMENTOS*******************************************************************************
@@ -89,6 +91,14 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.btn_agendar.clicked.connect(self.novo_agendamento)
         # **************************************************************************************************
 
+        self.calendarWidget_2.clicked.connect(self.filtro_datas)
+
+        self.today_agendamentos()
+
+        self.tb_municipes_cadastrados.clicked.connect(self.teste)
+
+    def teste(self):
+        self.tb_municipes_cadastrados.setSortingEnabled(True)
 
     #FUNÇÃO QUE CRIA CAIXA DE DIALOGO DE ERRO
     def message_critical(self,txt):
@@ -487,6 +497,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.tb_municipes_cadastrados.setModel(self.model)
         self.model.setTable('municipes')
         self.model.select()
+        self.tb_municipes_cadastrados.sortByColumn(0, Qt.AscendingOrder)
 
     # FUNÇÃO QUE PASSA DO BANCO DE DADOS AGENDAMENTOS PARA A TABLEVIEW DO SISTEMA
     def show_table_agendamentos(self):
@@ -498,6 +509,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.tableView_agendamento.setModel(self.model)
         self.model.setTable('agendamentos')
         self.model.select()
+        self.tableView_agendamento.sortByColumn(0, Qt.DescendingOrder)
 
     #FUNÇÃO QUE CARREGA AS TABLEVIEW NO SISTEMA AO SER INICIADO
     def table_reset(self):
@@ -513,9 +525,12 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         filter_str2 = f'NOME LIKE "%{s}%"'
         self.model.setFilter(filter_str2)
 
-    def filtro_datas(self,s):
+    def filtro_datas(self):
         self.show_table_agendamentos()
-        s = re.sub('[\W_]+','',s)
+        s = self.calendarWidget_2.selectedDate()
+        if len(str(s.month())) <=1:
+            s = f'{s.day()}/0{s.month()}/{s.year()}'
+        else: s = f'{s.day()}/{s.month()}/{s.year()}'
         filter_str = f'DATA LIKE "%{s}%"'
         self.model.setFilter(filter_str)
 
@@ -525,6 +540,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         db.conect_db()
         cursor = db.conection.cursor()
         cursor.execute('SELECT NOME FROM municipes')
+        self.comboBox_municipe.clear()
         for nome in cursor.fetchall():
             self.comboBox_municipe.addItem(nome[0])
         db.close_db()
@@ -558,6 +574,13 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         except:
             self.message_critical('MUNICIPE NÃO ENCONTRADO')
             self.le_delete_municipe.setText('')
+
+    def today_agendamentos(self):
+        self.d = datetime.now()
+        self.dia_hoje = self.d.day
+        self.mes_hoje = self.d.month
+        self.ano_hoje = self.d.year
+        self.de_data_do_agendamento.setDate(QDate(self.ano_hoje, self.mes_hoje, self.dia_hoje))
 
 
 if __name__ == '__main__':
