@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime
 
 municipes = [
     {
@@ -791,15 +792,16 @@ class DataBase():
 
     def create_table_users(self):
         try:
-            cursor = self.conection.cursor()
-            cursor.execute('''
-            CREATE TABLE IF NOT EXISTS users(
-            USUARIO TEXT UNIQUE NOT NULL,
-            SENHA TEXT NOT NULL
-            );
-            ''')
-        except:
-            print('erro ao criar a tabela users')
+            c = self.conection.cursor()
+            c.execute("""
+                CREATE TABLE IF NOT EXISTS users(
+                LOGIN TEXT NOT NULL,
+                USER TEXT UNIQUE,
+                SENHA TEXT NOT NULL,
+                ACESS TEXT NOT NULL
+                );""")
+        except AttributeError:
+            print('erro ao criar a tabela')
 
     def create_table_agendamentos(self):
         # try:
@@ -841,15 +843,72 @@ class DataBase():
         cursor.execute('SELECT * FROM users;')
         for linha in cursor.fetchall(): print(linha)
 
-    def insert_user(self, usuario, senha):
+    def insert_novo_usuario(self, login,user, senha, acess='user'):
         try:
             cursor = self.conection.cursor()
             cursor.execute(f'''
-            INSERT INTO users ( USUARIO, SENHA) VALUES ('{usuario}','{senha}');
+                INSERT INTO users(login,user, senha, acess) VALUES('{login}','{user}','{senha}','{acess}');
             ''')
             self.conection.commit()
-        except:
-            print('erro ao inserir usuario na tabela')
+        except AttributeError:
+            print('faça a conexão')
+
+    def delete_user(self,usuario):
+         try:
+            self.usuario = usuario
+            cursor = self.conection.cursor()
+            cursor.execute(f'Delete from users where user = "{self.usuario}"')
+            self.conection.commit()
+         except:
+             print('faça a conexão')
+
+    def db_check_user_admin(self, login, senha):
+         try:
+            cursor = self.conection.cursor()
+            cursor.execute('''
+            SELECT * FROM users;
+            ''')
+            for linha in cursor.fetchall():
+                if linha[0]== login and linha[2]== senha and linha[3] == 'admin':
+                    return 'admin'
+                else:
+                    continue
+            return 'user'
+
+         except Exception:
+            return False
+
+    def check_login_exists(self,login,senha):
+        try:
+            cursor = self.conection.cursor()
+            cursor.execute('''
+           SELECT * FROM users;
+           ''')
+            for linha in cursor.fetchall():
+                if linha[0] == login and linha[2] == senha:
+                    return True
+                else:
+                    continue
+            return False
+
+        except Exception:
+            print('faça a conexão')
+
+    def check_user_exists(self,user):
+        try:
+            cursor = self.conection.cursor()
+            cursor.execute('''
+           SELECT * FROM users;
+           ''')
+            for linha in cursor.fetchall():
+                if linha[1] == user:
+                    return True
+                else:
+                    continue
+            return False
+
+        except Exception:
+            print('faça a conexão')
 
 
 if __name__ == '__main__':
@@ -858,7 +917,8 @@ if __name__ == '__main__':
     db.create_table_municipes()
     db.create_table_users()
     db.create_table_agendamentos()
-    db.insert_user('douglas','1234')
+    db.insert_novo_usuario('douglas', 'doug_avs', '123', 'admin')
+    db.insert_novo_usuario('gabriela', 'gabs', '123', )
     print('tabela municipes')
     for x in municipes: db.insert_municipes(x['nome'],x['rg'],x['cpf'],x['data_nasc'],x['celular'],x['cep'],x['endereco'],x['numero'],x['bairro'],x['cidade'])
     db.check_table_municipes()

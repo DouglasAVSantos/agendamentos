@@ -22,7 +22,7 @@ class Login(QWidget, Ui_Form):
         super(Login,self).__init__()
         self.setupUi(self)
 
-        self.btn_login.clicked.connect(self.check_senha)
+        self.btn_login.clicked.connect(self.verifica_senha)
 
     def message_critical(self,txt):
         msg = QMessageBox(self)
@@ -31,29 +31,39 @@ class Login(QWidget, Ui_Form):
         msg.setText(f'{txt}')
         msg.exec_()
 
-    def check_senha(self):
-        db = DataBase()
-        usuario = self.le_usuario.text().strip()
-        senha = self.le_senha.text().strip()
-        db.conect_db()
-        cursor = db.conection.cursor()
-        cursor.execute("""SELECT * FROM users""")
-
-        for linha in cursor.fetchall():
-            if linha[0] == usuario and linha[1] == senha:
-                window.close()
-                w = MainWindow()
-                w.show()
+    def verifica_senha(self):
+        try:
+            db = DataBase()
+            db.conect_db()
+            if db.db_check_user_admin(self.le_usuario.text().strip(),self.le_senha.text().strip()) == 'user':
+                self.login = self.le_usuario.text()
+                self.senha = self.le_senha.text()
+                self.w = MainWindow(self.login, self.senha)
+                self.w.btn_new_user.hide()
+                self.w.show()
+                self.close()
                 db.close_db()
-                break
-        else:
-            self.message_critical('LOGIN INVÁLIDO')
+            elif db.db_check_user_admin(self.le_usuario.text().strip(),self.le_senha.text().strip()) == 'admin':
+                self.login = self.le_usuario.text()
+                self.senha = self.le_senha.text()
+                self.w = MainWindow(self.login, self.senha)
+                self.w.show()
+                self.close()
+                db.close_db()
+        except:
+            # abre uma caixa de msg com erro
+            self.message_critical('LOGIN OU SENHA INVÁLIDOS')
+            self.le_senha.setText('')
 
 
 class MainWindow(QMainWindow,Ui_MainWindow):
-    def __init__(self):
+    def __init__(self,login,senha):
         super(MainWindow, self).__init__()
         self.setupUi(self)
+        self.login = login
+        self.senha = senha
+
+        self.get_usuario(self.login, self.senha)
 
 
         #*****************************BOTOES DE ACESSO DAS PAGINAS*****************************************
@@ -98,7 +108,22 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
         self.today_agendamentos()
 
+        self.bt_cadastrar_usuario.clicked.connect(self.new_user)
+        self.bt_deletar_usuario.clicked.connect(self.delete_user)
 
+
+    def get_usuario(self,login,senha):
+        try:
+            db = DataBase()
+            db.conect_db()
+            cursor = db.conection.cursor()
+            cursor.execute(f'select user from users where login = "{login}" and senha = "{senha}" ')
+            usuario = cursor.fetchone()
+            self.usuario = usuario[0]
+            print(self.usuario)
+            db.close_db()
+        except:
+            self.messagebox_critical('Usuario não encontrado')
 
     #FUNÇÃO QUE CRIA CAIXA DE DIALOGO DE ERRO
     def message_critical(self,txt):
@@ -187,15 +212,22 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         db = DataBase()
         db.conect_db()
         cursor = db.conection.cursor()
-        municipe = self.comboBox_municipe.currentText()
+        self.d = datetime.now()
+        self.dia_hoje = self.d.day
+        self.mes_hoje = self.d.month
+        self.ano_hoje = self.d.year
+        self.hora = f'{self.d.hour}:{self.d.minute}'
+        self.strdate = f' - Agendado por: "{self.usuario}" Dia: {self.dia_hoje}/{self.mes_hoje}/{self.ano_hoje} Às {self.hora}'
+        municipe = f'{self.comboBox_municipe.currentText()}{self.strdate}'
         data = self.de_data_do_agendamento.text()
         horario = self.te_horario_agendamento.text()
         msg = QMessageBox(self)
         msg.setWindowTitle('INFORMATIVO')
-        msg.setText(f'TEM CERTEZA QUE DESEJA CADASTRAR O AGENDAMENTO:\n"{municipe}" NO DIA: {data} ÀS "{horario}"')
+        msg.setText(f'TEM CERTEZA QUE DESEJA CADASTRAR O AGENDAMENTO:\n"{municipe}"\nDATA DO AGENDAMENTO: {data} ÀS "{horario}"')
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         result = msg.exec_()
         if result == QMessageBox.Yes:
+
             if horario == '08:30':
                 if not self.check_data(data):
                     cursor.execute(f'''
@@ -354,7 +386,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         db.close_db()
 
     def check_data(self,s):
-        # try:
             db = DataBase()
             db.conect_db()
             cursor = db.conection.cursor()
@@ -364,8 +395,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                 else: continue
             return False
             db.close_db()
-        # except:
-        #     print(erro)
 
 
     #FUNÇÃO QUE CONSOME A API DOS CORREIOS PARA VALIDAR O CEP E INCREMENTAR OS CAMPOS ENDEREÇO,BAIRRO,CIDADE NO CADASTRO
@@ -581,6 +610,55 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.mes_hoje = self.d.month
         self.ano_hoje = self.d.year
         self.de_data_do_agendamento.setDate(QDate(self.ano_hoje, self.mes_hoje, self.dia_hoje))
+
+    def delete_user(self):
+        db = DataBase()
+        db.conect_db()
+        usuario = self.le_usuario_deletar.text()
+
+        if self.le_senha_deletar.text() == self.senha and db.check_user_exists(usuario):
+            db.delete_user(usuario)
+            self.message_information('USUARIO DELETADO COM SUCESSO!')
+            self.le_usuario_deletar.setText('')
+            self.le_senha_deletar.setText('')
+            db.close_db()
+        else:
+            self.message_critical('USUARIO NÃO CADASTRADO\nOU\nSENHA DE ADMINISTRADOR INVÁLIDA')
+            self.le_usuario_deletar.setText('')
+            self.le_senha_deletar.setText('')
+            db.close_db()
+
+    def new_user(self):
+        db = DataBase()
+        db.conect_db()
+        login = self.le_novo_login.text().strip()
+        senha = self.le_senha1.text().strip()
+        usuario = self.le_novo_usuario.text().strip()
+        acess = self.cb_users.currentText()
+
+
+        if senha != self.le_senha2.text().strip():
+            self.messagebox_critical('As senhas informadas não são iguais\nPreencha os campos com as senhas iguais.')
+            self.le_senha1.setText('')
+            self.le_senha2.setText('')
+        elif senha == '' or self.le_senha2.text() == '' or usuario == '' or login == '':
+            self.messagebox_critical('Campos vazios\nPreencha os campos com Usuario e as senhas iguais.')
+            self.le_senha1.setText('')
+            self.le_senha2.setText('')
+        elif db.check_login_exists(login, senha):
+            self.message_critical('Usuario e Senha ja Cadastrado\nPreencha os campos com um novo Usuario e senha')
+            self.le_senha1.setText('')
+            self.le_senha2.setText('')
+            self.le_novo_usuario.setText('')
+        else:
+            db.insert_novo_usuario(login,usuario,senha,acess)
+            self.message_information('Senha Cadastrada com Sucesso!')
+            self.le_senha1.setText('')
+            self.le_novo_login.setText('')
+            self.le_novo_usuario.setText('')
+            self.le_senha2.setText('')
+            db.close_db()
+                #FUNÇÃO QUE ADICIONA UM CADASTRO DE CLIENTE NO BANCO DE DADOS
 
 
 if __name__ == '__main__':

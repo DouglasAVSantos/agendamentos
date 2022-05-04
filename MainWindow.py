@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1168, 859)
+        MainWindow.resize(1082, 859)
         icon = QIcon()
         icon.addFile(u"logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -188,49 +188,316 @@ class Ui_MainWindow(object):
         self.frame.setStyleSheet(u"")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_26 = QHBoxLayout(self.frame)
+        self.horizontalLayout_30 = QHBoxLayout(self.frame)
+        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
+        self.horizontalLayout_26 = QHBoxLayout()
         self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.label_22 = QLabel(self.frame)
+        self.label_22.setObjectName(u"label_22")
+
+        self.horizontalLayout_26.addWidget(self.label_22)
+
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.horizontalLayout_17 = QHBoxLayout()
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
         self.label_20 = QLabel(self.frame)
         self.label_20.setObjectName(u"label_20")
 
-        self.verticalLayout_2.addWidget(self.label_20)
+        self.horizontalLayout_17.addWidget(self.label_20)
 
-        self.horizontalLayout_17 = QHBoxLayout()
-        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.btn_new_user = QPushButton(self.frame)
+        self.btn_new_user.setObjectName(u"btn_new_user")
+        self.btn_new_user.setMinimumSize(QSize(186, 33))
+        self.btn_new_user.setMaximumSize(QSize(208, 33))
+        self.btn_new_user.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_new_user.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"    min-width: 10em;\n"
+"    padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+
+        self.horizontalLayout_17.addWidget(self.btn_new_user)
+
         self.label_21 = QLabel(self.frame)
         self.label_21.setObjectName(u"label_21")
 
         self.horizontalLayout_17.addWidget(self.label_21)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_17)
 
         self.label_18 = QLabel(self.frame)
         self.label_18.setObjectName(u"label_18")
         self.label_18.setPixmap(QPixmap(u"pms_fundo_HOME.jpg"))
         self.label_18.setScaledContents(True)
 
-        self.horizontalLayout_17.addWidget(self.label_18)
+        self.verticalLayout_2.addWidget(self.label_18)
+
+        self.label_74 = QLabel(self.frame)
+        self.label_74.setObjectName(u"label_74")
+
+        self.verticalLayout_2.addWidget(self.label_74)
+
+
+        self.horizontalLayout_26.addLayout(self.verticalLayout_2)
 
         self.label_23 = QLabel(self.frame)
         self.label_23.setObjectName(u"label_23")
 
-        self.horizontalLayout_17.addWidget(self.label_23)
+        self.horizontalLayout_26.addWidget(self.label_23)
 
 
-        self.verticalLayout_2.addLayout(self.horizontalLayout_17)
-
-        self.label_22 = QLabel(self.frame)
-        self.label_22.setObjectName(u"label_22")
-
-        self.verticalLayout_2.addWidget(self.label_22)
-
-
-        self.horizontalLayout_26.addLayout(self.verticalLayout_2)
+        self.horizontalLayout_30.addLayout(self.horizontalLayout_26)
 
 
         self.verticalLayout_10.addWidget(self.frame)
 
         self.stackedWidget.addWidget(self.page_home)
+        self.page_new_user = QWidget()
+        self.page_new_user.setObjectName(u"page_new_user")
+        self.verticalLayout_17 = QVBoxLayout(self.page_new_user)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.frame_2 = QFrame(self.page_new_user)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_11 = QVBoxLayout(self.frame_2)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.horizontalLayout_28 = QHBoxLayout()
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.label_49 = QLabel(self.frame_2)
+        self.label_49.setObjectName(u"label_49")
+        self.label_49.setMinimumSize(QSize(311, 61))
+        self.label_49.setMaximumSize(QSize(311, 61))
+        font = QFont()
+        font.setPointSize(15)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.label_49.setFont(font)
+        self.label_49.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_49.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_28.addWidget(self.label_49)
+
+
+        self.verticalLayout_11.addLayout(self.horizontalLayout_28)
+
+
+        self.verticalLayout_17.addWidget(self.frame_2)
+
+        self.frame_3 = QFrame(self.page_new_user)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_29 = QHBoxLayout(self.frame_3)
+        self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
+        self.label_47 = QLabel(self.frame_3)
+        self.label_47.setObjectName(u"label_47")
+
+        self.horizontalLayout_29.addWidget(self.label_47)
+
+        self.frame_13 = QFrame(self.frame_3)
+        self.frame_13.setObjectName(u"frame_13")
+        sizePolicy = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
+        self.frame_13.setSizePolicy(sizePolicy)
+        self.frame_13.setStyleSheet(u"border-width: 2px;\n"
+"border-color: black;\n"
+"border-style: solid;\n"
+"display: inline-block;\n"
+"border-radius: 8px")
+        self.frame_13.setFrameShape(QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_33 = QVBoxLayout(self.frame_13)
+        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
+        self.le_novo_login = QLineEdit(self.frame_13)
+        self.le_novo_login.setObjectName(u"le_novo_login")
+        self.le_novo_login.setMinimumSize(QSize(151, 20))
+        self.le_novo_login.setMaximumSize(QSize(151, 20))
+        self.le_novo_login.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_33.addWidget(self.le_novo_login)
+
+        self.le_novo_usuario = QLineEdit(self.frame_13)
+        self.le_novo_usuario.setObjectName(u"le_novo_usuario")
+        self.le_novo_usuario.setMinimumSize(QSize(151, 20))
+        self.le_novo_usuario.setMaximumSize(QSize(151, 20))
+        self.le_novo_usuario.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_33.addWidget(self.le_novo_usuario)
+
+        self.le_senha1 = QLineEdit(self.frame_13)
+        self.le_senha1.setObjectName(u"le_senha1")
+        self.le_senha1.setMinimumSize(QSize(151, 20))
+        self.le_senha1.setMaximumSize(QSize(151, 20))
+        self.le_senha1.setEchoMode(QLineEdit.Password)
+        self.le_senha1.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_33.addWidget(self.le_senha1)
+
+        self.le_senha2 = QLineEdit(self.frame_13)
+        self.le_senha2.setObjectName(u"le_senha2")
+        self.le_senha2.setMinimumSize(QSize(151, 21))
+        self.le_senha2.setMaximumSize(QSize(151, 21))
+        self.le_senha2.setEchoMode(QLineEdit.Password)
+        self.le_senha2.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_33.addWidget(self.le_senha2)
+
+        self.cb_users = QComboBox(self.frame_13)
+        self.cb_users.addItem("")
+        self.cb_users.addItem("")
+        self.cb_users.setObjectName(u"cb_users")
+        self.cb_users.setMinimumSize(QSize(151, 20))
+        self.cb_users.setMaximumSize(QSize(151, 20))
+        font1 = QFont()
+        font1.setPointSize(12)
+        self.cb_users.setFont(font1)
+        self.cb_users.setLayoutDirection(Qt.LeftToRight)
+        self.cb_users.setSizeAdjustPolicy(QComboBox.AdjustToContents)
+
+        self.verticalLayout_33.addWidget(self.cb_users)
+
+        self.bt_cadastrar_usuario = QPushButton(self.frame_13)
+        self.bt_cadastrar_usuario.setObjectName(u"bt_cadastrar_usuario")
+        self.bt_cadastrar_usuario.setMinimumSize(QSize(151, 31))
+        self.bt_cadastrar_usuario.setMaximumSize(QSize(151, 31))
+        font2 = QFont()
+        font2.setFamily(u"Courier")
+        font2.setPointSize(12)
+        font2.setBold(True)
+        font2.setWeight(75)
+        self.bt_cadastrar_usuario.setFont(font2)
+        self.bt_cadastrar_usuario.setCursor(QCursor(Qt.PointingHandCursor))
+        self.bt_cadastrar_usuario.setStyleSheet(u"QPushButton{\n"
+"\n"
+"background-color: rgb(219, 57, 62);\n"
+"border-radius: 8px;\n"
+"color: rgb(255, 255, 255);\n"
+"border-width: 2px;\n"
+"border-color: black;\n"
+"border-style: solid;\n"
+"display: inline-block;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"	\n"
+"	background-color: rgb(77, 11, 17);\n"
+"	\n"
+"	color: rgb(255, 255, 255);\n"
+"\n"
+"}")
+
+        self.verticalLayout_33.addWidget(self.bt_cadastrar_usuario)
+
+
+        self.horizontalLayout_29.addWidget(self.frame_13)
+
+        self.label_46 = QLabel(self.frame_3)
+        self.label_46.setObjectName(u"label_46")
+
+        self.horizontalLayout_29.addWidget(self.label_46)
+
+        self.frame_14 = QFrame(self.frame_3)
+        self.frame_14.setObjectName(u"frame_14")
+        sizePolicy.setHeightForWidth(self.frame_14.sizePolicy().hasHeightForWidth())
+        self.frame_14.setSizePolicy(sizePolicy)
+        self.frame_14.setStyleSheet(u"border-width: 2px;\n"
+"border-color: black;\n"
+"border-style: solid;\n"
+"display: inline-block;\n"
+"border-radius: 8px")
+        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_29 = QVBoxLayout(self.frame_14)
+        self.verticalLayout_29.setObjectName(u"verticalLayout_29")
+        self.le_usuario_deletar = QLineEdit(self.frame_14)
+        self.le_usuario_deletar.setObjectName(u"le_usuario_deletar")
+        self.le_usuario_deletar.setMinimumSize(QSize(151, 20))
+        self.le_usuario_deletar.setMaximumSize(QSize(151, 20))
+        self.le_usuario_deletar.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_29.addWidget(self.le_usuario_deletar)
+
+        self.le_senha_deletar = QLineEdit(self.frame_14)
+        self.le_senha_deletar.setObjectName(u"le_senha_deletar")
+        self.le_senha_deletar.setMinimumSize(QSize(151, 20))
+        self.le_senha_deletar.setMaximumSize(QSize(151, 20))
+        self.le_senha_deletar.setEchoMode(QLineEdit.Password)
+        self.le_senha_deletar.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_29.addWidget(self.le_senha_deletar)
+
+        self.bt_deletar_usuario = QPushButton(self.frame_14)
+        self.bt_deletar_usuario.setObjectName(u"bt_deletar_usuario")
+        self.bt_deletar_usuario.setMinimumSize(QSize(151, 31))
+        self.bt_deletar_usuario.setMaximumSize(QSize(151, 31))
+        self.bt_deletar_usuario.setFont(font2)
+        self.bt_deletar_usuario.setCursor(QCursor(Qt.PointingHandCursor))
+        self.bt_deletar_usuario.setStyleSheet(u"QPushButton{\n"
+"\n"
+"background-color: rgb(219, 57, 62);\n"
+"border-radius: 8px;\n"
+"color: rgb(255, 255, 255);\n"
+"border-width: 2px;\n"
+"border-color: black;\n"
+"border-style: solid;\n"
+"display: inline-block;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"\n"
+"	\n"
+"	background-color: rgb(77, 11, 17);\n"
+"	\n"
+"	color: rgb(255, 255, 255);\n"
+"\n"
+"}")
+
+        self.verticalLayout_29.addWidget(self.bt_deletar_usuario)
+
+
+        self.horizontalLayout_29.addWidget(self.frame_14)
+
+        self.label_48 = QLabel(self.frame_3)
+        self.label_48.setObjectName(u"label_48")
+
+        self.horizontalLayout_29.addWidget(self.label_48)
+
+
+        self.verticalLayout_17.addWidget(self.frame_3)
+
+        self.stackedWidget.addWidget(self.page_new_user)
         self.page_cadastrados = QWidget()
         self.page_cadastrados.setObjectName(u"page_cadastrados")
         self.verticalLayout_19 = QVBoxLayout(self.page_cadastrados)
@@ -253,11 +520,6 @@ class Ui_MainWindow(object):
         self.label_27.setObjectName(u"label_27")
         self.label_27.setMinimumSize(QSize(311, 61))
         self.label_27.setMaximumSize(QSize(311, 61))
-        font = QFont()
-        font.setPointSize(15)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
         self.label_27.setFont(font)
         self.label_27.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
@@ -425,12 +687,12 @@ class Ui_MainWindow(object):
         self.label_52.setObjectName(u"label_52")
         self.label_52.setMinimumSize(QSize(131, 20))
         self.label_52.setMaximumSize(QSize(131, 20))
-        font1 = QFont()
-        font1.setPointSize(10)
-        font1.setBold(True)
-        font1.setItalic(False)
-        font1.setWeight(75)
-        self.label_52.setFont(font1)
+        font3 = QFont()
+        font3.setPointSize(10)
+        font3.setBold(True)
+        font3.setItalic(False)
+        font3.setWeight(75)
+        self.label_52.setFont(font3)
         self.label_52.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -476,11 +738,11 @@ class Ui_MainWindow(object):
 
         self.tb_municipes_cadastrados = QTableView(self.page_cadastrados)
         self.tb_municipes_cadastrados.setObjectName(u"tb_municipes_cadastrados")
-        font2 = QFont()
-        font2.setPointSize(10)
-        font2.setBold(True)
-        font2.setWeight(75)
-        self.tb_municipes_cadastrados.setFont(font2)
+        font4 = QFont()
+        font4.setPointSize(10)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.tb_municipes_cadastrados.setFont(font4)
         self.tb_municipes_cadastrados.setLineWidth(2)
         self.tb_municipes_cadastrados.setMidLineWidth(1)
         self.tb_municipes_cadastrados.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
@@ -520,11 +782,11 @@ class Ui_MainWindow(object):
         self.calendarWidget_2.setObjectName(u"calendarWidget_2")
         self.calendarWidget_2.setMinimumSize(QSize(491, 281))
         self.calendarWidget_2.setMaximumSize(QSize(491, 281))
-        font3 = QFont()
-        font3.setPointSize(15)
-        font3.setBold(True)
-        font3.setWeight(75)
-        self.calendarWidget_2.setFont(font3)
+        font5 = QFont()
+        font5.setPointSize(15)
+        font5.setBold(True)
+        font5.setWeight(75)
+        self.calendarWidget_2.setFont(font5)
         self.calendarWidget_2.setGridVisible(True)
         self.calendarWidget_2.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)
         self.calendarWidget_2.setNavigationBarVisible(True)
@@ -537,11 +799,11 @@ class Ui_MainWindow(object):
 
         self.label_45 = QLabel(self.page_agendamento)
         self.label_45.setObjectName(u"label_45")
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_45.sizePolicy().hasHeightForWidth())
-        self.label_45.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.label_45.sizePolicy().hasHeightForWidth())
+        self.label_45.setSizePolicy(sizePolicy1)
 
         self.verticalLayout_6.addWidget(self.label_45)
 
@@ -709,11 +971,11 @@ class Ui_MainWindow(object):
 
         self.label_50 = QLabel(self.page_agendamento)
         self.label_50.setObjectName(u"label_50")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.label_50.sizePolicy().hasHeightForWidth())
-        self.label_50.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.label_50.sizePolicy().hasHeightForWidth())
+        self.label_50.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_6.addWidget(self.label_50)
 
@@ -723,7 +985,7 @@ class Ui_MainWindow(object):
         self.label_72.setObjectName(u"label_72")
         self.label_72.setMinimumSize(QSize(131, 20))
         self.label_72.setMaximumSize(QSize(131, 20))
-        self.label_72.setFont(font1)
+        self.label_72.setFont(font3)
         self.label_72.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -759,11 +1021,13 @@ class Ui_MainWindow(object):
 
         self.tableView_agendamento = QTableView(self.page_agendamento)
         self.tableView_agendamento.setObjectName(u"tableView_agendamento")
-        font4 = QFont()
-        font4.setPointSize(12)
-        font4.setBold(True)
-        font4.setWeight(75)
-        self.tableView_agendamento.setFont(font4)
+        font6 = QFont()
+        font6.setPointSize(12)
+        font6.setBold(True)
+        font6.setWeight(75)
+        self.tableView_agendamento.setFont(font6)
+        self.tableView_agendamento.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tableView_agendamento.setSortingEnabled(True)
 
         self.verticalLayout_6.addWidget(self.tableView_agendamento)
 
@@ -822,12 +1086,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
         self.label_28 = QLabel(self.page_cadastrar)
         self.label_28.setObjectName(u"label_28")
-        font5 = QFont()
-        font5.setFamily(u"Courier New")
-        font5.setPointSize(32)
-        font5.setBold(True)
-        font5.setWeight(75)
-        self.label_28.setFont(font5)
+        font7 = QFont()
+        font7.setFamily(u"Courier New")
+        font7.setPointSize(32)
+        font7.setBold(True)
+        font7.setWeight(75)
+        self.label_28.setFont(font7)
 
         self.horizontalLayout_15.addWidget(self.label_28)
 
@@ -876,7 +1140,7 @@ class Ui_MainWindow(object):
         self.label_66.setObjectName(u"label_66")
         self.label_66.setMinimumSize(QSize(131, 20))
         self.label_66.setMaximumSize(QSize(131, 20))
-        self.label_66.setFont(font1)
+        self.label_66.setFont(font3)
         self.label_66.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -892,12 +1156,12 @@ class Ui_MainWindow(object):
 
         self.le_nome = QLineEdit(self.page_cadastrar)
         self.le_nome.setObjectName(u"le_nome")
-        font6 = QFont()
-        font6.setFamily(u"Courier New")
-        font6.setPointSize(12)
-        font6.setBold(True)
-        font6.setWeight(75)
-        self.le_nome.setFont(font6)
+        font8 = QFont()
+        font8.setFamily(u"Courier New")
+        font8.setPointSize(12)
+        font8.setBold(True)
+        font8.setWeight(75)
+        self.le_nome.setFont(font8)
         self.le_nome.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -929,7 +1193,7 @@ class Ui_MainWindow(object):
         self.label_65.setObjectName(u"label_65")
         self.label_65.setMinimumSize(QSize(131, 20))
         self.label_65.setMaximumSize(QSize(131, 20))
-        self.label_65.setFont(font1)
+        self.label_65.setFont(font3)
         self.label_65.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -945,7 +1209,7 @@ class Ui_MainWindow(object):
 
         self.lv_rg = QLineEdit(self.page_cadastrar)
         self.lv_rg.setObjectName(u"lv_rg")
-        self.lv_rg.setFont(font6)
+        self.lv_rg.setFont(font8)
         self.lv_rg.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -977,7 +1241,7 @@ class Ui_MainWindow(object):
         self.label_64.setObjectName(u"label_64")
         self.label_64.setMinimumSize(QSize(131, 20))
         self.label_64.setMaximumSize(QSize(131, 20))
-        self.label_64.setFont(font1)
+        self.label_64.setFont(font3)
         self.label_64.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -993,7 +1257,7 @@ class Ui_MainWindow(object):
 
         self.le_cpf = QLineEdit(self.page_cadastrar)
         self.le_cpf.setObjectName(u"le_cpf")
-        self.le_cpf.setFont(font6)
+        self.le_cpf.setFont(font8)
         self.le_cpf.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1025,7 +1289,7 @@ class Ui_MainWindow(object):
         self.label_63.setObjectName(u"label_63")
         self.label_63.setMinimumSize(QSize(161, 20))
         self.label_63.setMaximumSize(QSize(161, 20))
-        self.label_63.setFont(font1)
+        self.label_63.setFont(font3)
         self.label_63.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1041,7 +1305,7 @@ class Ui_MainWindow(object):
 
         self.de_data_nascimento = QDateEdit(self.page_cadastrar)
         self.de_data_nascimento.setObjectName(u"de_data_nascimento")
-        self.de_data_nascimento.setFont(font6)
+        self.de_data_nascimento.setFont(font8)
         self.de_data_nascimento.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1077,7 +1341,7 @@ class Ui_MainWindow(object):
         self.label_62.setObjectName(u"label_62")
         self.label_62.setMinimumSize(QSize(131, 20))
         self.label_62.setMaximumSize(QSize(131, 20))
-        self.label_62.setFont(font1)
+        self.label_62.setFont(font3)
         self.label_62.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1093,7 +1357,7 @@ class Ui_MainWindow(object):
 
         self.le_telefone = QLineEdit(self.page_cadastrar)
         self.le_telefone.setObjectName(u"le_telefone")
-        self.le_telefone.setFont(font6)
+        self.le_telefone.setFont(font8)
         self.le_telefone.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1125,7 +1389,7 @@ class Ui_MainWindow(object):
         self.label_61.setObjectName(u"label_61")
         self.label_61.setMinimumSize(QSize(131, 20))
         self.label_61.setMaximumSize(QSize(131, 20))
-        self.label_61.setFont(font1)
+        self.label_61.setFont(font3)
         self.label_61.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1141,7 +1405,7 @@ class Ui_MainWindow(object):
 
         self.le_instituicao = QLineEdit(self.page_cadastrar)
         self.le_instituicao.setObjectName(u"le_instituicao")
-        self.le_instituicao.setFont(font6)
+        self.le_instituicao.setFont(font8)
         self.le_instituicao.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1173,7 +1437,7 @@ class Ui_MainWindow(object):
         self.label_60.setObjectName(u"label_60")
         self.label_60.setMinimumSize(QSize(131, 20))
         self.label_60.setMaximumSize(QSize(131, 20))
-        self.label_60.setFont(font1)
+        self.label_60.setFont(font3)
         self.label_60.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1189,7 +1453,7 @@ class Ui_MainWindow(object):
 
         self.le_cep = QLineEdit(self.page_cadastrar)
         self.le_cep.setObjectName(u"le_cep")
-        self.le_cep.setFont(font6)
+        self.le_cep.setFont(font8)
         self.le_cep.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1220,7 +1484,7 @@ class Ui_MainWindow(object):
         self.label_59.setObjectName(u"label_59")
         self.label_59.setMinimumSize(QSize(131, 20))
         self.label_59.setMaximumSize(QSize(131, 20))
-        self.label_59.setFont(font1)
+        self.label_59.setFont(font3)
         self.label_59.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1236,7 +1500,7 @@ class Ui_MainWindow(object):
 
         self.le_endereco = QLineEdit(self.page_cadastrar)
         self.le_endereco.setObjectName(u"le_endereco")
-        self.le_endereco.setFont(font6)
+        self.le_endereco.setFont(font8)
         self.le_endereco.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1268,7 +1532,7 @@ class Ui_MainWindow(object):
         self.label_58.setObjectName(u"label_58")
         self.label_58.setMinimumSize(QSize(131, 20))
         self.label_58.setMaximumSize(QSize(131, 20))
-        self.label_58.setFont(font1)
+        self.label_58.setFont(font3)
         self.label_58.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1284,7 +1548,7 @@ class Ui_MainWindow(object):
 
         self.le_numero = QLineEdit(self.page_cadastrar)
         self.le_numero.setObjectName(u"le_numero")
-        self.le_numero.setFont(font6)
+        self.le_numero.setFont(font8)
         self.le_numero.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1315,7 +1579,7 @@ class Ui_MainWindow(object):
         self.label_57.setObjectName(u"label_57")
         self.label_57.setMinimumSize(QSize(131, 20))
         self.label_57.setMaximumSize(QSize(131, 20))
-        self.label_57.setFont(font1)
+        self.label_57.setFont(font3)
         self.label_57.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1331,7 +1595,7 @@ class Ui_MainWindow(object):
 
         self.le_bairro = QLineEdit(self.page_cadastrar)
         self.le_bairro.setObjectName(u"le_bairro")
-        self.le_bairro.setFont(font6)
+        self.le_bairro.setFont(font8)
         self.le_bairro.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1362,7 +1626,7 @@ class Ui_MainWindow(object):
         self.label_56.setObjectName(u"label_56")
         self.label_56.setMinimumSize(QSize(131, 20))
         self.label_56.setMaximumSize(QSize(131, 20))
-        self.label_56.setFont(font1)
+        self.label_56.setFont(font3)
         self.label_56.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1378,15 +1642,15 @@ class Ui_MainWindow(object):
 
         self.le_cidade = QLineEdit(self.page_cadastrar)
         self.le_cidade.setObjectName(u"le_cidade")
-        font7 = QFont()
-        font7.setFamily(u"Courier New")
-        font7.setPointSize(12)
-        font7.setBold(True)
-        font7.setUnderline(False)
-        font7.setWeight(75)
-        font7.setStrikeOut(False)
-        font7.setKerning(True)
-        self.le_cidade.setFont(font7)
+        font9 = QFont()
+        font9.setFamily(u"Courier New")
+        font9.setPointSize(12)
+        font9.setBold(True)
+        font9.setUnderline(False)
+        font9.setWeight(75)
+        font9.setStrikeOut(False)
+        font9.setKerning(True)
+        self.le_cidade.setFont(font9)
         self.le_cidade.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1499,12 +1763,12 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.page_sobre)
         self.label_2.setObjectName(u"label_2")
-        font8 = QFont()
-        font8.setFamily(u"Courier New")
-        font8.setPointSize(60)
-        font8.setBold(True)
-        font8.setWeight(75)
-        self.label_2.setFont(font8)
+        font10 = QFont()
+        font10.setFamily(u"Courier New")
+        font10.setPointSize(60)
+        font10.setBold(True)
+        font10.setWeight(75)
+        self.label_2.setFont(font10)
         self.label_2.setTextFormat(Qt.MarkdownText)
         self.label_2.setScaledContents(True)
         self.label_2.setAlignment(Qt.AlignCenter)
@@ -1577,7 +1841,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1590,11 +1854,29 @@ class Ui_MainWindow(object):
         self.btn_cadastrados.setText(QCoreApplication.translate("MainWindow", u"MUNICIPES", None))
         self.btn_agendamento.setText(QCoreApplication.translate("MainWindow", u"AGENDAMENTO", None))
         self.btn_sobre.setText(QCoreApplication.translate("MainWindow", u"SOBRE", None))
+        self.label_22.setText("")
         self.label_20.setText("")
+        self.btn_new_user.setText(QCoreApplication.translate("MainWindow", u"NOVO USUARIO", None))
         self.label_21.setText("")
         self.label_18.setText("")
+        self.label_74.setText("")
         self.label_23.setText("")
-        self.label_22.setText("")
+        self.label_49.setText(QCoreApplication.translate("MainWindow", u"NOVO USUARIO", None))
+        self.label_47.setText("")
+        self.le_novo_login.setPlaceholderText(QCoreApplication.translate("MainWindow", u"LOGIN", None))
+        self.le_novo_usuario.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NOME DE USUARIO", None))
+        self.le_senha1.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Senha", None))
+        self.le_senha2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Repetir Senha", None))
+        self.cb_users.setItemText(0, QCoreApplication.translate("MainWindow", u"user", None))
+        self.cb_users.setItemText(1, QCoreApplication.translate("MainWindow", u"admin", None))
+
+        self.bt_cadastrar_usuario.setText(QCoreApplication.translate("MainWindow", u"Cadastrar", None))
+        self.label_46.setText("")
+        self.le_usuario_deletar.setText("")
+        self.le_usuario_deletar.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NOME DE USUARIO", None))
+        self.le_senha_deletar.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Senha admin", None))
+        self.bt_deletar_usuario.setText(QCoreApplication.translate("MainWindow", u"DELETAR", None))
+        self.label_48.setText("")
         self.label_39.setText("")
         self.label_17.setText("")
         self.label_27.setText(QCoreApplication.translate("MainWindow", u"MUNICIPES CADASTRADOS", None))
