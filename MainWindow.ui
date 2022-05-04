@@ -462,7 +462,7 @@ QPushButton:pressed {
 }</string>
               </property>
               <property name="text">
-               <string>ATUALIZAR</string>
+               <string>ATUALIZAR DADOS</string>
               </property>
              </widget>
             </item>
@@ -700,8 +700,17 @@ QPushButton:pressed {
              <enum>QAbstractScrollArea::AdjustToContents</enum>
             </property>
             <property name="editTriggers">
-             <set>QAbstractItemView::NoEditTriggers</set>
+             <set>QAbstractItemView::DoubleClicked</set>
             </property>
+            <attribute name="horizontalHeaderCascadingSectionResizes">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="horizontalHeaderStretchLastSection">
+             <bool>true</bool>
+            </attribute>
            </widget>
           </item>
          </layout>
@@ -764,6 +773,13 @@ QPushButton:pressed {
                 <width>491</width>
                 <height>281</height>
                </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>15</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
               </property>
               <property name="gridVisible">
                <bool>true</bool>
@@ -1171,7 +1187,15 @@ QPushButton:pressed {
            </layout>
           </item>
           <item>
-           <widget class="QTableView" name="tableView_agendamento"/>
+           <widget class="QTableView" name="tableView_agendamento">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>

@@ -2,10 +2,13 @@ from login_agendamentos import Ui_Form
 from PySide2.QtCore import QDate
 from PySide2.QtWidgets import QApplication, QMessageBox, QMainWindow, QWidget
 from MainWindow import Ui_MainWindow
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
 import sys
 from bd_system import DataBase
 import requests
-from PySide2.QtSql import QSqlDatabase, QSqlTableModel
+from PySide2.QtSql import QSqlDatabase, QSqlTableModel,QSqlField
 import re
 from datetime import datetime
 from PySide2.QtCore import Qt
@@ -95,10 +98,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
         self.today_agendamentos()
 
-        self.tb_municipes_cadastrados.clicked.connect(self.teste)
 
-    def teste(self):
-        self.tb_municipes_cadastrados.setSortingEnabled(True)
 
     #FUNÇÃO QUE CRIA CAIXA DE DIALOGO DE ERRO
     def message_critical(self,txt):
@@ -497,7 +497,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.tb_municipes_cadastrados.setModel(self.model)
         self.model.setTable('municipes')
         self.model.select()
-        self.tb_municipes_cadastrados.sortByColumn(0, Qt.AscendingOrder)
+        self.tb_municipes_cadastrados.sortByColumn(1, Qt.AscendingOrder)
 
     # FUNÇÃO QUE PASSA DO BANCO DE DADOS AGENDAMENTOS PARA A TABLEVIEW DO SISTEMA
     def show_table_agendamentos(self):

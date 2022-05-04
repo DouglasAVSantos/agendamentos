@@ -484,7 +484,10 @@ class Ui_MainWindow(object):
         self.tb_municipes_cadastrados.setLineWidth(2)
         self.tb_municipes_cadastrados.setMidLineWidth(1)
         self.tb_municipes_cadastrados.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.tb_municipes_cadastrados.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tb_municipes_cadastrados.setEditTriggers(QAbstractItemView.DoubleClicked)
+        self.tb_municipes_cadastrados.horizontalHeader().setCascadingSectionResizes(True)
+        self.tb_municipes_cadastrados.horizontalHeader().setProperty("showSortIndicator", True)
+        self.tb_municipes_cadastrados.horizontalHeader().setStretchLastSection(True)
 
         self.verticalLayout_19.addWidget(self.tb_municipes_cadastrados)
 
@@ -517,6 +520,11 @@ class Ui_MainWindow(object):
         self.calendarWidget_2.setObjectName(u"calendarWidget_2")
         self.calendarWidget_2.setMinimumSize(QSize(491, 281))
         self.calendarWidget_2.setMaximumSize(QSize(491, 281))
+        font3 = QFont()
+        font3.setPointSize(15)
+        font3.setBold(True)
+        font3.setWeight(75)
+        self.calendarWidget_2.setFont(font3)
         self.calendarWidget_2.setGridVisible(True)
         self.calendarWidget_2.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)
         self.calendarWidget_2.setNavigationBarVisible(True)
@@ -751,6 +759,11 @@ class Ui_MainWindow(object):
 
         self.tableView_agendamento = QTableView(self.page_agendamento)
         self.tableView_agendamento.setObjectName(u"tableView_agendamento")
+        font4 = QFont()
+        font4.setPointSize(12)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.tableView_agendamento.setFont(font4)
 
         self.verticalLayout_6.addWidget(self.tableView_agendamento)
 
@@ -809,12 +822,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
         self.label_28 = QLabel(self.page_cadastrar)
         self.label_28.setObjectName(u"label_28")
-        font3 = QFont()
-        font3.setFamily(u"Courier New")
-        font3.setPointSize(32)
-        font3.setBold(True)
-        font3.setWeight(75)
-        self.label_28.setFont(font3)
+        font5 = QFont()
+        font5.setFamily(u"Courier New")
+        font5.setPointSize(32)
+        font5.setBold(True)
+        font5.setWeight(75)
+        self.label_28.setFont(font5)
 
         self.horizontalLayout_15.addWidget(self.label_28)
 
@@ -879,12 +892,12 @@ class Ui_MainWindow(object):
 
         self.le_nome = QLineEdit(self.page_cadastrar)
         self.le_nome.setObjectName(u"le_nome")
-        font4 = QFont()
-        font4.setFamily(u"Courier New")
-        font4.setPointSize(12)
-        font4.setBold(True)
-        font4.setWeight(75)
-        self.le_nome.setFont(font4)
+        font6 = QFont()
+        font6.setFamily(u"Courier New")
+        font6.setPointSize(12)
+        font6.setBold(True)
+        font6.setWeight(75)
+        self.le_nome.setFont(font6)
         self.le_nome.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -932,7 +945,7 @@ class Ui_MainWindow(object):
 
         self.lv_rg = QLineEdit(self.page_cadastrar)
         self.lv_rg.setObjectName(u"lv_rg")
-        self.lv_rg.setFont(font4)
+        self.lv_rg.setFont(font6)
         self.lv_rg.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -980,7 +993,7 @@ class Ui_MainWindow(object):
 
         self.le_cpf = QLineEdit(self.page_cadastrar)
         self.le_cpf.setObjectName(u"le_cpf")
-        self.le_cpf.setFont(font4)
+        self.le_cpf.setFont(font6)
         self.le_cpf.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1028,7 +1041,7 @@ class Ui_MainWindow(object):
 
         self.de_data_nascimento = QDateEdit(self.page_cadastrar)
         self.de_data_nascimento.setObjectName(u"de_data_nascimento")
-        self.de_data_nascimento.setFont(font4)
+        self.de_data_nascimento.setFont(font6)
         self.de_data_nascimento.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1080,7 +1093,7 @@ class Ui_MainWindow(object):
 
         self.le_telefone = QLineEdit(self.page_cadastrar)
         self.le_telefone.setObjectName(u"le_telefone")
-        self.le_telefone.setFont(font4)
+        self.le_telefone.setFont(font6)
         self.le_telefone.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1128,7 +1141,7 @@ class Ui_MainWindow(object):
 
         self.le_instituicao = QLineEdit(self.page_cadastrar)
         self.le_instituicao.setObjectName(u"le_instituicao")
-        self.le_instituicao.setFont(font4)
+        self.le_instituicao.setFont(font6)
         self.le_instituicao.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1176,7 +1189,7 @@ class Ui_MainWindow(object):
 
         self.le_cep = QLineEdit(self.page_cadastrar)
         self.le_cep.setObjectName(u"le_cep")
-        self.le_cep.setFont(font4)
+        self.le_cep.setFont(font6)
         self.le_cep.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1223,7 +1236,7 @@ class Ui_MainWindow(object):
 
         self.le_endereco = QLineEdit(self.page_cadastrar)
         self.le_endereco.setObjectName(u"le_endereco")
-        self.le_endereco.setFont(font4)
+        self.le_endereco.setFont(font6)
         self.le_endereco.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1271,7 +1284,7 @@ class Ui_MainWindow(object):
 
         self.le_numero = QLineEdit(self.page_cadastrar)
         self.le_numero.setObjectName(u"le_numero")
-        self.le_numero.setFont(font4)
+        self.le_numero.setFont(font6)
         self.le_numero.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1318,7 +1331,7 @@ class Ui_MainWindow(object):
 
         self.le_bairro = QLineEdit(self.page_cadastrar)
         self.le_bairro.setObjectName(u"le_bairro")
-        self.le_bairro.setFont(font4)
+        self.le_bairro.setFont(font6)
         self.le_bairro.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1365,15 +1378,15 @@ class Ui_MainWindow(object):
 
         self.le_cidade = QLineEdit(self.page_cadastrar)
         self.le_cidade.setObjectName(u"le_cidade")
-        font5 = QFont()
-        font5.setFamily(u"Courier New")
-        font5.setPointSize(12)
-        font5.setBold(True)
-        font5.setUnderline(False)
-        font5.setWeight(75)
-        font5.setStrikeOut(False)
-        font5.setKerning(True)
-        self.le_cidade.setFont(font5)
+        font7 = QFont()
+        font7.setFamily(u"Courier New")
+        font7.setPointSize(12)
+        font7.setBold(True)
+        font7.setUnderline(False)
+        font7.setWeight(75)
+        font7.setStrikeOut(False)
+        font7.setKerning(True)
+        self.le_cidade.setFont(font7)
         self.le_cidade.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1486,12 +1499,12 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.page_sobre)
         self.label_2.setObjectName(u"label_2")
-        font6 = QFont()
-        font6.setFamily(u"Courier New")
-        font6.setPointSize(60)
-        font6.setBold(True)
-        font6.setWeight(75)
-        self.label_2.setFont(font6)
+        font8 = QFont()
+        font8.setFamily(u"Courier New")
+        font8.setPointSize(60)
+        font8.setBold(True)
+        font8.setWeight(75)
+        self.label_2.setFont(font8)
         self.label_2.setTextFormat(Qt.MarkdownText)
         self.label_2.setScaledContents(True)
         self.label_2.setAlignment(Qt.AlignCenter)
@@ -1589,7 +1602,7 @@ class Ui_MainWindow(object):
         self.label_38.setText("")
         self.label_41.setText("")
         self.le_update_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
-        self.btn_update_municipe_id.setText(QCoreApplication.translate("MainWindow", u"ATUALIZAR", None))
+        self.btn_update_municipe_id.setText(QCoreApplication.translate("MainWindow", u"ATUALIZAR DADOS", None))
         self.le_delete_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.btn_delete_municipe.setText(QCoreApplication.translate("MainWindow", u"DELETAR", None))
         self.label_40.setText("")

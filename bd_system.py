@@ -772,6 +772,7 @@ class DataBase():
             cursor = self.conection.cursor()
             cursor.execute('''
             CREATE TABLE IF NOT EXISTS municipes (
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
             NOME TEXT NOT NULL,
             RG TEXT NOT NULL,
             CPF TEXT NOT NULL,
@@ -857,9 +858,9 @@ if __name__ == '__main__':
     db.create_table_municipes()
     db.create_table_users()
     db.create_table_agendamentos()
-    # db.insert_user('douglas','1234')
+    db.insert_user('douglas','1234')
     print('tabela municipes')
-    # for x in municipes: db.insert_municipes(x['nome'],x['rg'],x['cpf'],x['data_nasc'],x['celular'],x['cep'],x['endereco'],x['numero'],x['bairro'],x['cidade'])
+    for x in municipes: db.insert_municipes(x['nome'],x['rg'],x['cpf'],x['data_nasc'],x['celular'],x['cep'],x['endereco'],x['numero'],x['bairro'],x['cidade'])
     db.check_table_municipes()
     print('tabela usuarios')
     db.check_table_users()
