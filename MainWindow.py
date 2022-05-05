@@ -17,23 +17,21 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1082, 859)
+        MainWindow.resize(1205, 859)
         icon = QIcon()
         icon.addFile(u"logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.verticalLayout_13 = QVBoxLayout(self.centralwidget)
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout_21 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.btn_home = QPushButton(self.centralwidget)
-        self.btn_home.setObjectName(u"btn_home")
-        self.btn_home.setMinimumSize(QSize(186, 0))
-        self.btn_home.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_home.setStyleSheet(u"QPushButton {\n"
+        self.btn_menu_home = QPushButton(self.centralwidget)
+        self.btn_menu_home.setObjectName(u"btn_menu_home")
+        self.btn_menu_home.setMinimumSize(QSize(186, 0))
+        self.btn_menu_home.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_menu_home.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
@@ -56,13 +54,283 @@ class Ui_MainWindow(object):
 "    border-style: inset;\n"
 "}")
 
-        self.horizontalLayout.addWidget(self.btn_home)
+        self.horizontalLayout.addWidget(self.btn_menu_home, 0, Qt.AlignTop)
 
-        self.btn_cadastrar = QPushButton(self.centralwidget)
-        self.btn_cadastrar.setObjectName(u"btn_cadastrar")
-        self.btn_cadastrar.setMinimumSize(QSize(186, 0))
-        self.btn_cadastrar.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_cadastrar.setStyleSheet(u"QPushButton {\n"
+        self.verticalLayout_20 = QVBoxLayout()
+        self.verticalLayout_20.setSpacing(0)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.btn_menu_cadastrar = QPushButton(self.centralwidget)
+        self.btn_menu_cadastrar.setObjectName(u"btn_menu_cadastrar")
+        self.btn_menu_cadastrar.setMinimumSize(QSize(186, 0))
+        self.btn_menu_cadastrar.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_menu_cadastrar.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"    min-width: 10em;\n"
+"    padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+        self.btn_menu_cadastrar.setCheckable(False)
+        self.btn_menu_cadastrar.setAutoExclusive(True)
+        self.btn_menu_cadastrar.setAutoRepeatDelay(300)
+        self.btn_menu_cadastrar.setAutoRepeatInterval(3000)
+
+        self.verticalLayout_20.addWidget(self.btn_menu_cadastrar, 0, Qt.AlignTop)
+
+        self.frame_cadastrar = QFrame(self.centralwidget)
+        self.frame_cadastrar.setObjectName(u"frame_cadastrar")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_cadastrar.sizePolicy().hasHeightForWidth())
+        self.frame_cadastrar.setSizePolicy(sizePolicy)
+        self.frame_cadastrar.setMaximumSize(QSize(16777215, 0))
+        self.frame_cadastrar.setStyleSheet(u"background-color: rgb(240, 240, 240);\n"
+"")
+        self.frame_cadastrar.setFrameShape(QFrame.StyledPanel)
+        self.frame_cadastrar.setFrameShadow(QFrame.Raised)
+        self.verticalLayout = QVBoxLayout(self.frame_cadastrar)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.btn_new_user = QPushButton(self.frame_cadastrar)
+        self.btn_new_user.setObjectName(u"btn_new_user")
+        self.btn_new_user.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_new_user.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+
+        self.verticalLayout.addWidget(self.btn_new_user)
+
+        self.btn_new_municipe = QPushButton(self.frame_cadastrar)
+        self.btn_new_municipe.setObjectName(u"btn_new_municipe")
+        self.btn_new_municipe.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_new_municipe.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+
+        self.verticalLayout.addWidget(self.btn_new_municipe)
+
+        self.btn_new_agendamento = QPushButton(self.frame_cadastrar)
+        self.btn_new_agendamento.setObjectName(u"btn_new_agendamento")
+        self.btn_new_agendamento.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_new_agendamento.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+
+        self.verticalLayout.addWidget(self.btn_new_agendamento)
+
+
+        self.verticalLayout_20.addWidget(self.frame_cadastrar)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout_20)
+
+        self.verticalLayout_18 = QVBoxLayout()
+        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.btn_menu_municipes = QPushButton(self.centralwidget)
+        self.btn_menu_municipes.setObjectName(u"btn_menu_municipes")
+        self.btn_menu_municipes.setMinimumSize(QSize(186, 0))
+        self.btn_menu_municipes.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_menu_municipes.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"    min-width: 10em;\n"
+"    padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+        self.btn_menu_municipes.setAutoRepeat(False)
+        self.btn_menu_municipes.setAutoExclusive(False)
+        self.btn_menu_municipes.setAutoRepeatDelay(300)
+        self.btn_menu_municipes.setAutoRepeatInterval(3000)
+
+        self.verticalLayout_18.addWidget(self.btn_menu_municipes, 0, Qt.AlignTop)
+
+        self.frame_municipes = QFrame(self.centralwidget)
+        self.frame_municipes.setObjectName(u"frame_municipes")
+        sizePolicy.setHeightForWidth(self.frame_municipes.sizePolicy().hasHeightForWidth())
+        self.frame_municipes.setSizePolicy(sizePolicy)
+        self.frame_municipes.setMaximumSize(QSize(16777215, 0))
+        self.frame_municipes.setStyleSheet(u"background-color: rgb(240, 240, 240);")
+        self.frame_municipes.setFrameShape(QFrame.StyledPanel)
+        self.frame_municipes.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_13 = QVBoxLayout(self.frame_municipes)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.btn_municipes_cadastrados = QPushButton(self.frame_municipes)
+        self.btn_municipes_cadastrados.setObjectName(u"btn_municipes_cadastrados")
+        self.btn_municipes_cadastrados.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_municipes_cadastrados.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+
+        self.verticalLayout_13.addWidget(self.btn_municipes_cadastrados)
+
+        self.btn_alterar_municipes_cadastros = QPushButton(self.frame_municipes)
+        self.btn_alterar_municipes_cadastros.setObjectName(u"btn_alterar_municipes_cadastros")
+        self.btn_alterar_municipes_cadastros.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_alterar_municipes_cadastros.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+
+        self.verticalLayout_13.addWidget(self.btn_alterar_municipes_cadastros)
+
+        self.btn_deletar_municipes_cadastrados = QPushButton(self.frame_municipes)
+        self.btn_deletar_municipes_cadastrados.setObjectName(u"btn_deletar_municipes_cadastrados")
+        self.btn_deletar_municipes_cadastrados.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_deletar_municipes_cadastrados.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+
+        self.verticalLayout_13.addWidget(self.btn_deletar_municipes_cadastrados)
+
+
+        self.verticalLayout_18.addWidget(self.frame_municipes)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout_18)
+
+        self.btn_menu_agendamento = QPushButton(self.centralwidget)
+        self.btn_menu_agendamento.setObjectName(u"btn_menu_agendamento")
+        self.btn_menu_agendamento.setMinimumSize(QSize(186, 0))
+        self.btn_menu_agendamento.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_menu_agendamento.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
@@ -85,13 +353,13 @@ class Ui_MainWindow(object):
 "    border-style: inset;\n"
 "}")
 
-        self.horizontalLayout.addWidget(self.btn_cadastrar)
+        self.horizontalLayout.addWidget(self.btn_menu_agendamento, 0, Qt.AlignTop)
 
-        self.btn_cadastrados = QPushButton(self.centralwidget)
-        self.btn_cadastrados.setObjectName(u"btn_cadastrados")
-        self.btn_cadastrados.setMinimumSize(QSize(186, 0))
-        self.btn_cadastrados.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_cadastrados.setStyleSheet(u"QPushButton {\n"
+        self.btn_menu_sobre = QPushButton(self.centralwidget)
+        self.btn_menu_sobre.setObjectName(u"btn_menu_sobre")
+        self.btn_menu_sobre.setMinimumSize(QSize(186, 0))
+        self.btn_menu_sobre.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_menu_sobre.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
@@ -114,68 +382,10 @@ class Ui_MainWindow(object):
 "    border-style: inset;\n"
 "}")
 
-        self.horizontalLayout.addWidget(self.btn_cadastrados)
-
-        self.btn_agendamento = QPushButton(self.centralwidget)
-        self.btn_agendamento.setObjectName(u"btn_agendamento")
-        self.btn_agendamento.setMinimumSize(QSize(186, 0))
-        self.btn_agendamento.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_agendamento.setStyleSheet(u"QPushButton {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(238, 238, 0);\n"
-"    border-style: inset;\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}")
-
-        self.horizontalLayout.addWidget(self.btn_agendamento)
-
-        self.btn_sobre = QPushButton(self.centralwidget)
-        self.btn_sobre.setObjectName(u"btn_sobre")
-        self.btn_sobre.setMinimumSize(QSize(186, 0))
-        self.btn_sobre.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_sobre.setStyleSheet(u"QPushButton {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(238, 238, 0);\n"
-"    border-style: inset;\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}")
-
-        self.horizontalLayout.addWidget(self.btn_sobre)
+        self.horizontalLayout.addWidget(self.btn_menu_sobre, 0, Qt.AlignTop)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.verticalLayout_21.addLayout(self.horizontalLayout)
 
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
@@ -205,36 +415,6 @@ class Ui_MainWindow(object):
         self.label_20.setObjectName(u"label_20")
 
         self.horizontalLayout_17.addWidget(self.label_20)
-
-        self.btn_new_user = QPushButton(self.frame)
-        self.btn_new_user.setObjectName(u"btn_new_user")
-        self.btn_new_user.setMinimumSize(QSize(186, 33))
-        self.btn_new_user.setMaximumSize(QSize(208, 33))
-        self.btn_new_user.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_new_user.setStyleSheet(u"QPushButton {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(238, 238, 0);\n"
-"    border-style: inset;\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}")
-
-        self.horizontalLayout_17.addWidget(self.btn_new_user)
 
         self.label_21 = QLabel(self.frame)
         self.label_21.setObjectName(u"label_21")
@@ -325,11 +505,11 @@ class Ui_MainWindow(object):
 
         self.frame_13 = QFrame(self.frame_3)
         self.frame_13.setObjectName(u"frame_13")
-        sizePolicy = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
-        self.frame_13.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
+        self.frame_13.setSizePolicy(sizePolicy1)
         self.frame_13.setStyleSheet(u"border-width: 2px;\n"
 "border-color: black;\n"
 "border-style: solid;\n"
@@ -430,8 +610,8 @@ class Ui_MainWindow(object):
 
         self.frame_14 = QFrame(self.frame_3)
         self.frame_14.setObjectName(u"frame_14")
-        sizePolicy.setHeightForWidth(self.frame_14.sizePolicy().hasHeightForWidth())
-        self.frame_14.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.frame_14.sizePolicy().hasHeightForWidth())
+        self.frame_14.setSizePolicy(sizePolicy1)
         self.frame_14.setStyleSheet(u"border-width: 2px;\n"
 "border-color: black;\n"
 "border-style: solid;\n"
@@ -736,20 +916,41 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_19.addLayout(self.horizontalLayout_25)
 
-        self.tb_municipes_cadastrados = QTableView(self.page_cadastrados)
+        self.tb_municipes_cadastrados = QTableWidget(self.page_cadastrados)
+        if (self.tb_municipes_cadastrados.columnCount() < 11):
+            self.tb_municipes_cadastrados.setColumnCount(11)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        __qtablewidgetitem4 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(4, __qtablewidgetitem4)
+        __qtablewidgetitem5 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(5, __qtablewidgetitem5)
+        __qtablewidgetitem6 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(6, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(7, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(8, __qtablewidgetitem8)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(9, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.tb_municipes_cadastrados.setHorizontalHeaderItem(10, __qtablewidgetitem10)
         self.tb_municipes_cadastrados.setObjectName(u"tb_municipes_cadastrados")
         font4 = QFont()
         font4.setPointSize(10)
-        font4.setBold(True)
-        font4.setWeight(75)
+        font4.setBold(False)
+        font4.setWeight(50)
         self.tb_municipes_cadastrados.setFont(font4)
         self.tb_municipes_cadastrados.setLineWidth(2)
         self.tb_municipes_cadastrados.setMidLineWidth(1)
         self.tb_municipes_cadastrados.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.tb_municipes_cadastrados.setEditTriggers(QAbstractItemView.DoubleClicked)
-        self.tb_municipes_cadastrados.horizontalHeader().setCascadingSectionResizes(True)
-        self.tb_municipes_cadastrados.horizontalHeader().setProperty("showSortIndicator", True)
-        self.tb_municipes_cadastrados.horizontalHeader().setStretchLastSection(True)
 
         self.verticalLayout_19.addWidget(self.tb_municipes_cadastrados)
 
@@ -799,11 +1000,11 @@ class Ui_MainWindow(object):
 
         self.label_45 = QLabel(self.page_agendamento)
         self.label_45.setObjectName(u"label_45")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.label_45.sizePolicy().hasHeightForWidth())
-        self.label_45.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.label_45.sizePolicy().hasHeightForWidth())
+        self.label_45.setSizePolicy(sizePolicy2)
 
         self.verticalLayout_6.addWidget(self.label_45)
 
@@ -971,11 +1172,11 @@ class Ui_MainWindow(object):
 
         self.label_50 = QLabel(self.page_agendamento)
         self.label_50.setObjectName(u"label_50")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.label_50.sizePolicy().hasHeightForWidth())
-        self.label_50.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.label_50.sizePolicy().hasHeightForWidth())
+        self.label_50.setSizePolicy(sizePolicy3)
 
         self.verticalLayout_6.addWidget(self.label_50)
 
@@ -1019,17 +1220,39 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addLayout(self.horizontalLayout_14)
 
-        self.tableView_agendamento = QTableView(self.page_agendamento)
-        self.tableView_agendamento.setObjectName(u"tableView_agendamento")
+        self.tb_agendamento = QTableWidget(self.page_agendamento)
+        if (self.tb_agendamento.columnCount() < 10):
+            self.tb_agendamento.setColumnCount(10)
+        __qtablewidgetitem11 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(0, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(1, __qtablewidgetitem12)
+        __qtablewidgetitem13 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(2, __qtablewidgetitem13)
+        __qtablewidgetitem14 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(3, __qtablewidgetitem14)
+        __qtablewidgetitem15 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(4, __qtablewidgetitem15)
+        __qtablewidgetitem16 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(5, __qtablewidgetitem16)
+        __qtablewidgetitem17 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(6, __qtablewidgetitem17)
+        __qtablewidgetitem18 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(7, __qtablewidgetitem18)
+        __qtablewidgetitem19 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(8, __qtablewidgetitem19)
+        __qtablewidgetitem20 = QTableWidgetItem()
+        self.tb_agendamento.setHorizontalHeaderItem(9, __qtablewidgetitem20)
+        self.tb_agendamento.setObjectName(u"tb_agendamento")
         font6 = QFont()
         font6.setPointSize(12)
         font6.setBold(True)
         font6.setWeight(75)
-        self.tableView_agendamento.setFont(font6)
-        self.tableView_agendamento.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.tableView_agendamento.setSortingEnabled(True)
+        self.tb_agendamento.setFont(font6)
+        self.tb_agendamento.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tb_agendamento.setSortingEnabled(True)
 
-        self.verticalLayout_6.addWidget(self.tableView_agendamento)
+        self.verticalLayout_6.addWidget(self.tb_agendamento)
 
         self.stackedWidget.addWidget(self.page_agendamento)
         self.page_cadastrar = QWidget()
@@ -1832,10 +2055,7 @@ class Ui_MainWindow(object):
 
         self.stackedWidget.addWidget(self.page_sobre)
 
-        self.verticalLayout.addWidget(self.stackedWidget)
-
-
-        self.verticalLayout_13.addLayout(self.verticalLayout)
+        self.verticalLayout_21.addWidget(self.stackedWidget)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -1849,14 +2069,19 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Sistema de Agendamentos DGS", None))
-        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
-        self.btn_cadastrar.setText(QCoreApplication.translate("MainWindow", u"CADASTRAR", None))
-        self.btn_cadastrados.setText(QCoreApplication.translate("MainWindow", u"MUNICIPES", None))
-        self.btn_agendamento.setText(QCoreApplication.translate("MainWindow", u"AGENDAMENTO", None))
-        self.btn_sobre.setText(QCoreApplication.translate("MainWindow", u"SOBRE", None))
+        self.btn_menu_home.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
+        self.btn_menu_cadastrar.setText(QCoreApplication.translate("MainWindow", u"CADASTRAR", None))
+        self.btn_new_user.setText(QCoreApplication.translate("MainWindow", u"NOVO USUARIO", None))
+        self.btn_new_municipe.setText(QCoreApplication.translate("MainWindow", u"NOVO MUNICIPE", None))
+        self.btn_new_agendamento.setText(QCoreApplication.translate("MainWindow", u"NOVO AGENDAMENTO", None))
+        self.btn_menu_municipes.setText(QCoreApplication.translate("MainWindow", u"MUNICIPES", None))
+        self.btn_municipes_cadastrados.setText(QCoreApplication.translate("MainWindow", u"CADASTRADOS", None))
+        self.btn_alterar_municipes_cadastros.setText(QCoreApplication.translate("MainWindow", u"ALTERAR CADASTRO", None))
+        self.btn_deletar_municipes_cadastrados.setText(QCoreApplication.translate("MainWindow", u"DELETAR CADASTRO", None))
+        self.btn_menu_agendamento.setText(QCoreApplication.translate("MainWindow", u"AGENDAMENTOS", None))
+        self.btn_menu_sobre.setText(QCoreApplication.translate("MainWindow", u"SOBRE", None))
         self.label_22.setText("")
         self.label_20.setText("")
-        self.btn_new_user.setText(QCoreApplication.translate("MainWindow", u"NOVO USUARIO", None))
         self.label_21.setText("")
         self.label_18.setText("")
         self.label_74.setText("")
@@ -1893,6 +2118,28 @@ class Ui_MainWindow(object):
         self.label_54.setText("")
         self.le_pesquisa_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Filtro", None))
         self.label_55.setText("")
+        ___qtablewidgetitem = self.tb_municipes_cadastrados.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"NOME", None));
+        ___qtablewidgetitem1 = self.tb_municipes_cadastrados.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"RG", None));
+        ___qtablewidgetitem2 = self.tb_municipes_cadastrados.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"CPF", None));
+        ___qtablewidgetitem3 = self.tb_municipes_cadastrados.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"NASCIMENTO", None));
+        ___qtablewidgetitem4 = self.tb_municipes_cadastrados.horizontalHeaderItem(4)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"TELEFONE", None));
+        ___qtablewidgetitem5 = self.tb_municipes_cadastrados.horizontalHeaderItem(5)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"INSTITUI\u00c7\u00c3O", None));
+        ___qtablewidgetitem6 = self.tb_municipes_cadastrados.horizontalHeaderItem(6)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"CEP", None));
+        ___qtablewidgetitem7 = self.tb_municipes_cadastrados.horizontalHeaderItem(7)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"ENDERE\u00c7O", None));
+        ___qtablewidgetitem8 = self.tb_municipes_cadastrados.horizontalHeaderItem(8)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"NUMERO", None));
+        ___qtablewidgetitem9 = self.tb_municipes_cadastrados.horizontalHeaderItem(9)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"BAIRRO", None));
+        ___qtablewidgetitem10 = self.tb_municipes_cadastrados.horizontalHeaderItem(10)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"CIDADE", None));
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"AGENDAMENTO", None))
         self.label_45.setText("")
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"Selecione um Municipe Cadastrado", None))
@@ -1902,6 +2149,26 @@ class Ui_MainWindow(object):
         self.label_50.setText("")
         self.label_72.setText(QCoreApplication.translate("MainWindow", u"DATA", None))
         self.le_filtro_data.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Filtro", None))
+        ___qtablewidgetitem11 = self.tb_agendamento.horizontalHeaderItem(0)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"DATA", None));
+        ___qtablewidgetitem12 = self.tb_agendamento.horizontalHeaderItem(1)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 08:30 A 09:30", None));
+        ___qtablewidgetitem13 = self.tb_agendamento.horizontalHeaderItem(2)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 09:30 A 10:30", None));
+        ___qtablewidgetitem14 = self.tb_agendamento.horizontalHeaderItem(3)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 10:30 A 11:30", None));
+        ___qtablewidgetitem15 = self.tb_agendamento.horizontalHeaderItem(4)
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 11:30 A 12:30", None));
+        ___qtablewidgetitem16 = self.tb_agendamento.horizontalHeaderItem(5)
+        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 12:30  A 13:30", None));
+        ___qtablewidgetitem17 = self.tb_agendamento.horizontalHeaderItem(6)
+        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 13:30 A 14:30", None));
+        ___qtablewidgetitem18 = self.tb_agendamento.horizontalHeaderItem(7)
+        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 14:30 A 15:30", None));
+        ___qtablewidgetitem19 = self.tb_agendamento.horizontalHeaderItem(8)
+        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 15:30 A 16:30", None));
+        ___qtablewidgetitem20 = self.tb_agendamento.horizontalHeaderItem(9)
+        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 16:30 A 17:30", None));
         self.label_68.setText("")
         self.label_69.setText("")
         self.label_12.setText("")

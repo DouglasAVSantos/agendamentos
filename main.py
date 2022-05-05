@@ -1,3 +1,5 @@
+from PySide2 import QtCore
+from time import sleep
 from login_agendamentos import Ui_Form
 from PySide2.QtCore import QDate
 from PySide2.QtWidgets import QApplication, QMessageBox, QMainWindow, QWidget
@@ -27,12 +29,12 @@ class Login(QWidget, Ui_Form):
     def message_critical(self,txt):
         msg = QMessageBox(self)
         msg.setWindowTitle('ERRO DE DADOS')
-        msg.setIcon(QMessageBox.Warning)
+        msg.setIcon(QMessageBox.Critical)
         msg.setText(f'{txt}')
         msg.exec_()
 
     def verifica_senha(self):
-        try:
+        # try:
             db = DataBase()
             db.conect_db()
             if db.db_check_user_admin(self.le_usuario.text().strip(),self.le_senha.text().strip()) == 'user':
@@ -50,10 +52,16 @@ class Login(QWidget, Ui_Form):
                 self.w.show()
                 self.close()
                 db.close_db()
-        except:
-            # abre uma caixa de msg com erro
-            self.message_critical('LOGIN OU SENHA INVÁLIDOS')
-            self.le_senha.setText('')
+            elif self.le_usuario.text().strip() == '' or self.le_senha.text().strip() =='':
+                self.message_critical('CAMPOS VAZIOS')
+            else:
+                self.message_critical('LOGIN OU SENHA INVÁLIDOS')
+                self.le_senha.setText('')
+
+        # except:
+        #     # abre uma caixa de msg com erro
+        #     self.message_critical('LOGIN OU SENHA INVÁLIDOS')
+        #     self.le_senha.setText('')
 
 
 class MainWindow(QMainWindow,Ui_MainWindow):
@@ -64,15 +72,19 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.senha = senha
 
         self.get_usuario(self.login, self.senha)
-
-
+        # *****************************ANIMAÇÃO DOS BOTOES CADASTRAR E MUNICIPES*********************************************************************
+        self.btn_menu_cadastrar.clicked.connect(self.animation_frame_cadastrar)
+        self.btn_menu_municipes.clicked.connect(self.animation_frame_municipes)
+        # **************************************************************************************************
         #*****************************BOTOES DE ACESSO DAS PAGINAS*****************************************
-        self.btn_sobre.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_sobre))
-        self.btn_home.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_home))
-        self.btn_cadastrar.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_cadastrar))
-        self.btn_cadastrados.clicked.connect(lambda : self.stackedWidget.setCurrentWidget(self.page_cadastrados))
-        self.btn_agendamento.clicked.connect(self.get_agendamentos)
+        self.btn_menu_sobre.clicked.connect(self.pagina_sobre)
+        self.btn_menu_home.clicked.connect(self.pagina_home)
+        self.btn_municipes_cadastrados.clicked.connect(self.pagina_municipes_cadastrados)
+        self.btn_new_municipe.clicked.connect(self.pagina_new_municipe)
+        self.btn_new_user.clicked.connect(self.pagina_new_user)
+        self.btn_menu_agendamento.clicked.connect(self.get_agendamentos)
         #**************************************************************************************************
+
 
         #*********************BOTOES DA PAGINA DE CADASTRO DE MUNICIPE******************************************
         self.btn_novo_cadastro.clicked.connect(self.novo_municipe)
@@ -88,7 +100,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         # **************************************************************************************************
 
         # ********************FILTROS********************************************************
-        self.le_pesquisa_municipe.textChanged.connect(self.filtro_municipes)
+        # self.le_pesquisa_municipe.textChanged.connect(self.filtro_municipes)
         # self.le_filtro_data.textChanged.connect(self.filtro_datas)
         # **************************************************************************************************
 
@@ -110,6 +122,109 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
         self.bt_cadastrar_usuario.clicked.connect(self.new_user)
         self.bt_deletar_usuario.clicked.connect(self.delete_user)
+
+
+
+
+    def animation_frame_cadastrar(self):
+        height = self.frame_cadastrar.height()
+        if height == 0:
+            newheight = 200
+        else:
+            newheight = 0
+        if self.frame_municipes.height() == 0:
+            self.animation = QtCore.QPropertyAnimation(self.frame_cadastrar,b'maximumHeight')
+            self.animation.setDuration(500)
+            self.animation.setStartValue(height)
+            self.animation.setEndValue(newheight)
+            self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation.start()
+        else:
+            self.animation = QtCore.QPropertyAnimation(self.frame_cadastrar, b'maximumHeight')
+            self.animation.setDuration(500)
+            self.animation.setStartValue(height)
+            self.animation.setEndValue(newheight)
+            self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation.start()
+            self.animation2 = QtCore.QPropertyAnimation(self.frame_municipes, b'maximumHeight')
+            self.animation2.setDuration(500)
+            self.animation2.setStartValue(200)
+            self.animation2.setEndValue(0)
+            self.animation2.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation2.start()
+
+    def animation_frame_municipes(self):
+        height = self.frame_municipes.height()
+        if height == 0:
+            newheight = 200
+        else:
+            newheight = 0
+        if self.frame_cadastrar.height() == 0:
+            self.animation = QtCore.QPropertyAnimation(self.frame_municipes,b'maximumHeight')
+            self.animation.setDuration(500)
+            self.animation.setStartValue(height)
+            self.animation.setEndValue(newheight)
+            self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation.start()
+        else:
+            self.animation = QtCore.QPropertyAnimation(self.frame_municipes, b'maximumHeight')
+            self.animation.setDuration(500)
+            self.animation.setStartValue(height)
+            self.animation.setEndValue(newheight)
+            self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation.start()
+            self.animation2 = QtCore.QPropertyAnimation(self.frame_cadastrar, b'maximumHeight')
+            self.animation2.setDuration(500)
+            self.animation2.setStartValue(200)
+            self.animation2.setEndValue(0)
+            self.animation2.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation2.start()
+
+    def close_animation(self):
+        if self.frame_cadastrar.height() == 0 and self.frame_municipes.height() == 0:
+            pass
+        elif self.frame_municipes.height() > 0:
+            self.animation = QtCore.QPropertyAnimation(self.frame_municipes, b'maximumHeight')
+            self.animation.setDuration(500)
+            self.animation.setStartValue(200)
+            self.animation.setEndValue(0)
+            self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation.start()
+        elif self.frame_cadastrar.height() > 0:
+            self.animation2 = QtCore.QPropertyAnimation(self.frame_cadastrar, b'maximumHeight')
+            self.animation2.setDuration(500)
+            self.animation2.setStartValue(200)
+            self.animation2.setEndValue(0)
+            self.animation2.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation2.start()
+
+    def pagina_home(self):
+        self.stackedWidget.setCurrentWidget(self.page_home)
+        self.close_animation()
+
+    def pagina_agendamentos(self):
+        self.stackedWidget.setCurrentWidget(self.page_agendamento)
+        self.close_animation()
+
+    def pagina_sobre(self):
+        self.stackedWidget.setCurrentWidget(self.page_sobre)
+        self.close_animation()
+
+    def pagina_new_user(self):
+        self.stackedWidget.setCurrentWidget(self.page_new_user)
+        self.close_animation()
+    def pagina_new_municipe(self):
+        self.stackedWidget.setCurrentWidget(self.page_cadastrar)
+        self.close_animation()
+    def pagina_municipes_cadastrados(self):
+        self.stackedWidget.setCurrentWidget(self.page_cadastrados)
+        self.close_animation()
+
+
+
+
+
+
 
 
     def get_usuario(self,login,senha):
@@ -518,41 +633,53 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
     #FUNÇÃO QUE PASSA DO BANCO DE DADOS MUNICIPE PARA A TABLEVIEW DO SISTEMA
     def show_table_municipe(self):
-        db = QSqlDatabase('QSQLITE')
-        db.setDatabaseName('system.db')
-        db.open()
+        db = DataBase()
+        db.conect_db()
+        cursor = db.conection.cursor()
+        cursor.execute('select * from municipes order by nome')
+        clientes = cursor.fetchall()
 
-        self.model = QSqlTableModel(db=db)
-        self.tb_municipes_cadastrados.setModel(self.model)
-        self.model.setTable('municipes')
-        self.model.select()
-        self.tb_municipes_cadastrados.sortByColumn(1, Qt.AscendingOrder)
+        self.tb_municipes_cadastrados.clearContents()
+        self.tb_municipes_cadastrados.setRowCount(len(clientes))
+
+        for linha, txt in enumerate(clientes):
+            for colum, data in enumerate(txt):
+                self.tb_municipes_cadastrados.setItem(linha, colum, QTableWidgetItem(str(data)))
+
+        for i in range(0, 11):
+            self.tb_municipes_cadastrados.resizeColumnToContents(i)
+        db.close_db()
 
     # FUNÇÃO QUE PASSA DO BANCO DE DADOS AGENDAMENTOS PARA A TABLEVIEW DO SISTEMA
     def show_table_agendamentos(self):
-        db = QSqlDatabase('QSQLITE')
-        db.setDatabaseName('system.db')
-        db.open()
+        db = DataBase()
+        db.conect_db()
+        cursor = db.conection.cursor()
+        cursor.execute('select * from agendamentos order by data')
+        clientes = cursor.fetchall()
 
-        self.model = QSqlTableModel(db=db)
-        self.tableView_agendamento.setModel(self.model)
-        self.model.setTable('agendamentos')
-        self.model.select()
-        self.tableView_agendamento.sortByColumn(0, Qt.DescendingOrder)
+        self.tb_agendamento.clearContents()
+        self.tb_agendamento.setRowCount(len(clientes))
+
+        for linha, txt in enumerate(clientes):
+            for colum, data in enumerate(txt):
+                self.tb_agendamento.setItem(linha, colum, QTableWidgetItem(str(data)))
+
+        for i in range(0, 10):
+            self.tb_agendamento.resizeColumnToContents(i)
+        db.close_db()
 
     #FUNÇÃO QUE CARREGA AS TABLEVIEW NO SISTEMA AO SER INICIADO
     def table_reset(self):
-        self.tb_municipes_cadastrados.update()
-        self.tableView_agendamento.update()
         self.show_table_agendamentos()
         self.show_table_municipe()
 
     #FUNÇÃO PARA FILTRAR ATRAVÉS DO NOME OS MUNICIPES NA JANELA CADASTRADOS
-    def filtro_municipes(self,s):
-        self.show_table_municipe()
-        s = re.sub('[\W_]+','',s)
-        filter_str2 = f'NOME LIKE "%{s}%"'
-        self.model.setFilter(filter_str2)
+    # def filtro_municipes(self,s):
+    #     self.show_table_municipe()
+    #     s = re.sub('[\W_]+','',s)
+    #     filter_str2 = f'NOME LIKE "%{s}%"'
+    #     self.model.setFilter(filter_str2)
 
     def filtro_datas(self):
         self.show_table_agendamentos()
@@ -576,6 +703,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
     def get_agendamentos(self):
         self.stackedWidget.setCurrentWidget(self.page_agendamento)
+        self.close_animation()
         self.table_reset()
 
     #FUNÇÃO QUE DELETA O MUNICIPE DO BANCO DE DADOS

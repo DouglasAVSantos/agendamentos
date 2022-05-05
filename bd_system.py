@@ -773,7 +773,6 @@ class DataBase():
             cursor = self.conection.cursor()
             cursor.execute('''
             CREATE TABLE IF NOT EXISTS municipes (
-            ID INTEGER PRIMARY KEY AUTOINCREMENT,
             NOME TEXT NOT NULL,
             RG TEXT NOT NULL,
             CPF TEXT NOT NULL,
@@ -871,9 +870,9 @@ class DataBase():
             for linha in cursor.fetchall():
                 if linha[0]== login and linha[2]== senha and linha[3] == 'admin':
                     return 'admin'
-                else:
-                    continue
-            return 'user'
+                elif linha[0]== login and linha[2]== senha and linha[3] == 'user':
+                    return 'user'
+            return False
 
          except Exception:
             return False
