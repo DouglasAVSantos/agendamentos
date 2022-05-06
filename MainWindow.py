@@ -12,6 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+import icon
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -21,6 +22,7 @@ class Ui_MainWindow(object):
         icon = QIcon()
         icon.addFile(u"logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
+        MainWindow.setAnimated(True)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_21 = QVBoxLayout(self.centralwidget)
@@ -293,33 +295,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_13.addWidget(self.btn_alterar_municipes_cadastros)
 
-        self.btn_deletar_municipes_cadastrados = QPushButton(self.frame_municipes)
-        self.btn_deletar_municipes_cadastrados.setObjectName(u"btn_deletar_municipes_cadastrados")
-        self.btn_deletar_municipes_cadastrados.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_deletar_municipes_cadastrados.setStyleSheet(u"QPushButton {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(238, 238, 0);\n"
-"    border-style: inset;\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}")
-
-        self.verticalLayout_13.addWidget(self.btn_deletar_municipes_cadastrados)
-
 
         self.verticalLayout_18.addWidget(self.frame_municipes)
 
@@ -461,33 +436,12 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_11 = QVBoxLayout(self.frame_2)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-        self.horizontalLayout_28 = QHBoxLayout()
-        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
         self.label_49 = QLabel(self.frame_2)
         self.label_49.setObjectName(u"label_49")
-        self.label_49.setMinimumSize(QSize(311, 61))
-        self.label_49.setMaximumSize(QSize(311, 61))
-        font = QFont()
-        font.setPointSize(15)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
-        self.label_49.setFont(font)
-        self.label_49.setStyleSheet(u"QLabel {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"}")
+        self.label_49.setPixmap(QPixmap(u"novo_usuario.png"))
         self.label_49.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_28.addWidget(self.label_49)
-
-
-        self.verticalLayout_11.addLayout(self.horizontalLayout_28)
+        self.verticalLayout_11.addWidget(self.label_49)
 
 
         self.verticalLayout_17.addWidget(self.frame_2)
@@ -559,9 +513,9 @@ class Ui_MainWindow(object):
         self.cb_users.setObjectName(u"cb_users")
         self.cb_users.setMinimumSize(QSize(151, 20))
         self.cb_users.setMaximumSize(QSize(151, 20))
-        font1 = QFont()
-        font1.setPointSize(12)
-        self.cb_users.setFont(font1)
+        font = QFont()
+        font.setPointSize(12)
+        self.cb_users.setFont(font)
         self.cb_users.setLayoutDirection(Qt.LeftToRight)
         self.cb_users.setSizeAdjustPolicy(QComboBox.AdjustToContents)
 
@@ -571,12 +525,12 @@ class Ui_MainWindow(object):
         self.bt_cadastrar_usuario.setObjectName(u"bt_cadastrar_usuario")
         self.bt_cadastrar_usuario.setMinimumSize(QSize(151, 31))
         self.bt_cadastrar_usuario.setMaximumSize(QSize(151, 31))
-        font2 = QFont()
-        font2.setFamily(u"Courier")
-        font2.setPointSize(12)
-        font2.setBold(True)
-        font2.setWeight(75)
-        self.bt_cadastrar_usuario.setFont(font2)
+        font1 = QFont()
+        font1.setFamily(u"Courier")
+        font1.setPointSize(12)
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.bt_cadastrar_usuario.setFont(font1)
         self.bt_cadastrar_usuario.setCursor(QCursor(Qt.PointingHandCursor))
         self.bt_cadastrar_usuario.setStyleSheet(u"QPushButton{\n"
 "\n"
@@ -642,7 +596,7 @@ class Ui_MainWindow(object):
         self.bt_deletar_usuario.setObjectName(u"bt_deletar_usuario")
         self.bt_deletar_usuario.setMinimumSize(QSize(151, 31))
         self.bt_deletar_usuario.setMaximumSize(QSize(151, 31))
-        self.bt_deletar_usuario.setFont(font2)
+        self.bt_deletar_usuario.setFont(font1)
         self.bt_deletar_usuario.setCursor(QCursor(Qt.PointingHandCursor))
         self.bt_deletar_usuario.setStyleSheet(u"QPushButton{\n"
 "\n"
@@ -675,221 +629,94 @@ class Ui_MainWindow(object):
         self.horizontalLayout_29.addWidget(self.label_48)
 
 
-        self.verticalLayout_17.addWidget(self.frame_3)
+        self.verticalLayout_17.addWidget(self.frame_3, 0, Qt.AlignTop)
 
         self.stackedWidget.addWidget(self.page_new_user)
         self.page_cadastrados = QWidget()
         self.page_cadastrados.setObjectName(u"page_cadastrados")
-        self.verticalLayout_19 = QVBoxLayout(self.page_cadastrados)
-        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
-        self.verticalLayout_14 = QVBoxLayout()
+        self.verticalLayout_14 = QVBoxLayout(self.page_cadastrados)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
-        self.label_39 = QLabel(self.page_cadastrados)
-        self.label_39.setObjectName(u"label_39")
+        self.label_17 = QLabel(self.page_cadastrados)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setPixmap(QPixmap(u"municipes_cadastrados.png"))
+        self.label_17.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_14.addWidget(self.label_39)
+        self.verticalLayout_14.addWidget(self.label_17)
 
         self.horizontalLayout_18 = QHBoxLayout()
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.label_17 = QLabel(self.page_cadastrados)
-        self.label_17.setObjectName(u"label_17")
-
-        self.horizontalLayout_18.addWidget(self.label_17)
-
-        self.label_27 = QLabel(self.page_cadastrados)
-        self.label_27.setObjectName(u"label_27")
-        self.label_27.setMinimumSize(QSize(311, 61))
-        self.label_27.setMaximumSize(QSize(311, 61))
-        self.label_27.setFont(font)
-        self.label_27.setStyleSheet(u"QLabel {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"}")
-        self.label_27.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_18.addWidget(self.label_27)
-
         self.label_26 = QLabel(self.page_cadastrados)
         self.label_26.setObjectName(u"label_26")
+        self.label_26.setMinimumSize(QSize(91, 81))
+        self.label_26.setMaximumSize(QSize(91, 81))
+        self.label_26.setPixmap(QPixmap(u"LUPA.png"))
+        self.label_26.setScaledContents(True)
 
         self.horizontalLayout_18.addWidget(self.label_26)
 
+        self.frame_20 = QFrame(self.page_cadastrados)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.formLayout = QFormLayout(self.frame_20)
+        self.formLayout.setObjectName(u"formLayout")
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setSpacing(0)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.rb_instituicao = QRadioButton(self.frame_20)
+        self.rb_instituicao.setObjectName(u"rb_instituicao")
+        self.rb_instituicao.setCheckable(True)
+        self.rb_instituicao.setChecked(False)
+        self.rb_instituicao.setAutoExclusive(True)
 
-        self.verticalLayout_14.addLayout(self.horizontalLayout_18)
+        self.gridLayout.addWidget(self.rb_instituicao, 0, 1, 2, 1)
 
-        self.label_38 = QLabel(self.page_cadastrados)
-        self.label_38.setObjectName(u"label_38")
+        self.rb_nome = QRadioButton(self.frame_20)
+        self.rb_nome.setObjectName(u"rb_nome")
+        self.rb_nome.setChecked(True)
 
-        self.verticalLayout_14.addWidget(self.label_38)
+        self.gridLayout.addWidget(self.rb_nome, 0, 0, 1, 1)
 
+        self.rb_cep = QRadioButton(self.frame_20)
+        self.rb_cep.setObjectName(u"rb_cep")
 
-        self.verticalLayout_19.addLayout(self.verticalLayout_14)
+        self.gridLayout.addWidget(self.rb_cep, 2, 1, 1, 1)
 
-        self.label_41 = QLabel(self.page_cadastrados)
-        self.label_41.setObjectName(u"label_41")
+        self.rb_rg = QRadioButton(self.frame_20)
+        self.rb_rg.setObjectName(u"rb_rg")
 
-        self.verticalLayout_19.addWidget(self.label_41)
+        self.gridLayout.addWidget(self.rb_rg, 1, 0, 2, 1)
 
-        self.horizontalLayout_23 = QHBoxLayout()
-        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.rb_telefone = QRadioButton(self.frame_20)
+        self.rb_telefone.setObjectName(u"rb_telefone")
 
-        self.horizontalLayout_23.addItem(self.horizontalSpacer_5)
+        self.gridLayout.addWidget(self.rb_telefone, 5, 0, 1, 1)
 
-        self.le_update_municipe = QLineEdit(self.page_cadastrados)
-        self.le_update_municipe.setObjectName(u"le_update_municipe")
-        self.le_update_municipe.setMinimumSize(QSize(134, 0))
-        self.le_update_municipe.setStyleSheet(u"QLineEdit{	\n"
-"	color: rgb(0, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    min-width: 10em;\n"
-"}\n"
-"")
-        self.le_update_municipe.setAlignment(Qt.AlignCenter)
+        self.rb_endereco = QRadioButton(self.frame_20)
+        self.rb_endereco.setObjectName(u"rb_endereco")
 
-        self.horizontalLayout_23.addWidget(self.le_update_municipe)
+        self.gridLayout.addWidget(self.rb_endereco, 3, 1, 1, 1)
 
-        self.btn_update_municipe_id = QPushButton(self.page_cadastrados)
-        self.btn_update_municipe_id.setObjectName(u"btn_update_municipe_id")
-        self.btn_update_municipe_id.setMinimumSize(QSize(186, 0))
-        self.btn_update_municipe_id.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_update_municipe_id.setStyleSheet(u"QPushButton {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(238, 238, 0);\n"
-"    border-style: inset;\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}")
+        self.rb_bairro = QRadioButton(self.frame_20)
+        self.rb_bairro.setObjectName(u"rb_bairro")
 
-        self.horizontalLayout_23.addWidget(self.btn_update_municipe_id)
+        self.gridLayout.addWidget(self.rb_bairro, 5, 1, 1, 1)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.rb_cidade = QRadioButton(self.frame_20)
+        self.rb_cidade.setObjectName(u"rb_cidade")
 
-        self.horizontalLayout_23.addItem(self.horizontalSpacer_2)
+        self.gridLayout.addWidget(self.rb_cidade, 6, 1, 1, 1)
+
+        self.rb_cpf = QRadioButton(self.frame_20)
+        self.rb_cpf.setObjectName(u"rb_cpf")
+
+        self.gridLayout.addWidget(self.rb_cpf, 3, 0, 1, 1)
 
 
-        self.verticalLayout_19.addLayout(self.horizontalLayout_23)
-
-        self.horizontalLayout_22 = QHBoxLayout()
-        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_22.addItem(self.horizontalSpacer_6)
-
-        self.le_delete_municipe = QLineEdit(self.page_cadastrados)
-        self.le_delete_municipe.setObjectName(u"le_delete_municipe")
-        self.le_delete_municipe.setMinimumSize(QSize(134, 0))
-        self.le_delete_municipe.setStyleSheet(u"QLineEdit{	\n"
-"	color: rgb(0, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    min-width: 10em;\n"
-"}\n"
-"")
-        self.le_delete_municipe.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_22.addWidget(self.le_delete_municipe)
-
-        self.btn_delete_municipe = QPushButton(self.page_cadastrados)
-        self.btn_delete_municipe.setObjectName(u"btn_delete_municipe")
-        self.btn_delete_municipe.setMinimumSize(QSize(186, 0))
-        self.btn_delete_municipe.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_delete_municipe.setStyleSheet(u"QPushButton {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(238, 238, 0);\n"
-"    border-style: inset;\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}")
-
-        self.horizontalLayout_22.addWidget(self.btn_delete_municipe)
-
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_22.addItem(self.horizontalSpacer_3)
+        self.formLayout.setLayout(0, QFormLayout.LabelRole, self.gridLayout)
 
 
-        self.verticalLayout_19.addLayout(self.horizontalLayout_22)
-
-        self.label_40 = QLabel(self.page_cadastrados)
-        self.label_40.setObjectName(u"label_40")
-
-        self.verticalLayout_19.addWidget(self.label_40)
-
-        self.horizontalLayout_25 = QHBoxLayout()
-        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
-        self.label_53 = QLabel(self.page_cadastrados)
-        self.label_53.setObjectName(u"label_53")
-
-        self.horizontalLayout_25.addWidget(self.label_53)
-
-        self.label_52 = QLabel(self.page_cadastrados)
-        self.label_52.setObjectName(u"label_52")
-        self.label_52.setMinimumSize(QSize(131, 20))
-        self.label_52.setMaximumSize(QSize(131, 20))
-        font3 = QFont()
-        font3.setPointSize(10)
-        font3.setBold(True)
-        font3.setItalic(False)
-        font3.setWeight(75)
-        self.label_52.setFont(font3)
-        self.label_52.setStyleSheet(u"QLabel {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"}")
-        self.label_52.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_25.addWidget(self.label_52)
-
-        self.label_54 = QLabel(self.page_cadastrados)
-        self.label_54.setObjectName(u"label_54")
-
-        self.horizontalLayout_25.addWidget(self.label_54)
+        self.horizontalLayout_18.addWidget(self.frame_20)
 
         self.le_pesquisa_municipe = QLineEdit(self.page_cadastrados)
         self.le_pesquisa_municipe.setObjectName(u"le_pesquisa_municipe")
@@ -906,15 +733,10 @@ class Ui_MainWindow(object):
 "")
         self.le_pesquisa_municipe.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_25.addWidget(self.le_pesquisa_municipe)
-
-        self.label_55 = QLabel(self.page_cadastrados)
-        self.label_55.setObjectName(u"label_55")
-
-        self.horizontalLayout_25.addWidget(self.label_55)
+        self.horizontalLayout_18.addWidget(self.le_pesquisa_municipe)
 
 
-        self.verticalLayout_19.addLayout(self.horizontalLayout_25)
+        self.verticalLayout_14.addLayout(self.horizontalLayout_18)
 
         self.tb_municipes_cadastrados = QTableWidget(self.page_cadastrados)
         if (self.tb_municipes_cadastrados.columnCount() < 11):
@@ -942,96 +764,52 @@ class Ui_MainWindow(object):
         __qtablewidgetitem10 = QTableWidgetItem()
         self.tb_municipes_cadastrados.setHorizontalHeaderItem(10, __qtablewidgetitem10)
         self.tb_municipes_cadastrados.setObjectName(u"tb_municipes_cadastrados")
-        font4 = QFont()
-        font4.setPointSize(10)
-        font4.setBold(False)
-        font4.setWeight(50)
-        self.tb_municipes_cadastrados.setFont(font4)
+        font2 = QFont()
+        font2.setPointSize(10)
+        font2.setBold(False)
+        font2.setWeight(50)
+        self.tb_municipes_cadastrados.setFont(font2)
         self.tb_municipes_cadastrados.setLineWidth(2)
         self.tb_municipes_cadastrados.setMidLineWidth(1)
         self.tb_municipes_cadastrados.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.tb_municipes_cadastrados.setEditTriggers(QAbstractItemView.DoubleClicked)
 
-        self.verticalLayout_19.addWidget(self.tb_municipes_cadastrados)
+        self.verticalLayout_14.addWidget(self.tb_municipes_cadastrados)
 
         self.stackedWidget.addWidget(self.page_cadastrados)
-        self.page_agendamento = QWidget()
-        self.page_agendamento.setObjectName(u"page_agendamento")
-        self.verticalLayout_6 = QVBoxLayout(self.page_agendamento)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.horizontalLayout_19 = QHBoxLayout()
-        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
-        self.label_44 = QLabel(self.page_agendamento)
-        self.label_44.setObjectName(u"label_44")
-        self.label_44.setMinimumSize(QSize(311, 61))
-        self.label_44.setMaximumSize(QSize(311, 61))
-        self.label_44.setFont(font)
-        self.label_44.setStyleSheet(u"QLabel {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"}")
-        self.label_44.setAlignment(Qt.AlignCenter)
+        self.page_novo_agendamento = QWidget()
+        self.page_novo_agendamento.setObjectName(u"page_novo_agendamento")
+        self.verticalLayout_12 = QVBoxLayout(self.page_novo_agendamento)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.label_14 = QLabel(self.page_novo_agendamento)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setPixmap(QPixmap(u"NOVO_AGENDAMENTO.png"))
+        self.label_14.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_19.addWidget(self.label_44)
-
-        self.calendarWidget_2 = QCalendarWidget(self.page_agendamento)
-        self.calendarWidget_2.setObjectName(u"calendarWidget_2")
-        self.calendarWidget_2.setMinimumSize(QSize(491, 281))
-        self.calendarWidget_2.setMaximumSize(QSize(491, 281))
-        font5 = QFont()
-        font5.setPointSize(15)
-        font5.setBold(True)
-        font5.setWeight(75)
-        self.calendarWidget_2.setFont(font5)
-        self.calendarWidget_2.setGridVisible(True)
-        self.calendarWidget_2.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)
-        self.calendarWidget_2.setNavigationBarVisible(True)
-        self.calendarWidget_2.setDateEditEnabled(True)
-
-        self.horizontalLayout_19.addWidget(self.calendarWidget_2)
-
-
-        self.verticalLayout_6.addLayout(self.horizontalLayout_19)
-
-        self.label_45 = QLabel(self.page_agendamento)
-        self.label_45.setObjectName(u"label_45")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.label_45.sizePolicy().hasHeightForWidth())
-        self.label_45.setSizePolicy(sizePolicy2)
-
-        self.verticalLayout_6.addWidget(self.label_45)
+        self.verticalLayout_12.addWidget(self.label_14)
 
         self.horizontalLayout_27 = QHBoxLayout()
+        self.horizontalLayout_27.setSpacing(0)
         self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
-        self.verticalLayout_8 = QVBoxLayout()
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.label_25 = QLabel(self.page_agendamento)
-        self.label_25.setObjectName(u"label_25")
-        self.label_25.setMinimumSize(QSize(174, 31))
-        self.label_25.setMaximumSize(QSize(16777215, 31))
-        self.label_25.setStyleSheet(u"QLabel {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;}")
-        self.label_25.setAlignment(Qt.AlignCenter)
+        self.verticalLayout_9 = QVBoxLayout()
+        self.verticalLayout_9.setSpacing(0)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.label_15 = QLabel(self.page_novo_agendamento)
+        self.label_15.setObjectName(u"label_15")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.label_15.sizePolicy().hasHeightForWidth())
+        self.label_15.setSizePolicy(sizePolicy2)
+        self.label_15.setPixmap(QPixmap(u"SELE_MUNICIPE.png"))
+        self.label_15.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_8.addWidget(self.label_25)
+        self.verticalLayout_9.addWidget(self.label_15)
 
-        self.comboBox_municipe = QComboBox(self.page_agendamento)
+        self.comboBox_municipe = QComboBox(self.page_novo_agendamento)
         self.comboBox_municipe.setObjectName(u"comboBox_municipe")
+        sizePolicy2.setHeightForWidth(self.comboBox_municipe.sizePolicy().hasHeightForWidth())
+        self.comboBox_municipe.setSizePolicy(sizePolicy2)
         self.comboBox_municipe.setMinimumSize(QSize(174, 31))
         self.comboBox_municipe.setMaximumSize(QSize(16777215, 31))
         self.comboBox_municipe.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1047,33 +825,56 @@ class Ui_MainWindow(object):
 "    min-width: 10em;}")
         self.comboBox_municipe.setMaxVisibleItems(10)
 
-        self.verticalLayout_8.addWidget(self.comboBox_municipe)
+        self.verticalLayout_9.addWidget(self.comboBox_municipe)
 
 
-        self.horizontalLayout_27.addLayout(self.verticalLayout_8)
+        self.horizontalLayout_27.addLayout(self.verticalLayout_9)
 
-        self.verticalLayout_9 = QVBoxLayout()
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.label_24 = QLabel(self.page_agendamento)
+        self.verticalLayout_8 = QVBoxLayout()
+        self.verticalLayout_8.setSpacing(0)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.horizontalLayout_24 = QHBoxLayout()
+        self.horizontalLayout_24.setSpacing(0)
+        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
+        self.label_44 = QLabel(self.page_novo_agendamento)
+        self.label_44.setObjectName(u"label_44")
+
+        self.horizontalLayout_24.addWidget(self.label_44)
+
+        self.label_24 = QLabel(self.page_novo_agendamento)
         self.label_24.setObjectName(u"label_24")
-        self.label_24.setMinimumSize(QSize(174, 31))
-        self.label_24.setMaximumSize(QSize(174, 31))
-        self.label_24.setStyleSheet(u"QLabel {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;}")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.label_24.sizePolicy().hasHeightForWidth())
+        self.label_24.setSizePolicy(sizePolicy3)
+        self.label_24.setMaximumSize(QSize(309, 34))
+        self.label_24.setStyleSheet(u"")
+        self.label_24.setPixmap(QPixmap(u"DATA_AGENDAMENTO.png"))
         self.label_24.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_9.addWidget(self.label_24)
+        self.horizontalLayout_24.addWidget(self.label_24)
 
-        self.de_data_do_agendamento = QDateEdit(self.page_agendamento)
+        self.label_45 = QLabel(self.page_novo_agendamento)
+        self.label_45.setObjectName(u"label_45")
+
+        self.horizontalLayout_24.addWidget(self.label_45)
+
+
+        self.verticalLayout_8.addLayout(self.horizontalLayout_24)
+
+        self.horizontalLayout_25 = QHBoxLayout()
+        self.horizontalLayout_25.setSpacing(0)
+        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
+        self.label_16 = QLabel(self.page_novo_agendamento)
+        self.label_16.setObjectName(u"label_16")
+
+        self.horizontalLayout_25.addWidget(self.label_16)
+
+        self.de_data_do_agendamento = QDateEdit(self.page_novo_agendamento)
         self.de_data_do_agendamento.setObjectName(u"de_data_do_agendamento")
+        sizePolicy3.setHeightForWidth(self.de_data_do_agendamento.sizePolicy().hasHeightForWidth())
+        self.de_data_do_agendamento.setSizePolicy(sizePolicy3)
         self.de_data_do_agendamento.setMinimumSize(QSize(174, 31))
         self.de_data_do_agendamento.setMaximumSize(QSize(174, 31))
         self.de_data_do_agendamento.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1090,33 +891,59 @@ class Ui_MainWindow(object):
         self.de_data_do_agendamento.setDateTime(QDateTime(QDate(2022, 1, 1), QTime(0, 0, 0)))
         self.de_data_do_agendamento.setCalendarPopup(True)
 
-        self.verticalLayout_9.addWidget(self.de_data_do_agendamento)
+        self.horizontalLayout_25.addWidget(self.de_data_do_agendamento)
+
+        self.label_25 = QLabel(self.page_novo_agendamento)
+        self.label_25.setObjectName(u"label_25")
+
+        self.horizontalLayout_25.addWidget(self.label_25)
 
 
-        self.horizontalLayout_27.addLayout(self.verticalLayout_9)
+        self.verticalLayout_8.addLayout(self.horizontalLayout_25)
 
-        self.verticalLayout_12 = QVBoxLayout()
-        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-        self.label_43 = QLabel(self.page_agendamento)
+
+        self.horizontalLayout_27.addLayout(self.verticalLayout_8)
+
+        self.verticalLayout_6 = QVBoxLayout()
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.horizontalLayout_14 = QHBoxLayout()
+        self.horizontalLayout_14.setSpacing(0)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.label_50 = QLabel(self.page_novo_agendamento)
+        self.label_50.setObjectName(u"label_50")
+
+        self.horizontalLayout_14.addWidget(self.label_50)
+
+        self.label_43 = QLabel(self.page_novo_agendamento)
         self.label_43.setObjectName(u"label_43")
-        self.label_43.setMinimumSize(QSize(174, 31))
-        self.label_43.setMaximumSize(QSize(211, 31))
-        self.label_43.setStyleSheet(u"QLabel {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;}")
+        self.label_43.setMaximumSize(QSize(308, 34))
+        self.label_43.setStyleSheet(u"")
+        self.label_43.setPixmap(QPixmap(u"horario_agendamento.png"))
         self.label_43.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_12.addWidget(self.label_43)
+        self.horizontalLayout_14.addWidget(self.label_43)
 
-        self.te_horario_agendamento = QTimeEdit(self.page_agendamento)
+        self.label_51 = QLabel(self.page_novo_agendamento)
+        self.label_51.setObjectName(u"label_51")
+
+        self.horizontalLayout_14.addWidget(self.label_51)
+
+
+        self.verticalLayout_6.addLayout(self.horizontalLayout_14)
+
+        self.horizontalLayout_19 = QHBoxLayout()
+        self.horizontalLayout_19.setSpacing(0)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.label_28 = QLabel(self.page_novo_agendamento)
+        self.label_28.setObjectName(u"label_28")
+
+        self.horizontalLayout_19.addWidget(self.label_28)
+
+        self.te_horario_agendamento = QTimeEdit(self.page_novo_agendamento)
         self.te_horario_agendamento.setObjectName(u"te_horario_agendamento")
+        sizePolicy3.setHeightForWidth(self.te_horario_agendamento.sizePolicy().hasHeightForWidth())
+        self.te_horario_agendamento.setSizePolicy(sizePolicy3)
         self.te_horario_agendamento.setMinimumSize(QSize(174, 31))
         self.te_horario_agendamento.setMaximumSize(QSize(211, 31))
         self.te_horario_agendamento.setStyleSheet(u"QTimeEdit {\n"
@@ -1129,15 +956,24 @@ class Ui_MainWindow(object):
 "    font: bold 14px;\n"
 "    min-width: 10em;}")
         self.te_horario_agendamento.setAlignment(Qt.AlignCenter)
+        self.te_horario_agendamento.setReadOnly(False)
         self.te_horario_agendamento.setMaximumTime(QTime(17, 30, 0))
         self.te_horario_agendamento.setMinimumTime(QTime(8, 30, 0))
 
-        self.verticalLayout_12.addWidget(self.te_horario_agendamento)
+        self.horizontalLayout_19.addWidget(self.te_horario_agendamento)
+
+        self.label_41 = QLabel(self.page_novo_agendamento)
+        self.label_41.setObjectName(u"label_41")
+
+        self.horizontalLayout_19.addWidget(self.label_41)
 
 
-        self.horizontalLayout_27.addLayout(self.verticalLayout_12)
+        self.verticalLayout_6.addLayout(self.horizontalLayout_19)
 
-        self.btn_agendar = QPushButton(self.page_agendamento)
+
+        self.horizontalLayout_27.addLayout(self.verticalLayout_6)
+
+        self.btn_agendar = QPushButton(self.page_novo_agendamento)
         self.btn_agendar.setObjectName(u"btn_agendar")
         self.btn_agendar.setMinimumSize(QSize(186, 31))
         self.btn_agendar.setMaximumSize(QSize(151, 31))
@@ -1168,59 +1004,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_27.addWidget(self.btn_agendar)
 
 
-        self.verticalLayout_6.addLayout(self.horizontalLayout_27)
+        self.verticalLayout_12.addLayout(self.horizontalLayout_27)
 
-        self.label_50 = QLabel(self.page_agendamento)
-        self.label_50.setObjectName(u"label_50")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.label_50.sizePolicy().hasHeightForWidth())
-        self.label_50.setSizePolicy(sizePolicy3)
-
-        self.verticalLayout_6.addWidget(self.label_50)
-
-        self.horizontalLayout_14 = QHBoxLayout()
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.label_72 = QLabel(self.page_agendamento)
-        self.label_72.setObjectName(u"label_72")
-        self.label_72.setMinimumSize(QSize(131, 20))
-        self.label_72.setMaximumSize(QSize(131, 20))
-        self.label_72.setFont(font3)
-        self.label_72.setStyleSheet(u"QLabel {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"}")
-        self.label_72.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_14.addWidget(self.label_72)
-
-        self.le_filtro_data = QLineEdit(self.page_agendamento)
-        self.le_filtro_data.setObjectName(u"le_filtro_data")
-        self.le_filtro_data.setMinimumSize(QSize(132, 0))
-        self.le_filtro_data.setLayoutDirection(Qt.LeftToRight)
-        self.le_filtro_data.setStyleSheet(u"QLineEdit{	\n"
-"	color: rgb(0, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 0.5px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    min-width: 10em;\n"
-"}\n"
-"")
-        self.le_filtro_data.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_14.addWidget(self.le_filtro_data)
-
-
-        self.verticalLayout_6.addLayout(self.horizontalLayout_14)
-
-        self.tb_agendamento = QTableWidget(self.page_agendamento)
+        self.tb_agendamento = QTableWidget(self.page_novo_agendamento)
         if (self.tb_agendamento.columnCount() < 10):
             self.tb_agendamento.setColumnCount(10)
         __qtablewidgetitem11 = QTableWidgetItem()
@@ -1244,112 +1030,95 @@ class Ui_MainWindow(object):
         __qtablewidgetitem20 = QTableWidgetItem()
         self.tb_agendamento.setHorizontalHeaderItem(9, __qtablewidgetitem20)
         self.tb_agendamento.setObjectName(u"tb_agendamento")
-        font6 = QFont()
-        font6.setPointSize(12)
-        font6.setBold(True)
-        font6.setWeight(75)
-        self.tb_agendamento.setFont(font6)
+        font3 = QFont()
+        font3.setPointSize(12)
+        font3.setBold(True)
+        font3.setWeight(75)
+        self.tb_agendamento.setFont(font3)
         self.tb_agendamento.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.tb_agendamento.setSortingEnabled(True)
 
-        self.verticalLayout_6.addWidget(self.tb_agendamento)
+        self.verticalLayout_12.addWidget(self.tb_agendamento)
 
-        self.stackedWidget.addWidget(self.page_agendamento)
-        self.page_cadastrar = QWidget()
-        self.page_cadastrar.setObjectName(u"page_cadastrar")
-        self.verticalLayout_16 = QVBoxLayout(self.page_cadastrar)
+        self.stackedWidget.addWidget(self.page_novo_agendamento)
+        self.page_agendados = QWidget()
+        self.page_agendados.setObjectName(u"page_agendados")
+        self.verticalLayout_16 = QVBoxLayout(self.page_agendados)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
-        self.horizontalLayout_24 = QHBoxLayout()
-        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
+        self.label_4 = QLabel(self.page_agendados)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setPixmap(QPixmap(u"AGENDAMENTOS_CADASTRADOS.png"))
+        self.label_4.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_16.addWidget(self.label_4)
+
         self.horizontalLayout_20 = QHBoxLayout()
         self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
-        self.label_68 = QLabel(self.page_cadastrar)
-        self.label_68.setObjectName(u"label_68")
+        self.calendarWidget = QCalendarWidget(self.page_agendados)
+        self.calendarWidget.setObjectName(u"calendarWidget")
+        font4 = QFont()
+        font4.setPointSize(15)
+        self.calendarWidget.setFont(font4)
+        self.calendarWidget.setCursor(QCursor(Qt.PointingHandCursor))
+        self.calendarWidget.setLayoutDirection(Qt.LeftToRight)
+        self.calendarWidget.setAutoFillBackground(True)
+        self.calendarWidget.setGridVisible(True)
+        self.calendarWidget.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)
+        self.calendarWidget.setNavigationBarVisible(True)
+        self.calendarWidget.setDateEditEnabled(True)
 
-        self.horizontalLayout_20.addWidget(self.label_68)
+        self.horizontalLayout_20.addWidget(self.calendarWidget)
 
-        self.verticalLayout_15 = QVBoxLayout()
+
+        self.verticalLayout_16.addLayout(self.horizontalLayout_20)
+
+        self.lv_agendamentos_cadastrados = QListView(self.page_agendados)
+        self.lv_agendamentos_cadastrados.setObjectName(u"lv_agendamentos_cadastrados")
+
+        self.verticalLayout_16.addWidget(self.lv_agendamentos_cadastrados)
+
+        self.stackedWidget.addWidget(self.page_agendados)
+        self.page_novo_municipe = QWidget()
+        self.page_novo_municipe.setObjectName(u"page_novo_municipe")
+        self.verticalLayout_15 = QVBoxLayout(self.page_novo_municipe)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.label_69 = QLabel(self.page_cadastrar)
-        self.label_69.setObjectName(u"label_69")
-
-        self.verticalLayout_15.addWidget(self.label_69)
-
-        self.label_12 = QLabel(self.page_cadastrar)
+        self.label_12 = QLabel(self.page_novo_municipe)
         self.label_12.setObjectName(u"label_12")
-        self.label_12.setPixmap(QPixmap(u"logo.png"))
-        self.label_12.setScaledContents(True)
+        self.label_12.setPixmap(QPixmap(u"NOVO_MUNICIPE.png"))
+        self.label_12.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_15.addWidget(self.label_12)
 
-        self.label_67 = QLabel(self.page_cadastrar)
-        self.label_67.setObjectName(u"label_67")
-
-        self.verticalLayout_15.addWidget(self.label_67)
-
-
-        self.horizontalLayout_20.addLayout(self.verticalLayout_15)
-
-        self.label_11 = QLabel(self.page_cadastrar)
-        self.label_11.setObjectName(u"label_11")
-
-        self.horizontalLayout_20.addWidget(self.label_11)
-
-
-        self.horizontalLayout_24.addLayout(self.horizontalLayout_20)
-
-        self.verticalLayout_7 = QVBoxLayout()
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.label_71 = QLabel(self.page_cadastrar)
-        self.label_71.setObjectName(u"label_71")
-
-        self.verticalLayout_7.addWidget(self.label_71)
-
         self.horizontalLayout_15 = QHBoxLayout()
+        self.horizontalLayout_15.setSpacing(0)
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
-        self.label_28 = QLabel(self.page_cadastrar)
-        self.label_28.setObjectName(u"label_28")
-        font7 = QFont()
-        font7.setFamily(u"Courier New")
-        font7.setPointSize(32)
-        font7.setBold(True)
-        font7.setWeight(75)
-        self.label_28.setFont(font7)
+        self.frame_5 = QFrame(self.page_novo_municipe)
+        self.frame_5.setObjectName(u"frame_5")
+        sizePolicy3.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
+        self.frame_5.setSizePolicy(sizePolicy3)
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_15.addWidget(self.label_28)
+        self.horizontalLayout_15.addWidget(self.frame_5)
 
-        self.label_73 = QLabel(self.page_cadastrar)
-        self.label_73.setObjectName(u"label_73")
-
-        self.horizontalLayout_15.addWidget(self.label_73)
-
-
-        self.verticalLayout_7.addLayout(self.horizontalLayout_15)
-
-        self.label_70 = QLabel(self.page_cadastrar)
-        self.label_70.setObjectName(u"label_70")
-
-        self.verticalLayout_7.addWidget(self.label_70)
-
-
-        self.horizontalLayout_24.addLayout(self.verticalLayout_7)
-
-
-        self.verticalLayout_16.addLayout(self.horizontalLayout_24)
-
-        self.label_16 = QLabel(self.page_cadastrar)
-        self.label_16.setObjectName(u"label_16")
-
-        self.verticalLayout_16.addWidget(self.label_16)
-
-        self.label_15 = QLabel(self.page_cadastrar)
-        self.label_15.setObjectName(u"label_15")
-
-        self.verticalLayout_16.addWidget(self.label_15)
-
+        self.frame_4 = QFrame(self.page_novo_municipe)
+        self.frame_4.setObjectName(u"frame_4")
+        sizePolicy3.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
+        self.frame_4.setSizePolicy(sizePolicy3)
+        self.frame_4.setMinimumSize(QSize(681, 445))
+        self.frame_4.setMaximumSize(QSize(681, 445))
+        self.frame_4.setStyleSheet(u"border-width: 2px;\n"
+"border-color: black;\n"
+"border-style: solid;\n"
+"display: inline-block;\n"
+"border-radius: 8px")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.frame_4)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.label_19 = QLabel(self.page_cadastrar)
+        self.label_19 = QLabel(self.frame_4)
         self.label_19.setObjectName(u"label_19")
         self.label_19.setMinimumSize(QSize(61, 31))
         self.label_19.setMaximumSize(QSize(61, 31))
@@ -1359,32 +1128,37 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.label_19)
 
-        self.label_66 = QLabel(self.page_cadastrar)
+        self.label_66 = QLabel(self.frame_4)
         self.label_66.setObjectName(u"label_66")
         self.label_66.setMinimumSize(QSize(131, 20))
         self.label_66.setMaximumSize(QSize(131, 20))
-        self.label_66.setFont(font3)
+        font5 = QFont()
+        font5.setPointSize(10)
+        font5.setBold(True)
+        font5.setItalic(False)
+        font5.setWeight(75)
+        self.label_66.setFont(font5)
         self.label_66.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_66.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_4.addWidget(self.label_66)
 
-        self.le_nome = QLineEdit(self.page_cadastrar)
+        self.le_nome = QLineEdit(self.frame_4)
         self.le_nome.setObjectName(u"le_nome")
-        font8 = QFont()
-        font8.setFamily(u"Courier New")
-        font8.setPointSize(12)
-        font8.setBold(True)
-        font8.setWeight(75)
-        self.le_nome.setFont(font8)
+        font6 = QFont()
+        font6.setFamily(u"Courier New")
+        font6.setPointSize(12)
+        font6.setBold(True)
+        font6.setWeight(75)
+        self.le_nome.setFont(font6)
         self.le_nome.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1398,11 +1172,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.addWidget(self.le_nome)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_4)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_4)
 
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.label_29 = QLabel(self.page_cadastrar)
+        self.label_29 = QLabel(self.frame_4)
         self.label_29.setObjectName(u"label_29")
         self.label_29.setMinimumSize(QSize(61, 31))
         self.label_29.setMaximumSize(QSize(61, 31))
@@ -1412,27 +1186,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5.addWidget(self.label_29)
 
-        self.label_65 = QLabel(self.page_cadastrar)
+        self.label_65 = QLabel(self.frame_4)
         self.label_65.setObjectName(u"label_65")
         self.label_65.setMinimumSize(QSize(131, 20))
         self.label_65.setMaximumSize(QSize(131, 20))
-        self.label_65.setFont(font3)
+        self.label_65.setFont(font5)
         self.label_65.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_65.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_5.addWidget(self.label_65)
 
-        self.lv_rg = QLineEdit(self.page_cadastrar)
+        self.lv_rg = QLineEdit(self.frame_4)
         self.lv_rg.setObjectName(u"lv_rg")
-        self.lv_rg.setFont(font8)
+        self.lv_rg.setFont(font6)
         self.lv_rg.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1446,11 +1220,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.addWidget(self.lv_rg)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_5)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_5)
 
         self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setSpacing(6)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.label_30 = QLabel(self.page_cadastrar)
+        self.label_30 = QLabel(self.frame_4)
         self.label_30.setObjectName(u"label_30")
         self.label_30.setMinimumSize(QSize(61, 31))
         self.label_30.setMaximumSize(QSize(61, 31))
@@ -1460,27 +1235,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.label_30)
 
-        self.label_64 = QLabel(self.page_cadastrar)
+        self.label_64 = QLabel(self.frame_4)
         self.label_64.setObjectName(u"label_64")
         self.label_64.setMinimumSize(QSize(131, 20))
         self.label_64.setMaximumSize(QSize(131, 20))
-        self.label_64.setFont(font3)
+        self.label_64.setFont(font5)
         self.label_64.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_64.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_6.addWidget(self.label_64)
 
-        self.le_cpf = QLineEdit(self.page_cadastrar)
+        self.le_cpf = QLineEdit(self.frame_4)
         self.le_cpf.setObjectName(u"le_cpf")
-        self.le_cpf.setFont(font8)
+        self.le_cpf.setFont(font6)
         self.le_cpf.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1494,11 +1269,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addWidget(self.le_cpf)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_6)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_6)
 
         self.horizontalLayout_13 = QHBoxLayout()
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.label_37 = QLabel(self.page_cadastrar)
+        self.label_37 = QLabel(self.frame_4)
         self.label_37.setObjectName(u"label_37")
         self.label_37.setMinimumSize(QSize(61, 31))
         self.label_37.setMaximumSize(QSize(61, 31))
@@ -1508,27 +1283,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addWidget(self.label_37)
 
-        self.label_63 = QLabel(self.page_cadastrar)
+        self.label_63 = QLabel(self.frame_4)
         self.label_63.setObjectName(u"label_63")
         self.label_63.setMinimumSize(QSize(161, 20))
         self.label_63.setMaximumSize(QSize(161, 20))
-        self.label_63.setFont(font3)
+        self.label_63.setFont(font5)
         self.label_63.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_63.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_13.addWidget(self.label_63)
 
-        self.de_data_nascimento = QDateEdit(self.page_cadastrar)
+        self.de_data_nascimento = QDateEdit(self.frame_4)
         self.de_data_nascimento.setObjectName(u"de_data_nascimento")
-        self.de_data_nascimento.setFont(font8)
+        self.de_data_nascimento.setFont(font6)
         self.de_data_nascimento.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1546,11 +1321,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.addItem(self.horizontalSpacer)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_13)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_13)
 
         self.horizontalLayout_21 = QHBoxLayout()
         self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
-        self.label_42 = QLabel(self.page_cadastrar)
+        self.label_42 = QLabel(self.frame_4)
         self.label_42.setObjectName(u"label_42")
         self.label_42.setMinimumSize(QSize(61, 31))
         self.label_42.setMaximumSize(QSize(61, 31))
@@ -1560,27 +1335,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_21.addWidget(self.label_42)
 
-        self.label_62 = QLabel(self.page_cadastrar)
+        self.label_62 = QLabel(self.frame_4)
         self.label_62.setObjectName(u"label_62")
         self.label_62.setMinimumSize(QSize(131, 20))
         self.label_62.setMaximumSize(QSize(131, 20))
-        self.label_62.setFont(font3)
+        self.label_62.setFont(font5)
         self.label_62.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_62.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_21.addWidget(self.label_62)
 
-        self.le_telefone = QLineEdit(self.page_cadastrar)
+        self.le_telefone = QLineEdit(self.frame_4)
         self.le_telefone.setObjectName(u"le_telefone")
-        self.le_telefone.setFont(font8)
+        self.le_telefone.setFont(font6)
         self.le_telefone.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1594,11 +1369,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_21.addWidget(self.le_telefone)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_21)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_21)
 
         self.horizontalLayout_11 = QHBoxLayout()
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.label_36 = QLabel(self.page_cadastrar)
+        self.label_36 = QLabel(self.frame_4)
         self.label_36.setObjectName(u"label_36")
         self.label_36.setMinimumSize(QSize(61, 31))
         self.label_36.setMaximumSize(QSize(61, 31))
@@ -1608,27 +1383,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.label_36)
 
-        self.label_61 = QLabel(self.page_cadastrar)
+        self.label_61 = QLabel(self.frame_4)
         self.label_61.setObjectName(u"label_61")
         self.label_61.setMinimumSize(QSize(131, 20))
         self.label_61.setMaximumSize(QSize(131, 20))
-        self.label_61.setFont(font3)
+        self.label_61.setFont(font5)
         self.label_61.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_61.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_11.addWidget(self.label_61)
 
-        self.le_instituicao = QLineEdit(self.page_cadastrar)
+        self.le_instituicao = QLineEdit(self.frame_4)
         self.le_instituicao.setObjectName(u"le_instituicao")
-        self.le_instituicao.setFont(font8)
+        self.le_instituicao.setFont(font6)
         self.le_instituicao.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1642,11 +1417,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.addWidget(self.le_instituicao)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_11)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_11)
 
         self.horizontalLayout_7 = QHBoxLayout()
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.label_31 = QLabel(self.page_cadastrar)
+        self.label_31 = QLabel(self.frame_4)
         self.label_31.setObjectName(u"label_31")
         self.label_31.setMinimumSize(QSize(61, 31))
         self.label_31.setMaximumSize(QSize(61, 31))
@@ -1656,27 +1431,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.label_31)
 
-        self.label_60 = QLabel(self.page_cadastrar)
+        self.label_60 = QLabel(self.frame_4)
         self.label_60.setObjectName(u"label_60")
         self.label_60.setMinimumSize(QSize(131, 20))
         self.label_60.setMaximumSize(QSize(131, 20))
-        self.label_60.setFont(font3)
+        self.label_60.setFont(font5)
         self.label_60.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_60.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_7.addWidget(self.label_60)
 
-        self.le_cep = QLineEdit(self.page_cadastrar)
+        self.le_cep = QLineEdit(self.frame_4)
         self.le_cep.setObjectName(u"le_cep")
-        self.le_cep.setFont(font8)
+        self.le_cep.setFont(font6)
         self.le_cep.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1689,11 +1464,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.le_cep)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_7)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_7)
 
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.label_32 = QLabel(self.page_cadastrar)
+        self.label_32 = QLabel(self.frame_4)
         self.label_32.setObjectName(u"label_32")
         self.label_32.setMinimumSize(QSize(61, 31))
         self.label_32.setMaximumSize(QSize(61, 31))
@@ -1703,27 +1478,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.label_32)
 
-        self.label_59 = QLabel(self.page_cadastrar)
+        self.label_59 = QLabel(self.frame_4)
         self.label_59.setObjectName(u"label_59")
         self.label_59.setMinimumSize(QSize(131, 20))
         self.label_59.setMaximumSize(QSize(131, 20))
-        self.label_59.setFont(font3)
+        self.label_59.setFont(font5)
         self.label_59.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_59.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_8.addWidget(self.label_59)
 
-        self.le_endereco = QLineEdit(self.page_cadastrar)
+        self.le_endereco = QLineEdit(self.frame_4)
         self.le_endereco.setObjectName(u"le_endereco")
-        self.le_endereco.setFont(font8)
+        self.le_endereco.setFont(font6)
         self.le_endereco.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1737,11 +1512,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.le_endereco)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_8)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_8)
 
         self.horizontalLayout_9 = QHBoxLayout()
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.label_33 = QLabel(self.page_cadastrar)
+        self.label_33 = QLabel(self.frame_4)
         self.label_33.setObjectName(u"label_33")
         self.label_33.setMinimumSize(QSize(61, 31))
         self.label_33.setMaximumSize(QSize(61, 31))
@@ -1751,27 +1526,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_9.addWidget(self.label_33)
 
-        self.label_58 = QLabel(self.page_cadastrar)
+        self.label_58 = QLabel(self.frame_4)
         self.label_58.setObjectName(u"label_58")
         self.label_58.setMinimumSize(QSize(131, 20))
         self.label_58.setMaximumSize(QSize(131, 20))
-        self.label_58.setFont(font3)
+        self.label_58.setFont(font5)
         self.label_58.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_58.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_9.addWidget(self.label_58)
 
-        self.le_numero = QLineEdit(self.page_cadastrar)
+        self.le_numero = QLineEdit(self.frame_4)
         self.le_numero.setObjectName(u"le_numero")
-        self.le_numero.setFont(font8)
+        self.le_numero.setFont(font6)
         self.le_numero.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1784,11 +1559,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.addWidget(self.le_numero)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_9)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_9)
 
         self.horizontalLayout_10 = QHBoxLayout()
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.label_34 = QLabel(self.page_cadastrar)
+        self.label_34 = QLabel(self.frame_4)
         self.label_34.setObjectName(u"label_34")
         self.label_34.setMinimumSize(QSize(61, 31))
         self.label_34.setMaximumSize(QSize(61, 31))
@@ -1798,27 +1573,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_10.addWidget(self.label_34)
 
-        self.label_57 = QLabel(self.page_cadastrar)
+        self.label_57 = QLabel(self.frame_4)
         self.label_57.setObjectName(u"label_57")
         self.label_57.setMinimumSize(QSize(131, 20))
         self.label_57.setMaximumSize(QSize(131, 20))
-        self.label_57.setFont(font3)
+        self.label_57.setFont(font5)
         self.label_57.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_57.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_10.addWidget(self.label_57)
 
-        self.le_bairro = QLineEdit(self.page_cadastrar)
+        self.le_bairro = QLineEdit(self.frame_4)
         self.le_bairro.setObjectName(u"le_bairro")
-        self.le_bairro.setFont(font8)
+        self.le_bairro.setFont(font6)
         self.le_bairro.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1831,11 +1606,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.addWidget(self.le_bairro)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_10)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_10)
 
         self.horizontalLayout_12 = QHBoxLayout()
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.label_35 = QLabel(self.page_cadastrar)
+        self.label_35 = QLabel(self.frame_4)
         self.label_35.setObjectName(u"label_35")
         self.label_35.setMinimumSize(QSize(61, 31))
         self.label_35.setMaximumSize(QSize(61, 31))
@@ -1845,35 +1620,35 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_12.addWidget(self.label_35)
 
-        self.label_56 = QLabel(self.page_cadastrar)
+        self.label_56 = QLabel(self.frame_4)
         self.label_56.setObjectName(u"label_56")
         self.label_56.setMinimumSize(QSize(131, 20))
         self.label_56.setMaximumSize(QSize(131, 20))
-        self.label_56.setFont(font3)
+        self.label_56.setFont(font5)
         self.label_56.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
 "	background-color: rgb(144, 0, 0);\n"
 "    border-style: outset;\n"
 "    border-width: 2px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 0px;\n"
 "    border-color: black;\n"
 "}")
         self.label_56.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_12.addWidget(self.label_56)
 
-        self.le_cidade = QLineEdit(self.page_cadastrar)
+        self.le_cidade = QLineEdit(self.frame_4)
         self.le_cidade.setObjectName(u"le_cidade")
-        font9 = QFont()
-        font9.setFamily(u"Courier New")
-        font9.setPointSize(12)
-        font9.setBold(True)
-        font9.setUnderline(False)
-        font9.setWeight(75)
-        font9.setStrikeOut(False)
-        font9.setKerning(True)
-        self.le_cidade.setFont(font9)
+        font7 = QFont()
+        font7.setFamily(u"Courier New")
+        font7.setPointSize(12)
+        font7.setBold(True)
+        font7.setUnderline(False)
+        font7.setWeight(75)
+        font7.setStrikeOut(False)
+        font7.setKerning(True)
+        self.le_cidade.setFont(font7)
         self.le_cidade.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1887,49 +1662,32 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12.addWidget(self.le_cidade)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_12)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_12)
+
+
+        self.horizontalLayout_15.addWidget(self.frame_4)
+
+        self.frame_6 = QFrame(self.page_novo_municipe)
+        self.frame_6.setObjectName(u"frame_6")
+        sizePolicy3.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
+        self.frame_6.setSizePolicy(sizePolicy3)
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_15.addWidget(self.frame_6)
+
+
+        self.verticalLayout_15.addLayout(self.horizontalLayout_15)
 
         self.horizontalLayout_16 = QHBoxLayout()
+        self.horizontalLayout_16.setSpacing(0)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.label_13 = QLabel(self.page_cadastrar)
-        self.label_13.setObjectName(u"label_13")
+        self.label_38 = QLabel(self.page_novo_municipe)
+        self.label_38.setObjectName(u"label_38")
 
-        self.horizontalLayout_16.addWidget(self.label_13)
+        self.horizontalLayout_16.addWidget(self.label_38)
 
-        self.btn_update_municipe = QPushButton(self.page_cadastrar)
-        self.btn_update_municipe.setObjectName(u"btn_update_municipe")
-        self.btn_update_municipe.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_update_municipe.setStyleSheet(u"QPushButton {\n"
-"	color: rgb(255, 255, 255);\n"
-"    \n"
-"	background-color: rgb(144, 0, 0);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 10px;\n"
-"    border-color: black;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(238, 238, 0);\n"
-"    border-style: inset;\n"
-"	color: rgb(0, 0, 0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}")
-
-        self.horizontalLayout_16.addWidget(self.btn_update_municipe)
-
-        self.label_51 = QLabel(self.page_cadastrar)
-        self.label_51.setObjectName(u"label_51")
-
-        self.horizontalLayout_16.addWidget(self.label_51)
-
-        self.btn_novo_cadastro = QPushButton(self.page_cadastrar)
+        self.btn_novo_cadastro = QPushButton(self.page_novo_municipe)
         self.btn_novo_cadastro.setObjectName(u"btn_novo_cadastro")
         self.btn_novo_cadastro.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_novo_cadastro.setStyleSheet(u"QPushButton {\n"
@@ -1957,20 +1715,683 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_16.addWidget(self.btn_novo_cadastro)
 
-        self.label_14 = QLabel(self.page_cadastrar)
-        self.label_14.setObjectName(u"label_14")
+        self.label_27 = QLabel(self.page_novo_municipe)
+        self.label_27.setObjectName(u"label_27")
 
-        self.horizontalLayout_16.addWidget(self.label_14)
+        self.horizontalLayout_16.addWidget(self.label_27)
 
 
-        self.verticalLayout_16.addLayout(self.horizontalLayout_16)
+        self.verticalLayout_15.addLayout(self.horizontalLayout_16)
 
-        self.stackedWidget.addWidget(self.page_cadastrar)
+        self.stackedWidget.addWidget(self.page_novo_municipe)
+        self.page_att_municipe = QWidget()
+        self.page_att_municipe.setObjectName(u"page_att_municipe")
+        self.verticalLayout_19 = QVBoxLayout(self.page_att_municipe)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.label_147 = QLabel(self.page_att_municipe)
+        self.label_147.setObjectName(u"label_147")
+        self.label_147.setLayoutDirection(Qt.LeftToRight)
+        self.label_147.setPixmap(QPixmap(u"att_municipe.png"))
+        self.label_147.setScaledContents(False)
+        self.label_147.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_19.addWidget(self.label_147)
+
+        self.horizontalLayout_23 = QHBoxLayout()
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.label_11 = QLabel(self.page_att_municipe)
+        self.label_11.setObjectName(u"label_11")
+
+        self.horizontalLayout_23.addWidget(self.label_11)
+
+        self.cb_municipes_att = QComboBox(self.page_att_municipe)
+        self.cb_municipes_att.setObjectName(u"cb_municipes_att")
+        self.cb_municipes_att.setFont(font6)
+        self.cb_municipes_att.setMaxVisibleItems(10)
+
+        self.horizontalLayout_23.addWidget(self.cb_municipes_att)
+
+        self.btn_lupa = QPushButton(self.page_att_municipe)
+        self.btn_lupa.setObjectName(u"btn_lupa")
+        self.btn_lupa.setMinimumSize(QSize(61, 31))
+        self.btn_lupa.setMaximumSize(QSize(61, 31))
+        self.btn_lupa.setAutoFillBackground(False)
+        self.btn_lupa.setStyleSheet(u"image: url(:/newPrefix/LUPA.png);\n"
+"background-color: rgb(240, 240, 240);")
+
+        self.horizontalLayout_23.addWidget(self.btn_lupa)
+
+        self.label_13 = QLabel(self.page_att_municipe)
+        self.label_13.setObjectName(u"label_13")
+
+        self.horizontalLayout_23.addWidget(self.label_13)
+
+
+        self.verticalLayout_19.addLayout(self.horizontalLayout_23)
+
+        self.horizontalLayout_57 = QHBoxLayout()
+        self.horizontalLayout_57.setSpacing(0)
+        self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
+        self.frame_17 = QFrame(self.page_att_municipe)
+        self.frame_17.setObjectName(u"frame_17")
+        sizePolicy3.setHeightForWidth(self.frame_17.sizePolicy().hasHeightForWidth())
+        self.frame_17.setSizePolicy(sizePolicy3)
+        self.frame_17.setFrameShape(QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_57.addWidget(self.frame_17)
+
+        self.frame_18 = QFrame(self.page_att_municipe)
+        self.frame_18.setObjectName(u"frame_18")
+        sizePolicy3.setHeightForWidth(self.frame_18.sizePolicy().hasHeightForWidth())
+        self.frame_18.setSizePolicy(sizePolicy3)
+        self.frame_18.setMinimumSize(QSize(681, 445))
+        self.frame_18.setMaximumSize(QSize(681, 445))
+        self.frame_18.setStyleSheet(u"border-width: 2px;\n"
+"border-color: black;\n"
+"border-style: solid;\n"
+"display: inline-block;\n"
+"border-radius: 8px")
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_40 = QVBoxLayout(self.frame_18)
+        self.verticalLayout_40.setObjectName(u"verticalLayout_40")
+        self.horizontalLayout_58 = QHBoxLayout()
+        self.horizontalLayout_58.setObjectName(u"horizontalLayout_58")
+        self.label_125 = QLabel(self.frame_18)
+        self.label_125.setObjectName(u"label_125")
+        self.label_125.setMinimumSize(QSize(61, 31))
+        self.label_125.setMaximumSize(QSize(61, 31))
+        self.label_125.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_125.setScaledContents(True)
+        self.label_125.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_58.addWidget(self.label_125)
+
+        self.label_126 = QLabel(self.frame_18)
+        self.label_126.setObjectName(u"label_126")
+        self.label_126.setMinimumSize(QSize(131, 20))
+        self.label_126.setMaximumSize(QSize(131, 20))
+        self.label_126.setFont(font5)
+        self.label_126.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_126.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_58.addWidget(self.label_126)
+
+        self.le_nome_3 = QLineEdit(self.frame_18)
+        self.le_nome_3.setObjectName(u"le_nome_3")
+        self.le_nome_3.setFont(font6)
+        self.le_nome_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}\n"
+"")
+
+        self.horizontalLayout_58.addWidget(self.le_nome_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_58)
+
+        self.horizontalLayout_59 = QHBoxLayout()
+        self.horizontalLayout_59.setObjectName(u"horizontalLayout_59")
+        self.label_127 = QLabel(self.frame_18)
+        self.label_127.setObjectName(u"label_127")
+        self.label_127.setMinimumSize(QSize(61, 31))
+        self.label_127.setMaximumSize(QSize(61, 31))
+        self.label_127.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_127.setScaledContents(True)
+        self.label_127.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_59.addWidget(self.label_127)
+
+        self.label_128 = QLabel(self.frame_18)
+        self.label_128.setObjectName(u"label_128")
+        self.label_128.setMinimumSize(QSize(131, 20))
+        self.label_128.setMaximumSize(QSize(131, 20))
+        self.label_128.setFont(font5)
+        self.label_128.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_128.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_59.addWidget(self.label_128)
+
+        self.lv_rg_3 = QLineEdit(self.frame_18)
+        self.lv_rg_3.setObjectName(u"lv_rg_3")
+        self.lv_rg_3.setFont(font6)
+        self.lv_rg_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}\n"
+"")
+
+        self.horizontalLayout_59.addWidget(self.lv_rg_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_59)
+
+        self.horizontalLayout_60 = QHBoxLayout()
+        self.horizontalLayout_60.setSpacing(6)
+        self.horizontalLayout_60.setObjectName(u"horizontalLayout_60")
+        self.label_129 = QLabel(self.frame_18)
+        self.label_129.setObjectName(u"label_129")
+        self.label_129.setMinimumSize(QSize(61, 31))
+        self.label_129.setMaximumSize(QSize(61, 31))
+        self.label_129.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_129.setScaledContents(True)
+        self.label_129.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_60.addWidget(self.label_129)
+
+        self.label_130 = QLabel(self.frame_18)
+        self.label_130.setObjectName(u"label_130")
+        self.label_130.setMinimumSize(QSize(131, 20))
+        self.label_130.setMaximumSize(QSize(131, 20))
+        self.label_130.setFont(font5)
+        self.label_130.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_130.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_60.addWidget(self.label_130)
+
+        self.le_cpf_3 = QLineEdit(self.frame_18)
+        self.le_cpf_3.setObjectName(u"le_cpf_3")
+        self.le_cpf_3.setFont(font6)
+        self.le_cpf_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}\n"
+"")
+
+        self.horizontalLayout_60.addWidget(self.le_cpf_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_60)
+
+        self.horizontalLayout_61 = QHBoxLayout()
+        self.horizontalLayout_61.setObjectName(u"horizontalLayout_61")
+        self.label_131 = QLabel(self.frame_18)
+        self.label_131.setObjectName(u"label_131")
+        self.label_131.setMinimumSize(QSize(61, 31))
+        self.label_131.setMaximumSize(QSize(61, 31))
+        self.label_131.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_131.setScaledContents(True)
+        self.label_131.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_61.addWidget(self.label_131)
+
+        self.label_132 = QLabel(self.frame_18)
+        self.label_132.setObjectName(u"label_132")
+        self.label_132.setMinimumSize(QSize(161, 20))
+        self.label_132.setMaximumSize(QSize(161, 20))
+        self.label_132.setFont(font5)
+        self.label_132.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_132.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_61.addWidget(self.label_132)
+
+        self.de_data_nascimento_3 = QDateEdit(self.frame_18)
+        self.de_data_nascimento_3.setObjectName(u"de_data_nascimento_3")
+        self.de_data_nascimento_3.setFont(font6)
+        self.de_data_nascimento_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}")
+        self.de_data_nascimento_3.setCalendarPopup(True)
+
+        self.horizontalLayout_61.addWidget(self.de_data_nascimento_3)
+
+        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_61.addItem(self.horizontalSpacer_11)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_61)
+
+        self.horizontalLayout_62 = QHBoxLayout()
+        self.horizontalLayout_62.setObjectName(u"horizontalLayout_62")
+        self.label_133 = QLabel(self.frame_18)
+        self.label_133.setObjectName(u"label_133")
+        self.label_133.setMinimumSize(QSize(61, 31))
+        self.label_133.setMaximumSize(QSize(61, 31))
+        self.label_133.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_133.setScaledContents(True)
+        self.label_133.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_62.addWidget(self.label_133)
+
+        self.label_134 = QLabel(self.frame_18)
+        self.label_134.setObjectName(u"label_134")
+        self.label_134.setMinimumSize(QSize(131, 20))
+        self.label_134.setMaximumSize(QSize(131, 20))
+        self.label_134.setFont(font5)
+        self.label_134.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_134.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_62.addWidget(self.label_134)
+
+        self.le_telefone_3 = QLineEdit(self.frame_18)
+        self.le_telefone_3.setObjectName(u"le_telefone_3")
+        self.le_telefone_3.setFont(font6)
+        self.le_telefone_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}\n"
+"")
+
+        self.horizontalLayout_62.addWidget(self.le_telefone_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_62)
+
+        self.horizontalLayout_63 = QHBoxLayout()
+        self.horizontalLayout_63.setObjectName(u"horizontalLayout_63")
+        self.label_135 = QLabel(self.frame_18)
+        self.label_135.setObjectName(u"label_135")
+        self.label_135.setMinimumSize(QSize(61, 31))
+        self.label_135.setMaximumSize(QSize(61, 31))
+        self.label_135.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_135.setScaledContents(True)
+        self.label_135.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_63.addWidget(self.label_135)
+
+        self.label_136 = QLabel(self.frame_18)
+        self.label_136.setObjectName(u"label_136")
+        self.label_136.setMinimumSize(QSize(131, 20))
+        self.label_136.setMaximumSize(QSize(131, 20))
+        self.label_136.setFont(font5)
+        self.label_136.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_136.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_63.addWidget(self.label_136)
+
+        self.le_instituicao_3 = QLineEdit(self.frame_18)
+        self.le_instituicao_3.setObjectName(u"le_instituicao_3")
+        self.le_instituicao_3.setFont(font6)
+        self.le_instituicao_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}\n"
+"")
+
+        self.horizontalLayout_63.addWidget(self.le_instituicao_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_63)
+
+        self.horizontalLayout_64 = QHBoxLayout()
+        self.horizontalLayout_64.setObjectName(u"horizontalLayout_64")
+        self.label_137 = QLabel(self.frame_18)
+        self.label_137.setObjectName(u"label_137")
+        self.label_137.setMinimumSize(QSize(61, 31))
+        self.label_137.setMaximumSize(QSize(61, 31))
+        self.label_137.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_137.setScaledContents(True)
+        self.label_137.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_64.addWidget(self.label_137)
+
+        self.label_138 = QLabel(self.frame_18)
+        self.label_138.setObjectName(u"label_138")
+        self.label_138.setMinimumSize(QSize(131, 20))
+        self.label_138.setMaximumSize(QSize(131, 20))
+        self.label_138.setFont(font5)
+        self.label_138.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_138.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_64.addWidget(self.label_138)
+
+        self.le_cep_3 = QLineEdit(self.frame_18)
+        self.le_cep_3.setObjectName(u"le_cep_3")
+        self.le_cep_3.setFont(font6)
+        self.le_cep_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}")
+
+        self.horizontalLayout_64.addWidget(self.le_cep_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_64)
+
+        self.horizontalLayout_65 = QHBoxLayout()
+        self.horizontalLayout_65.setObjectName(u"horizontalLayout_65")
+        self.label_139 = QLabel(self.frame_18)
+        self.label_139.setObjectName(u"label_139")
+        self.label_139.setMinimumSize(QSize(61, 31))
+        self.label_139.setMaximumSize(QSize(61, 31))
+        self.label_139.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_139.setScaledContents(True)
+        self.label_139.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_65.addWidget(self.label_139)
+
+        self.label_140 = QLabel(self.frame_18)
+        self.label_140.setObjectName(u"label_140")
+        self.label_140.setMinimumSize(QSize(131, 20))
+        self.label_140.setMaximumSize(QSize(131, 20))
+        self.label_140.setFont(font5)
+        self.label_140.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_140.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_65.addWidget(self.label_140)
+
+        self.le_endereco_3 = QLineEdit(self.frame_18)
+        self.le_endereco_3.setObjectName(u"le_endereco_3")
+        self.le_endereco_3.setFont(font6)
+        self.le_endereco_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}\n"
+"")
+
+        self.horizontalLayout_65.addWidget(self.le_endereco_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_65)
+
+        self.horizontalLayout_66 = QHBoxLayout()
+        self.horizontalLayout_66.setObjectName(u"horizontalLayout_66")
+        self.label_141 = QLabel(self.frame_18)
+        self.label_141.setObjectName(u"label_141")
+        self.label_141.setMinimumSize(QSize(61, 31))
+        self.label_141.setMaximumSize(QSize(61, 31))
+        self.label_141.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_141.setScaledContents(True)
+        self.label_141.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_66.addWidget(self.label_141)
+
+        self.label_142 = QLabel(self.frame_18)
+        self.label_142.setObjectName(u"label_142")
+        self.label_142.setMinimumSize(QSize(131, 20))
+        self.label_142.setMaximumSize(QSize(131, 20))
+        self.label_142.setFont(font5)
+        self.label_142.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_142.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_66.addWidget(self.label_142)
+
+        self.le_numero_3 = QLineEdit(self.frame_18)
+        self.le_numero_3.setObjectName(u"le_numero_3")
+        self.le_numero_3.setFont(font6)
+        self.le_numero_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}")
+
+        self.horizontalLayout_66.addWidget(self.le_numero_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_66)
+
+        self.horizontalLayout_67 = QHBoxLayout()
+        self.horizontalLayout_67.setObjectName(u"horizontalLayout_67")
+        self.label_143 = QLabel(self.frame_18)
+        self.label_143.setObjectName(u"label_143")
+        self.label_143.setMinimumSize(QSize(61, 31))
+        self.label_143.setMaximumSize(QSize(61, 31))
+        self.label_143.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_143.setScaledContents(True)
+        self.label_143.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_67.addWidget(self.label_143)
+
+        self.label_144 = QLabel(self.frame_18)
+        self.label_144.setObjectName(u"label_144")
+        self.label_144.setMinimumSize(QSize(131, 20))
+        self.label_144.setMaximumSize(QSize(131, 20))
+        self.label_144.setFont(font5)
+        self.label_144.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_144.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_67.addWidget(self.label_144)
+
+        self.le_bairro_3 = QLineEdit(self.frame_18)
+        self.le_bairro_3.setObjectName(u"le_bairro_3")
+        self.le_bairro_3.setFont(font6)
+        self.le_bairro_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}")
+
+        self.horizontalLayout_67.addWidget(self.le_bairro_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_67)
+
+        self.horizontalLayout_68 = QHBoxLayout()
+        self.horizontalLayout_68.setObjectName(u"horizontalLayout_68")
+        self.label_145 = QLabel(self.frame_18)
+        self.label_145.setObjectName(u"label_145")
+        self.label_145.setMinimumSize(QSize(61, 31))
+        self.label_145.setMaximumSize(QSize(61, 31))
+        self.label_145.setPixmap(QPixmap(u"icone agendamento.png"))
+        self.label_145.setScaledContents(True)
+        self.label_145.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_68.addWidget(self.label_145)
+
+        self.label_146 = QLabel(self.frame_18)
+        self.label_146.setObjectName(u"label_146")
+        self.label_146.setMinimumSize(QSize(131, 20))
+        self.label_146.setMaximumSize(QSize(131, 20))
+        self.label_146.setFont(font5)
+        self.label_146.setStyleSheet(u"QLabel {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 0px;\n"
+"    border-color: black;\n"
+"}")
+        self.label_146.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_68.addWidget(self.label_146)
+
+        self.le_cidade_3 = QLineEdit(self.frame_18)
+        self.le_cidade_3.setObjectName(u"le_cidade_3")
+        self.le_cidade_3.setFont(font7)
+        self.le_cidade_3.setStyleSheet(u"QLineEdit{	\n"
+"	color: rgb(0, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    min-width: 10em;\n"
+"}\n"
+"")
+
+        self.horizontalLayout_68.addWidget(self.le_cidade_3)
+
+
+        self.verticalLayout_40.addLayout(self.horizontalLayout_68)
+
+
+        self.horizontalLayout_57.addWidget(self.frame_18)
+
+        self.frame_19 = QFrame(self.page_att_municipe)
+        self.frame_19.setObjectName(u"frame_19")
+        sizePolicy3.setHeightForWidth(self.frame_19.sizePolicy().hasHeightForWidth())
+        self.frame_19.setSizePolicy(sizePolicy3)
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_57.addWidget(self.frame_19)
+
+
+        self.verticalLayout_19.addLayout(self.horizontalLayout_57)
+
+        self.horizontalLayout_22 = QHBoxLayout()
+        self.horizontalLayout_22.setSpacing(0)
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.label_39 = QLabel(self.page_att_municipe)
+        self.label_39.setObjectName(u"label_39")
+
+        self.horizontalLayout_22.addWidget(self.label_39)
+
+        self.btn_update_municipe = QPushButton(self.page_att_municipe)
+        self.btn_update_municipe.setObjectName(u"btn_update_municipe")
+        self.btn_update_municipe.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_update_municipe.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"    min-width: 10em;\n"
+"    padding: 6px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}")
+
+        self.horizontalLayout_22.addWidget(self.btn_update_municipe)
+
+        self.label_40 = QLabel(self.page_att_municipe)
+        self.label_40.setObjectName(u"label_40")
+
+        self.horizontalLayout_22.addWidget(self.label_40)
+
+
+        self.verticalLayout_19.addLayout(self.horizontalLayout_22)
+
+        self.stackedWidget.addWidget(self.page_att_municipe)
         self.page_sobre = QWidget()
         self.page_sobre.setObjectName(u"page_sobre")
         self.verticalLayout_5 = QVBoxLayout(self.page_sobre)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.label_7 = QLabel(self.page_sobre)
         self.label_7.setObjectName(u"label_7")
@@ -1978,6 +2399,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.label_7)
 
         self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_10 = QLabel(self.page_sobre)
         self.label_10.setObjectName(u"label_10")
@@ -1986,12 +2408,12 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.page_sobre)
         self.label_2.setObjectName(u"label_2")
-        font10 = QFont()
-        font10.setFamily(u"Courier New")
-        font10.setPointSize(60)
-        font10.setBold(True)
-        font10.setWeight(75)
-        self.label_2.setFont(font10)
+        font8 = QFont()
+        font8.setFamily(u"Courier New")
+        font8.setPointSize(60)
+        font8.setBold(True)
+        font8.setWeight(75)
+        self.label_2.setFont(font8)
         self.label_2.setTextFormat(Qt.MarkdownText)
         self.label_2.setScaledContents(True)
         self.label_2.setAlignment(Qt.AlignCenter)
@@ -2015,6 +2437,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.addLayout(self.horizontalLayout_2)
 
         self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.label_3 = QLabel(self.page_sobre)
         self.label_3.setObjectName(u"label_3")
@@ -2022,12 +2445,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.label_3)
 
         self.verticalLayout_4 = QVBoxLayout()
+        self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.label_4 = QLabel(self.page_sobre)
-        self.label_4.setObjectName(u"label_4")
-
-        self.verticalLayout_4.addWidget(self.label_4)
-
         self.label = QLabel(self.page_sobre)
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(411, 141))
@@ -2077,8 +2496,7 @@ class Ui_MainWindow(object):
         self.btn_menu_municipes.setText(QCoreApplication.translate("MainWindow", u"MUNICIPES", None))
         self.btn_municipes_cadastrados.setText(QCoreApplication.translate("MainWindow", u"CADASTRADOS", None))
         self.btn_alterar_municipes_cadastros.setText(QCoreApplication.translate("MainWindow", u"ALTERAR CADASTRO", None))
-        self.btn_deletar_municipes_cadastrados.setText(QCoreApplication.translate("MainWindow", u"DELETAR CADASTRO", None))
-        self.btn_menu_agendamento.setText(QCoreApplication.translate("MainWindow", u"AGENDAMENTOS", None))
+        self.btn_menu_agendamento.setText(QCoreApplication.translate("MainWindow", u"AGENDADOS", None))
         self.btn_menu_sobre.setText(QCoreApplication.translate("MainWindow", u"SOBRE", None))
         self.label_22.setText("")
         self.label_20.setText("")
@@ -2086,7 +2504,7 @@ class Ui_MainWindow(object):
         self.label_18.setText("")
         self.label_74.setText("")
         self.label_23.setText("")
-        self.label_49.setText(QCoreApplication.translate("MainWindow", u"NOVO USUARIO", None))
+        self.label_49.setText("")
         self.label_47.setText("")
         self.le_novo_login.setPlaceholderText(QCoreApplication.translate("MainWindow", u"LOGIN", None))
         self.le_novo_usuario.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NOME DE USUARIO", None))
@@ -2102,22 +2520,18 @@ class Ui_MainWindow(object):
         self.le_senha_deletar.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Senha admin", None))
         self.bt_deletar_usuario.setText(QCoreApplication.translate("MainWindow", u"DELETAR", None))
         self.label_48.setText("")
-        self.label_39.setText("")
         self.label_17.setText("")
-        self.label_27.setText(QCoreApplication.translate("MainWindow", u"MUNICIPES CADASTRADOS", None))
         self.label_26.setText("")
-        self.label_38.setText("")
-        self.label_41.setText("")
-        self.le_update_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
-        self.btn_update_municipe_id.setText(QCoreApplication.translate("MainWindow", u"ATUALIZAR DADOS", None))
-        self.le_delete_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
-        self.btn_delete_municipe.setText(QCoreApplication.translate("MainWindow", u"DELETAR", None))
-        self.label_40.setText("")
-        self.label_53.setText("")
-        self.label_52.setText(QCoreApplication.translate("MainWindow", u"NOME", None))
-        self.label_54.setText("")
+        self.rb_instituicao.setText(QCoreApplication.translate("MainWindow", u"INSTITUI\u00c7\u00c3O", None))
+        self.rb_nome.setText(QCoreApplication.translate("MainWindow", u"NOME", None))
+        self.rb_cep.setText(QCoreApplication.translate("MainWindow", u"CEP", None))
+        self.rb_rg.setText(QCoreApplication.translate("MainWindow", u"RG", None))
+        self.rb_telefone.setText(QCoreApplication.translate("MainWindow", u"TELEFONE", None))
+        self.rb_endereco.setText(QCoreApplication.translate("MainWindow", u"ENDERE\u00c7O", None))
+        self.rb_bairro.setText(QCoreApplication.translate("MainWindow", u"BAIRRO", None))
+        self.rb_cidade.setText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
+        self.rb_cpf.setText(QCoreApplication.translate("MainWindow", u"CPF", None))
         self.le_pesquisa_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Filtro", None))
-        self.label_55.setText("")
         ___qtablewidgetitem = self.tb_municipes_cadastrados.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"NOME", None));
         ___qtablewidgetitem1 = self.tb_municipes_cadastrados.horizontalHeaderItem(1)
@@ -2140,15 +2554,19 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"BAIRRO", None));
         ___qtablewidgetitem10 = self.tb_municipes_cadastrados.horizontalHeaderItem(10)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"CIDADE", None));
-        self.label_44.setText(QCoreApplication.translate("MainWindow", u"AGENDAMENTO", None))
+        self.label_14.setText("")
+        self.label_15.setText("")
+        self.label_44.setText("")
+        self.label_24.setText("")
         self.label_45.setText("")
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Selecione um Municipe Cadastrado", None))
-        self.label_24.setText(QCoreApplication.translate("MainWindow", u"Data do Agendamento", None))
-        self.label_43.setText(QCoreApplication.translate("MainWindow", u"Hor\u00e1rio do Agendamento", None))
-        self.btn_agendar.setText(QCoreApplication.translate("MainWindow", u"AGENDAR", None))
+        self.label_16.setText("")
+        self.label_25.setText("")
         self.label_50.setText("")
-        self.label_72.setText(QCoreApplication.translate("MainWindow", u"DATA", None))
-        self.le_filtro_data.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Filtro", None))
+        self.label_43.setText("")
+        self.label_51.setText("")
+        self.label_28.setText("")
+        self.label_41.setText("")
+        self.btn_agendar.setText(QCoreApplication.translate("MainWindow", u"AGENDAR", None))
         ___qtablewidgetitem11 = self.tb_agendamento.horizontalHeaderItem(0)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"DATA", None));
         ___qtablewidgetitem12 = self.tb_agendamento.horizontalHeaderItem(1)
@@ -2169,17 +2587,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 15:30 A 16:30", None));
         ___qtablewidgetitem20 = self.tb_agendamento.horizontalHeaderItem(9)
         ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 16:30 A 17:30", None));
-        self.label_68.setText("")
-        self.label_69.setText("")
+        self.label_4.setText("")
         self.label_12.setText("")
-        self.label_67.setText("")
-        self.label_11.setText("")
-        self.label_71.setText("")
-        self.label_28.setText(QCoreApplication.translate("MainWindow", u"CADASTRO DE MUNICIPE", None))
-        self.label_73.setText("")
-        self.label_70.setText("")
-        self.label_16.setText("")
-        self.label_15.setText("")
         self.label_19.setText("")
         self.label_66.setText(QCoreApplication.translate("MainWindow", u"NOME", None))
         self.le_nome.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NOME", None))
@@ -2216,18 +2625,58 @@ class Ui_MainWindow(object):
         self.label_56.setText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
         self.le_cidade.setText("")
         self.le_cidade.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
-        self.label_13.setText("")
-        self.btn_update_municipe.setText(QCoreApplication.translate("MainWindow", u"ATUALIZAR", None))
-        self.label_51.setText("")
+        self.label_38.setText("")
         self.btn_novo_cadastro.setText(QCoreApplication.translate("MainWindow", u"CADASTRAR", None))
-        self.label_14.setText("")
+        self.label_27.setText("")
+        self.label_147.setText("")
+        self.label_11.setText("")
+        self.btn_lupa.setText("")
+        self.label_13.setText("")
+        self.label_125.setText("")
+        self.label_126.setText(QCoreApplication.translate("MainWindow", u"NOME", None))
+        self.le_nome_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NOME", None))
+        self.label_127.setText("")
+        self.label_128.setText(QCoreApplication.translate("MainWindow", u"RG", None))
+        self.lv_rg_3.setText("")
+        self.lv_rg_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"RG", None))
+        self.label_129.setText("")
+        self.label_130.setText(QCoreApplication.translate("MainWindow", u"CPF", None))
+        self.le_cpf_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CPF", None))
+        self.label_131.setText("")
+        self.label_132.setText(QCoreApplication.translate("MainWindow", u"DATA DE NASCIMENTO", None))
+        self.label_133.setText("")
+        self.label_134.setText(QCoreApplication.translate("MainWindow", u"TELEFONE", None))
+        self.le_telefone_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"TELEFONE", None))
+        self.label_135.setText("")
+        self.label_136.setText(QCoreApplication.translate("MainWindow", u"INSTITUI\u00c7\u00c3O", None))
+        self.le_instituicao_3.setText("")
+        self.le_instituicao_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"INSTITUI\u00c7\u00c3O", None))
+        self.label_137.setText("")
+        self.label_138.setText(QCoreApplication.translate("MainWindow", u"CEP", None))
+        self.le_cep_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CEP", None))
+        self.label_139.setText("")
+        self.label_140.setText(QCoreApplication.translate("MainWindow", u"ENDERE\u00c7O", None))
+        self.le_endereco_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ENDERE\u00c7O", None))
+        self.label_141.setText("")
+        self.label_142.setText(QCoreApplication.translate("MainWindow", u"NUMERO", None))
+        self.le_numero_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NUMERO", None))
+        self.label_143.setText("")
+        self.label_144.setText(QCoreApplication.translate("MainWindow", u"BAIRRO", None))
+        self.le_bairro_3.setText("")
+        self.le_bairro_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"BAIRRO", None))
+        self.label_145.setText("")
+        self.label_146.setText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
+        self.le_cidade_3.setText("")
+        self.le_cidade_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
+        self.label_39.setText("")
+        self.btn_update_municipe.setText(QCoreApplication.translate("MainWindow", u"ATUALIZAR", None))
+        self.label_40.setText("")
         self.label_7.setText("")
         self.label_10.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"DESENVOLVEDOR", None))
         self.label_8.setText("")
         self.label_9.setText("")
         self.label_3.setText("")
-        self.label_4.setText("")
         self.label.setText("")
         self.label_6.setText("")
         self.label_5.setText("")

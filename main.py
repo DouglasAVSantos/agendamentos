@@ -83,20 +83,22 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.btn_new_municipe.clicked.connect(self.pagina_new_municipe)
         self.btn_new_user.clicked.connect(self.pagina_new_user)
         self.btn_menu_agendamento.clicked.connect(self.get_agendamentos)
+        self.btn_new_agendamento.clicked.connect(self.pagina_novo_agendamentos)
+        self.btn_alterar_municipes_cadastros.clicked.connect(self.pagina_att_municipe)
         #**************************************************************************************************
 
 
         #*********************BOTOES DA PAGINA DE CADASTRO DE MUNICIPE******************************************
         self.btn_novo_cadastro.clicked.connect(self.novo_municipe)
-        self.le_cep.textChanged.connect(self.busca_cep)
+        self.le_cep.textChanged.connect(self.busca_cep1)
+        self.le_cep_3.textChanged.connect(self.busca_cep2)
         self.le_cpf.textChanged.connect(self.cpf_validate)
-        self.btn_update_municipe_id.clicked.connect(self.get_dados_municipe)
+        self.btn_lupa.clicked.connect(self.get_dados_municipe)
         # **************************************************************************************************
 
         # *******************BOTOES DA PAGINA DE MUNICIPES CADASTRADOS***************************************************
 
         self.btn_update_municipe.clicked.connect(self.update_table_municipes)
-        self.btn_delete_municipe.clicked.connect(self.delete_municipe)
         # **************************************************************************************************
 
         # ********************FILTROS********************************************************
@@ -116,14 +118,12 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.btn_agendar.clicked.connect(self.novo_agendamento)
         # **************************************************************************************************
 
-        self.calendarWidget_2.clicked.connect(self.filtro_datas)
+        self.calendarWidget.clicked.connect(self.filtro_datas)
 
         self.today_agendamentos()
 
         self.bt_cadastrar_usuario.clicked.connect(self.new_user)
         self.bt_deletar_usuario.clicked.connect(self.delete_user)
-
-
 
 
     def animation_frame_cadastrar(self):
@@ -202,8 +202,12 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.page_home)
         self.close_animation()
 
-    def pagina_agendamentos(self):
-        self.stackedWidget.setCurrentWidget(self.page_agendamento)
+    def pagina_att_municipe(self):
+        self.stackedWidget.setCurrentWidget(self.page_att_municipe)
+        self.close_animation()
+
+    def pagina_novo_agendamentos(self):
+        self.stackedWidget.setCurrentWidget(self.page_novo_agendamento)
         self.close_animation()
 
     def pagina_sobre(self):
@@ -214,7 +218,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.page_new_user)
         self.close_animation()
     def pagina_new_municipe(self):
-        self.stackedWidget.setCurrentWidget(self.page_cadastrar)
+        self.stackedWidget.setCurrentWidget(self.page_novo_municipe)
         self.close_animation()
     def pagina_municipes_cadastrados(self):
         self.stackedWidget.setCurrentWidget(self.page_cadastrados)
@@ -513,7 +517,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
 
     #FUNÇÃO QUE CONSOME A API DOS CORREIOS PARA VALIDAR O CEP E INCREMENTAR OS CAMPOS ENDEREÇO,BAIRRO,CIDADE NO CADASTRO
-    def busca_cep(self,s):
+    def busca_cep1(self,s):
         try:
             if len(s) == 8:
                 cep = self.le_cep.text().strip().title()
@@ -525,6 +529,19 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         except:
             self.message_critical('CEP INVÁLIDO')
             self.le_cep.setText('')
+
+    def busca_cep2(self,s):
+        try:
+            if len(s) == 8:
+                cep = self.le_cep_3.text().strip().title()
+                response = requests.get(f'http://viacep.com.br/ws/{cep}/json/')
+                response = response.json()
+                self.le_endereco_3.setText(f'{response["logradouro"]}')
+                self.le_bairro_3.setText(f'{response["bairro"]}')
+                self.le_cidade_3.setText(f'{response["localidade"]}')
+        except:
+            self.message_critical('CEP INVÁLIDO')
+            self.le_cep_3.setText('')
 
     #FUNÇÃO QUE VALIDA O CPF
     def cpf_validate(self, numbers):
@@ -551,34 +568,29 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
     #FUNÇÃO QUE PUXA OS DADOS DO BANCO DE DADOS E INCREMENTA OS CAMPOS DO CADASTRO PARA FAZER ALTERAÇÃO
     def get_dados_municipe(self):
-        try:
-            id = self.le_update_municipe.text()
-            db = DataBase()
-            db.conect_db()
-            cursor = db.conection.cursor()
-            cursor.execute(f'''
-            SELECT * FROM municipes WHERE ID = '{id}';
-            ''')
-            municipe = cursor.fetchall()
-            self.stackedWidget.setCurrentWidget(self.page_cadastrar)
-            self.le_nome.setText(municipe[0][1])
-            self.lv_rg.setText(municipe[0][2])
-            self.le_cpf.setText(municipe[0][3])
-            self.de_data_nascimento.setDate(QDate(int(municipe[0][4][6:]), int(municipe[0][4][3:5]), int(municipe[0][4][:2])))
-            self.le_telefone.setText(municipe[0][5])
-            self.le_instituicao.setText(municipe[0][6])
-            self.le_cep.setText(municipe[0][7])
-            # self.le_endereco.setText(municipe[0][8])
-            self.le_numero.setText(municipe[0][9])
-            # self.le_bairro.setText(municipe[0][10])
-            # self.le_cidade.setText(municipe[0][11])
+        nome = self.cb_municipes_att.currentText()
+        db = DataBase()
+        db.conect_db()
+        cursor = db.conection.cursor()
+        cursor.execute(f'''
+        SELECT * FROM municipes WHERE nome = '{nome}';
+        ''')
+        municipe = cursor.fetchall()
+        self.le_nome_3.setText(municipe[0][0])
+        self.lv_rg_3.setText(municipe[0][1])
+        self.le_cpf_3.setText(municipe[0][2])
+        self.de_data_nascimento_3.setDate(QDate(int(municipe[0][3][6:]), int(municipe[0][3][3:5]), int(municipe[0][3][:2])))
+        self.le_telefone_3.setText(municipe[0][4])
+        self.le_instituicao_3.setText(municipe[0][5])
+        self.le_cep_3.setText(municipe[0][6])
+        # self.le_endereco.setText(municipe[0][8])
+        self.le_numero_3.setText(municipe[0][8])
+        # self.le_bairro.setText(municipe[0][10])
+        # self.le_cidade.setText(municipe[0][11])
 
 
-            db.close_db()
-        except:
-            self.stackedWidget.setCurrentWidget(self.page_cadastrados)
-            self.le_update_municipe.setText('')
-            self.message_critical('MUNICIPE NÃO ENCONTRADO')
+        db.close_db()
+
 
     #FUNÇÃO QUE ATUALIZA A TABLEVIEW DO SISTEMA
     def update_table_municipes(self):
@@ -697,12 +709,14 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         cursor = db.conection.cursor()
         cursor.execute('SELECT NOME FROM municipes')
         self.comboBox_municipe.clear()
+        self.cb_municipes_att.clear()
         for nome in cursor.fetchall():
             self.comboBox_municipe.addItem(nome[0])
+            self.cb_municipes_att.addItem(nome[0])
         db.close_db()
 
     def get_agendamentos(self):
-        self.stackedWidget.setCurrentWidget(self.page_agendamento)
+        self.stackedWidget.setCurrentWidget(self.page_agendados)
         self.close_animation()
         self.table_reset()
 
