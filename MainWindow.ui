@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1205</width>
+    <width>1193</width>
     <height>859</height>
    </rect>
   </property>
@@ -486,6 +486,18 @@ QPushButton:pressed {
     </item>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="midLineWidth">
+       <number>0</number>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -1132,12 +1144,12 @@ QPushButton:hover{
          </layout>
         </item>
         <item>
-         <widget class="QTableWidget" name="tb_municipes_cadastrados">
+         <widget class="QTableView" name="tb_municipes_cadastrados">
           <property name="font">
            <font>
             <pointsize>10</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="lineWidth">
@@ -1150,63 +1162,14 @@ QPushButton:hover{
            <enum>QAbstractScrollArea::AdjustToContents</enum>
           </property>
           <property name="editTriggers">
-           <set>QAbstractItemView::DoubleClicked</set>
+           <set>QAbstractItemView::NoEditTriggers</set>
           </property>
-          <column>
-           <property name="text">
-            <string>NOME</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>RG</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>CPF</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>NASCIMENTO</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>TELEFONE</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>INSTITUIÇÃO</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>CEP</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>ENDEREÇO</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>NUMERO</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>BAIRRO</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>CIDADE</string>
-           </property>
-          </column>
+          <property name="defaultDropAction">
+           <enum>Qt::IgnoreAction</enum>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
        </layout>
@@ -1290,8 +1253,14 @@ QPushButton:hover{
     font: bold 14px;
     min-width: 10em;}</string>
               </property>
+              <property name="editable">
+               <bool>false</bool>
+              </property>
               <property name="maxVisibleItems">
                <number>10</number>
+              </property>
+              <property name="placeholderText">
+               <string>Selecione um Municipe Cadastrado</string>
               </property>
              </widget>
             </item>
@@ -1517,15 +1486,21 @@ QPushButton:hover{
     font: bold 14px;
     min-width: 10em;}</string>
                 </property>
+                <property name="inputMethodHints">
+                 <set>Qt::ImhPreferNumbers</set>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
                 <property name="readOnly">
                  <bool>false</bool>
                 </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::PlusMinus</enum>
+                </property>
                 <property name="maximumTime">
                  <time>
-                  <hour>17</hour>
+                  <hour>16</hour>
                   <minute>30</minute>
                   <second>0</second>
                  </time>
@@ -1536,6 +1511,12 @@ QPushButton:hover{
                   <minute>30</minute>
                   <second>0</second>
                  </time>
+                </property>
+                <property name="currentSection">
+                 <enum>QDateTimeEdit::HourSection</enum>
+                </property>
+                <property name="currentSectionIndex">
+                 <number>0</number>
                 </property>
                </widget>
               </item>
@@ -1599,70 +1580,32 @@ QPushButton:pressed {
          </layout>
         </item>
         <item>
-         <widget class="QTableWidget" name="tb_agendamento">
+         <widget class="QTableView" name="tb_agendamento">
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>10</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor" stdset="0">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
           </property>
           <property name="sortingEnabled">
            <bool>true</bool>
           </property>
-          <column>
-           <property name="text">
-            <string>DATA</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>HORÁRIO 08:30 A 09:30</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>HORÁRIO 09:30 A 10:30</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>HORÁRIO 10:30 A 11:30</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>HORÁRIO 11:30 A 12:30</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>HORÁRIO 12:30  A 13:30</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>HORÁRIO 13:30 A 14:30</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>HORÁRIO 14:30 A 15:30</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>HORÁRIO 15:30 A 16:30</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>HORÁRIO 16:30 A 17:30</string>
-           </property>
-          </column>
          </widget>
         </item>
        </layout>
@@ -1683,41 +1626,59 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_20">
-          <item>
-           <widget class="QCalendarWidget" name="calendarWidget">
-            <property name="font">
-             <font>
-              <pointsize>15</pointsize>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="autoFillBackground">
-             <bool>true</bool>
-            </property>
-            <property name="gridVisible">
-             <bool>true</bool>
-            </property>
-            <property name="verticalHeaderFormat">
-             <enum>QCalendarWidget::NoVerticalHeader</enum>
-            </property>
-            <property name="navigationBarVisible">
-             <bool>true</bool>
-            </property>
-            <property name="dateEditEnabled">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QCalendarWidget" name="calendarWidget">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>197</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="gridVisible">
+           <bool>true</bool>
+          </property>
+          <property name="verticalHeaderFormat">
+           <enum>QCalendarWidget::NoVerticalHeader</enum>
+          </property>
+          <property name="navigationBarVisible">
+           <bool>true</bool>
+          </property>
+          <property name="dateEditEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QListView" name="lv_agendamentos_cadastrados"/>
+         <widget class="QTableView" name="lv_agendamentos_cadastrados">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="cursor" stdset="0">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1735,6 +1696,54 @@ QPushButton:pressed {
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_28">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_19">
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_27">
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_15">
@@ -1793,34 +1802,6 @@ border-radius: 8px</string>
             <layout class="QVBoxLayout" name="verticalLayout_7">
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_4">
-               <item>
-                <widget class="QLabel" name="label_19">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_66">
                  <property name="minimumSize">
@@ -1892,34 +1873,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_5">
-               <item>
-                <widget class="QLabel" name="label_29">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_65">
                  <property name="minimumSize">
@@ -1998,34 +1951,6 @@ border-radius: 8px</string>
                 <number>6</number>
                </property>
                <item>
-                <widget class="QLabel" name="label_30">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="label_64">
                  <property name="minimumSize">
                   <size>
@@ -2096,34 +2021,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_13">
-               <item>
-                <widget class="QLabel" name="label_37">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_63">
                  <property name="minimumSize">
@@ -2208,34 +2105,6 @@ border-radius: 8px</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_21">
                <item>
-                <widget class="QLabel" name="label_42">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="label_62">
                  <property name="minimumSize">
                   <size>
@@ -2306,34 +2175,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_11">
-               <item>
-                <widget class="QLabel" name="label_36">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_61">
                  <property name="minimumSize">
@@ -2409,34 +2250,6 @@ border-radius: 8px</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_7">
                <item>
-                <widget class="QLabel" name="label_31">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="label_60">
                  <property name="minimumSize">
                   <size>
@@ -2506,34 +2319,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_8">
-               <item>
-                <widget class="QLabel" name="label_32">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_59">
                  <property name="minimumSize">
@@ -2606,34 +2391,6 @@ border-radius: 8px</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_9">
                <item>
-                <widget class="QLabel" name="label_33">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="label_58">
                  <property name="minimumSize">
                   <size>
@@ -2703,34 +2460,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_10">
-               <item>
-                <widget class="QLabel" name="label_34">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_57">
                  <property name="minimumSize">
@@ -2804,34 +2533,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_12">
-               <item>
-                <widget class="QLabel" name="label_35">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_56">
                  <property name="minimumSize">
@@ -2907,46 +2608,25 @@ border-radius: 8px</string>
                </item>
               </layout>
              </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_6">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_16">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_38">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btn_novo_cadastro">
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton {
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QPushButton" name="btn_novo_cadastro">
+               <property name="minimumSize">
+                <size>
+                 <width>186</width>
+                 <height>33</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>385</width>
+                 <height>33</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
 	color: rgb(255, 255, 255);
     
 	background-color: rgb(144, 0, 0);
@@ -2968,16 +2648,28 @@ QPushButton:pressed {
     background-color: red;
     border-style: inset;
 }</string>
-            </property>
-            <property name="text">
-             <string>CADASTRAR</string>
-            </property>
+               </property>
+               <property name="text">
+                <string>CADASTRAR</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_27">
-            <property name="text">
-             <string/>
+           <widget class="QFrame" name="frame_6">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
             </property>
            </widget>
           </item>
@@ -3025,8 +2717,14 @@ QPushButton:pressed {
               <bold>true</bold>
              </font>
             </property>
+            <property name="currentText">
+             <string/>
+            </property>
             <property name="maxVisibleItems">
              <number>10</number>
+            </property>
+            <property name="placeholderText">
+             <string>...</string>
             </property>
            </widget>
           </item>
@@ -3123,34 +2821,6 @@ border-radius: 8px</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_58">
                <item>
-                <widget class="QLabel" name="label_125">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="label_126">
                  <property name="minimumSize">
                   <size>
@@ -3221,34 +2891,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_59">
-               <item>
-                <widget class="QLabel" name="label_127">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_128">
                  <property name="minimumSize">
@@ -3327,34 +2969,6 @@ border-radius: 8px</string>
                 <number>6</number>
                </property>
                <item>
-                <widget class="QLabel" name="label_129">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="label_130">
                  <property name="minimumSize">
                   <size>
@@ -3425,34 +3039,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_61">
-               <item>
-                <widget class="QLabel" name="label_131">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_132">
                  <property name="minimumSize">
@@ -3537,34 +3123,6 @@ border-radius: 8px</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_62">
                <item>
-                <widget class="QLabel" name="label_133">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="label_134">
                  <property name="minimumSize">
                   <size>
@@ -3635,34 +3193,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_63">
-               <item>
-                <widget class="QLabel" name="label_135">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_136">
                  <property name="minimumSize">
@@ -3738,34 +3268,6 @@ border-radius: 8px</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_64">
                <item>
-                <widget class="QLabel" name="label_137">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="label_138">
                  <property name="minimumSize">
                   <size>
@@ -3835,34 +3337,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_65">
-               <item>
-                <widget class="QLabel" name="label_139">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_140">
                  <property name="minimumSize">
@@ -3935,34 +3409,6 @@ border-radius: 8px</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_66">
                <item>
-                <widget class="QLabel" name="label_141">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="label_142">
                  <property name="minimumSize">
                   <size>
@@ -4032,34 +3478,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_67">
-               <item>
-                <widget class="QLabel" name="label_143">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_144">
                  <property name="minimumSize">
@@ -4133,34 +3551,6 @@ border-radius: 8px</string>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_68">
-               <item>
-                <widget class="QLabel" name="label_145">
-                 <property name="minimumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>61</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icone agendamento.png</pixmap>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <widget class="QLabel" name="label_146">
                  <property name="minimumSize">
@@ -4236,46 +3626,25 @@ border-radius: 8px</string>
                </item>
               </layout>
              </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_19">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_22">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_39">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btn_update_municipe">
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton {
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QPushButton" name="btn_update_municipe">
+               <property name="minimumSize">
+                <size>
+                 <width>186</width>
+                 <height>33</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>385</width>
+                 <height>33</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
 	color: rgb(255, 255, 255);
     
 	background-color: rgb(144, 0, 0);
@@ -4297,16 +3666,28 @@ QPushButton:pressed {
     background-color: red;
     border-style: inset;
 }</string>
-            </property>
-            <property name="text">
-             <string>ATUALIZAR</string>
-            </property>
+               </property>
+               <property name="text">
+                <string>ATUALIZAR</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_40">
-            <property name="text">
-             <string/>
+           <widget class="QFrame" name="frame_19">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
             </property>
            </widget>
           </item>
@@ -4447,6 +3828,28 @@ QPushButton:pressed {
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>BottomToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBar_2">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
   </widget>
  </widget>
  <resources>

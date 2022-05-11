@@ -775,7 +775,7 @@ class DataBase():
             CREATE TABLE IF NOT EXISTS municipes (
             NOME TEXT NOT NULL,
             RG TEXT NOT NULL,
-            CPF TEXT NOT NULL,
+            CPF TEXT PRIMARY KEY,
             DATA_DE_NASCIMENTO TEXT NOT NULL,
             TELEFONE TEXT NOT NULL,
             INSTITUIÇÃO TEXT NULL,
@@ -816,8 +816,7 @@ class DataBase():
             Horario_13h30 TEXT NULL,
             Horario_14h30 TEXT NULL,
             Horario_15h30 TEXT NULL,
-            Horario_16h30 TEXT NULL,
-            Horario_17h30 TEXT NULL);
+            Horario_16h30 TEXT NULL);
             ''')
         # except:
 
@@ -827,7 +826,7 @@ class DataBase():
         table = cursor.execute('SELECT * FROM municipes')
         for linha in table.fetchall(): print(linha)
 
-    def insert_municipes(self, nome, rg, cpf, data, telefone, cep, endereco, numero, bairro, cidade, instituicao=None):
+    def insert_municipes(self, nome, rg, cpf, data, telefone, cep, endereco, numero, bairro, cidade, instituicao=''):
         try:
             cursor = self.conection.cursor()
             cursor.execute(f'''

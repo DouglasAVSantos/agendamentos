@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1205, 859)
+        MainWindow.resize(1193, 859)
         icon = QIcon()
         icon.addFile(u"logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -364,6 +364,10 @@ class Ui_MainWindow(object):
 
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setFrameShape(QFrame.StyledPanel)
+        self.stackedWidget.setFrameShadow(QFrame.Plain)
+        self.stackedWidget.setLineWidth(1)
+        self.stackedWidget.setMidLineWidth(0)
         self.page_home = QWidget()
         self.page_home.setObjectName(u"page_home")
         self.verticalLayout_10 = QVBoxLayout(self.page_home)
@@ -738,41 +742,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addLayout(self.horizontalLayout_18)
 
-        self.tb_municipes_cadastrados = QTableWidget(self.page_cadastrados)
-        if (self.tb_municipes_cadastrados.columnCount() < 11):
-            self.tb_municipes_cadastrados.setColumnCount(11)
-        __qtablewidgetitem = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        __qtablewidgetitem4 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(4, __qtablewidgetitem4)
-        __qtablewidgetitem5 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(5, __qtablewidgetitem5)
-        __qtablewidgetitem6 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(6, __qtablewidgetitem6)
-        __qtablewidgetitem7 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(7, __qtablewidgetitem7)
-        __qtablewidgetitem8 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(8, __qtablewidgetitem8)
-        __qtablewidgetitem9 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(9, __qtablewidgetitem9)
-        __qtablewidgetitem10 = QTableWidgetItem()
-        self.tb_municipes_cadastrados.setHorizontalHeaderItem(10, __qtablewidgetitem10)
+        self.tb_municipes_cadastrados = QTableView(self.page_cadastrados)
         self.tb_municipes_cadastrados.setObjectName(u"tb_municipes_cadastrados")
         font2 = QFont()
         font2.setPointSize(10)
-        font2.setBold(False)
-        font2.setWeight(50)
+        font2.setBold(True)
+        font2.setWeight(75)
         self.tb_municipes_cadastrados.setFont(font2)
         self.tb_municipes_cadastrados.setLineWidth(2)
         self.tb_municipes_cadastrados.setMidLineWidth(1)
         self.tb_municipes_cadastrados.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.tb_municipes_cadastrados.setEditTriggers(QAbstractItemView.DoubleClicked)
+        self.tb_municipes_cadastrados.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tb_municipes_cadastrados.setDefaultDropAction(Qt.IgnoreAction)
+        self.tb_municipes_cadastrados.setAlternatingRowColors(True)
 
         self.verticalLayout_14.addWidget(self.tb_municipes_cadastrados)
 
@@ -823,6 +805,7 @@ class Ui_MainWindow(object):
 "    border-color: black;\n"
 "    font: bold 14px;\n"
 "    min-width: 10em;}")
+        self.comboBox_municipe.setEditable(False)
         self.comboBox_municipe.setMaxVisibleItems(10)
 
         self.verticalLayout_9.addWidget(self.comboBox_municipe)
@@ -955,10 +938,14 @@ class Ui_MainWindow(object):
 "    border-color: black;\n"
 "    font: bold 14px;\n"
 "    min-width: 10em;}")
+        self.te_horario_agendamento.setInputMethodHints(Qt.ImhPreferNumbers)
         self.te_horario_agendamento.setAlignment(Qt.AlignCenter)
         self.te_horario_agendamento.setReadOnly(False)
-        self.te_horario_agendamento.setMaximumTime(QTime(17, 30, 0))
+        self.te_horario_agendamento.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.te_horario_agendamento.setMaximumTime(QTime(16, 30, 0))
         self.te_horario_agendamento.setMinimumTime(QTime(8, 30, 0))
+        self.te_horario_agendamento.setCurrentSection(QDateTimeEdit.HourSection)
+        self.te_horario_agendamento.setCurrentSectionIndex(0)
 
         self.horizontalLayout_19.addWidget(self.te_horario_agendamento)
 
@@ -1006,36 +993,14 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_12.addLayout(self.horizontalLayout_27)
 
-        self.tb_agendamento = QTableWidget(self.page_novo_agendamento)
-        if (self.tb_agendamento.columnCount() < 10):
-            self.tb_agendamento.setColumnCount(10)
-        __qtablewidgetitem11 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(0, __qtablewidgetitem11)
-        __qtablewidgetitem12 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(1, __qtablewidgetitem12)
-        __qtablewidgetitem13 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(2, __qtablewidgetitem13)
-        __qtablewidgetitem14 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(3, __qtablewidgetitem14)
-        __qtablewidgetitem15 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(4, __qtablewidgetitem15)
-        __qtablewidgetitem16 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(5, __qtablewidgetitem16)
-        __qtablewidgetitem17 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(6, __qtablewidgetitem17)
-        __qtablewidgetitem18 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(7, __qtablewidgetitem18)
-        __qtablewidgetitem19 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(8, __qtablewidgetitem19)
-        __qtablewidgetitem20 = QTableWidgetItem()
-        self.tb_agendamento.setHorizontalHeaderItem(9, __qtablewidgetitem20)
+        self.tb_agendamento = QTableView(self.page_novo_agendamento)
         self.tb_agendamento.setObjectName(u"tb_agendamento")
-        font3 = QFont()
-        font3.setPointSize(12)
-        font3.setBold(True)
-        font3.setWeight(75)
-        self.tb_agendamento.setFont(font3)
+        self.tb_agendamento.setFont(font2)
+        self.tb_agendamento.viewport().setProperty("cursor", QCursor(Qt.PointingHandCursor))
+        self.tb_agendamento.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.tb_agendamento.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.tb_agendamento.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tb_agendamento.setAlternatingRowColors(True)
         self.tb_agendamento.setSortingEnabled(True)
 
         self.verticalLayout_12.addWidget(self.tb_agendamento)
@@ -1052,28 +1017,25 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_16.addWidget(self.label_4)
 
-        self.horizontalLayout_20 = QHBoxLayout()
-        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
         self.calendarWidget = QCalendarWidget(self.page_agendados)
         self.calendarWidget.setObjectName(u"calendarWidget")
-        font4 = QFont()
-        font4.setPointSize(15)
-        self.calendarWidget.setFont(font4)
+        self.calendarWidget.setEnabled(True)
+        self.calendarWidget.setMaximumSize(QSize(16777215, 197))
+        self.calendarWidget.setFont(font2)
         self.calendarWidget.setCursor(QCursor(Qt.PointingHandCursor))
-        self.calendarWidget.setLayoutDirection(Qt.LeftToRight)
-        self.calendarWidget.setAutoFillBackground(True)
         self.calendarWidget.setGridVisible(True)
         self.calendarWidget.setVerticalHeaderFormat(QCalendarWidget.NoVerticalHeader)
         self.calendarWidget.setNavigationBarVisible(True)
         self.calendarWidget.setDateEditEnabled(True)
 
-        self.horizontalLayout_20.addWidget(self.calendarWidget)
+        self.verticalLayout_16.addWidget(self.calendarWidget)
 
-
-        self.verticalLayout_16.addLayout(self.horizontalLayout_20)
-
-        self.lv_agendamentos_cadastrados = QListView(self.page_agendados)
+        self.lv_agendamentos_cadastrados = QTableView(self.page_agendados)
         self.lv_agendamentos_cadastrados.setObjectName(u"lv_agendamentos_cadastrados")
+        self.lv_agendamentos_cadastrados.setFont(font2)
+        self.lv_agendamentos_cadastrados.viewport().setProperty("cursor", QCursor(Qt.PointingHandCursor))
+        self.lv_agendamentos_cadastrados.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.lv_agendamentos_cadastrados.setAlternatingRowColors(True)
 
         self.verticalLayout_16.addWidget(self.lv_agendamentos_cadastrados)
 
@@ -1088,6 +1050,27 @@ class Ui_MainWindow(object):
         self.label_12.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_15.addWidget(self.label_12)
+
+        self.horizontalLayout_28 = QHBoxLayout()
+        self.horizontalLayout_28.setSpacing(0)
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.horizontalLayout_28.setContentsMargins(0, -1, -1, -1)
+        self.label_19 = QLabel(self.page_novo_municipe)
+        self.label_19.setObjectName(u"label_19")
+        self.label_19.setMinimumSize(QSize(90, 31))
+        self.label_19.setMaximumSize(QSize(90, 31))
+
+        self.horizontalLayout_28.addWidget(self.label_19)
+
+        self.label_27 = QLabel(self.page_novo_municipe)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setMinimumSize(QSize(90, 31))
+        self.label_27.setMaximumSize(QSize(90, 31))
+
+        self.horizontalLayout_28.addWidget(self.label_27)
+
+
+        self.verticalLayout_15.addLayout(self.horizontalLayout_28)
 
         self.horizontalLayout_15 = QHBoxLayout()
         self.horizontalLayout_15.setSpacing(0)
@@ -1118,26 +1101,16 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.label_19 = QLabel(self.frame_4)
-        self.label_19.setObjectName(u"label_19")
-        self.label_19.setMinimumSize(QSize(61, 31))
-        self.label_19.setMaximumSize(QSize(61, 31))
-        self.label_19.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_19.setScaledContents(True)
-        self.label_19.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_4.addWidget(self.label_19)
-
         self.label_66 = QLabel(self.frame_4)
         self.label_66.setObjectName(u"label_66")
         self.label_66.setMinimumSize(QSize(131, 20))
         self.label_66.setMaximumSize(QSize(131, 20))
-        font5 = QFont()
-        font5.setPointSize(10)
-        font5.setBold(True)
-        font5.setItalic(False)
-        font5.setWeight(75)
-        self.label_66.setFont(font5)
+        font3 = QFont()
+        font3.setPointSize(10)
+        font3.setBold(True)
+        font3.setItalic(False)
+        font3.setWeight(75)
+        self.label_66.setFont(font3)
         self.label_66.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1153,12 +1126,12 @@ class Ui_MainWindow(object):
 
         self.le_nome = QLineEdit(self.frame_4)
         self.le_nome.setObjectName(u"le_nome")
-        font6 = QFont()
-        font6.setFamily(u"Courier New")
-        font6.setPointSize(12)
-        font6.setBold(True)
-        font6.setWeight(75)
-        self.le_nome.setFont(font6)
+        font4 = QFont()
+        font4.setFamily(u"Courier New")
+        font4.setPointSize(12)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.le_nome.setFont(font4)
         self.le_nome.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1176,21 +1149,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.label_29 = QLabel(self.frame_4)
-        self.label_29.setObjectName(u"label_29")
-        self.label_29.setMinimumSize(QSize(61, 31))
-        self.label_29.setMaximumSize(QSize(61, 31))
-        self.label_29.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_29.setScaledContents(True)
-        self.label_29.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_5.addWidget(self.label_29)
-
         self.label_65 = QLabel(self.frame_4)
         self.label_65.setObjectName(u"label_65")
         self.label_65.setMinimumSize(QSize(131, 20))
         self.label_65.setMaximumSize(QSize(131, 20))
-        self.label_65.setFont(font5)
+        self.label_65.setFont(font3)
         self.label_65.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1206,7 +1169,7 @@ class Ui_MainWindow(object):
 
         self.lv_rg = QLineEdit(self.frame_4)
         self.lv_rg.setObjectName(u"lv_rg")
-        self.lv_rg.setFont(font6)
+        self.lv_rg.setFont(font4)
         self.lv_rg.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1225,21 +1188,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setSpacing(6)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.label_30 = QLabel(self.frame_4)
-        self.label_30.setObjectName(u"label_30")
-        self.label_30.setMinimumSize(QSize(61, 31))
-        self.label_30.setMaximumSize(QSize(61, 31))
-        self.label_30.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_30.setScaledContents(True)
-        self.label_30.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_6.addWidget(self.label_30)
-
         self.label_64 = QLabel(self.frame_4)
         self.label_64.setObjectName(u"label_64")
         self.label_64.setMinimumSize(QSize(131, 20))
         self.label_64.setMaximumSize(QSize(131, 20))
-        self.label_64.setFont(font5)
+        self.label_64.setFont(font3)
         self.label_64.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1255,7 +1208,7 @@ class Ui_MainWindow(object):
 
         self.le_cpf = QLineEdit(self.frame_4)
         self.le_cpf.setObjectName(u"le_cpf")
-        self.le_cpf.setFont(font6)
+        self.le_cpf.setFont(font4)
         self.le_cpf.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1273,21 +1226,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13 = QHBoxLayout()
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.label_37 = QLabel(self.frame_4)
-        self.label_37.setObjectName(u"label_37")
-        self.label_37.setMinimumSize(QSize(61, 31))
-        self.label_37.setMaximumSize(QSize(61, 31))
-        self.label_37.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_37.setScaledContents(True)
-        self.label_37.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_13.addWidget(self.label_37)
-
         self.label_63 = QLabel(self.frame_4)
         self.label_63.setObjectName(u"label_63")
         self.label_63.setMinimumSize(QSize(161, 20))
         self.label_63.setMaximumSize(QSize(161, 20))
-        self.label_63.setFont(font5)
+        self.label_63.setFont(font3)
         self.label_63.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1303,7 +1246,7 @@ class Ui_MainWindow(object):
 
         self.de_data_nascimento = QDateEdit(self.frame_4)
         self.de_data_nascimento.setObjectName(u"de_data_nascimento")
-        self.de_data_nascimento.setFont(font6)
+        self.de_data_nascimento.setFont(font4)
         self.de_data_nascimento.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1325,21 +1268,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_21 = QHBoxLayout()
         self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
-        self.label_42 = QLabel(self.frame_4)
-        self.label_42.setObjectName(u"label_42")
-        self.label_42.setMinimumSize(QSize(61, 31))
-        self.label_42.setMaximumSize(QSize(61, 31))
-        self.label_42.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_42.setScaledContents(True)
-        self.label_42.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_21.addWidget(self.label_42)
-
         self.label_62 = QLabel(self.frame_4)
         self.label_62.setObjectName(u"label_62")
         self.label_62.setMinimumSize(QSize(131, 20))
         self.label_62.setMaximumSize(QSize(131, 20))
-        self.label_62.setFont(font5)
+        self.label_62.setFont(font3)
         self.label_62.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1355,7 +1288,7 @@ class Ui_MainWindow(object):
 
         self.le_telefone = QLineEdit(self.frame_4)
         self.le_telefone.setObjectName(u"le_telefone")
-        self.le_telefone.setFont(font6)
+        self.le_telefone.setFont(font4)
         self.le_telefone.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1373,21 +1306,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11 = QHBoxLayout()
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.label_36 = QLabel(self.frame_4)
-        self.label_36.setObjectName(u"label_36")
-        self.label_36.setMinimumSize(QSize(61, 31))
-        self.label_36.setMaximumSize(QSize(61, 31))
-        self.label_36.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_36.setScaledContents(True)
-        self.label_36.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_11.addWidget(self.label_36)
-
         self.label_61 = QLabel(self.frame_4)
         self.label_61.setObjectName(u"label_61")
         self.label_61.setMinimumSize(QSize(131, 20))
         self.label_61.setMaximumSize(QSize(131, 20))
-        self.label_61.setFont(font5)
+        self.label_61.setFont(font3)
         self.label_61.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1403,7 +1326,7 @@ class Ui_MainWindow(object):
 
         self.le_instituicao = QLineEdit(self.frame_4)
         self.le_instituicao.setObjectName(u"le_instituicao")
-        self.le_instituicao.setFont(font6)
+        self.le_instituicao.setFont(font4)
         self.le_instituicao.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1421,21 +1344,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7 = QHBoxLayout()
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.label_31 = QLabel(self.frame_4)
-        self.label_31.setObjectName(u"label_31")
-        self.label_31.setMinimumSize(QSize(61, 31))
-        self.label_31.setMaximumSize(QSize(61, 31))
-        self.label_31.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_31.setScaledContents(True)
-        self.label_31.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_7.addWidget(self.label_31)
-
         self.label_60 = QLabel(self.frame_4)
         self.label_60.setObjectName(u"label_60")
         self.label_60.setMinimumSize(QSize(131, 20))
         self.label_60.setMaximumSize(QSize(131, 20))
-        self.label_60.setFont(font5)
+        self.label_60.setFont(font3)
         self.label_60.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1451,7 +1364,7 @@ class Ui_MainWindow(object):
 
         self.le_cep = QLineEdit(self.frame_4)
         self.le_cep.setObjectName(u"le_cep")
-        self.le_cep.setFont(font6)
+        self.le_cep.setFont(font4)
         self.le_cep.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1468,21 +1381,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.label_32 = QLabel(self.frame_4)
-        self.label_32.setObjectName(u"label_32")
-        self.label_32.setMinimumSize(QSize(61, 31))
-        self.label_32.setMaximumSize(QSize(61, 31))
-        self.label_32.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_32.setScaledContents(True)
-        self.label_32.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_8.addWidget(self.label_32)
-
         self.label_59 = QLabel(self.frame_4)
         self.label_59.setObjectName(u"label_59")
         self.label_59.setMinimumSize(QSize(131, 20))
         self.label_59.setMaximumSize(QSize(131, 20))
-        self.label_59.setFont(font5)
+        self.label_59.setFont(font3)
         self.label_59.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1498,7 +1401,7 @@ class Ui_MainWindow(object):
 
         self.le_endereco = QLineEdit(self.frame_4)
         self.le_endereco.setObjectName(u"le_endereco")
-        self.le_endereco.setFont(font6)
+        self.le_endereco.setFont(font4)
         self.le_endereco.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1516,21 +1419,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_9 = QHBoxLayout()
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.label_33 = QLabel(self.frame_4)
-        self.label_33.setObjectName(u"label_33")
-        self.label_33.setMinimumSize(QSize(61, 31))
-        self.label_33.setMaximumSize(QSize(61, 31))
-        self.label_33.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_33.setScaledContents(True)
-        self.label_33.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_9.addWidget(self.label_33)
-
         self.label_58 = QLabel(self.frame_4)
         self.label_58.setObjectName(u"label_58")
         self.label_58.setMinimumSize(QSize(131, 20))
         self.label_58.setMaximumSize(QSize(131, 20))
-        self.label_58.setFont(font5)
+        self.label_58.setFont(font3)
         self.label_58.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1546,7 +1439,7 @@ class Ui_MainWindow(object):
 
         self.le_numero = QLineEdit(self.frame_4)
         self.le_numero.setObjectName(u"le_numero")
-        self.le_numero.setFont(font6)
+        self.le_numero.setFont(font4)
         self.le_numero.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1563,21 +1456,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_10 = QHBoxLayout()
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.label_34 = QLabel(self.frame_4)
-        self.label_34.setObjectName(u"label_34")
-        self.label_34.setMinimumSize(QSize(61, 31))
-        self.label_34.setMaximumSize(QSize(61, 31))
-        self.label_34.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_34.setScaledContents(True)
-        self.label_34.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_10.addWidget(self.label_34)
-
         self.label_57 = QLabel(self.frame_4)
         self.label_57.setObjectName(u"label_57")
         self.label_57.setMinimumSize(QSize(131, 20))
         self.label_57.setMaximumSize(QSize(131, 20))
-        self.label_57.setFont(font5)
+        self.label_57.setFont(font3)
         self.label_57.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1593,7 +1476,7 @@ class Ui_MainWindow(object):
 
         self.le_bairro = QLineEdit(self.frame_4)
         self.le_bairro.setObjectName(u"le_bairro")
-        self.le_bairro.setFont(font6)
+        self.le_bairro.setFont(font4)
         self.le_bairro.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1610,21 +1493,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_12 = QHBoxLayout()
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.label_35 = QLabel(self.frame_4)
-        self.label_35.setObjectName(u"label_35")
-        self.label_35.setMinimumSize(QSize(61, 31))
-        self.label_35.setMaximumSize(QSize(61, 31))
-        self.label_35.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_35.setScaledContents(True)
-        self.label_35.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_12.addWidget(self.label_35)
-
         self.label_56 = QLabel(self.frame_4)
         self.label_56.setObjectName(u"label_56")
         self.label_56.setMinimumSize(QSize(131, 20))
         self.label_56.setMaximumSize(QSize(131, 20))
-        self.label_56.setFont(font5)
+        self.label_56.setFont(font3)
         self.label_56.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1640,15 +1513,15 @@ class Ui_MainWindow(object):
 
         self.le_cidade = QLineEdit(self.frame_4)
         self.le_cidade.setObjectName(u"le_cidade")
-        font7 = QFont()
-        font7.setFamily(u"Courier New")
-        font7.setPointSize(12)
-        font7.setBold(True)
-        font7.setUnderline(False)
-        font7.setWeight(75)
-        font7.setStrikeOut(False)
-        font7.setKerning(True)
-        self.le_cidade.setFont(font7)
+        font5 = QFont()
+        font5.setFamily(u"Courier New")
+        font5.setPointSize(12)
+        font5.setBold(True)
+        font5.setUnderline(False)
+        font5.setWeight(75)
+        font5.setStrikeOut(False)
+        font5.setKerning(True)
+        self.le_cidade.setFont(font5)
         self.le_cidade.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1664,31 +1537,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addLayout(self.horizontalLayout_12)
 
-
-        self.horizontalLayout_15.addWidget(self.frame_4)
-
-        self.frame_6 = QFrame(self.page_novo_municipe)
-        self.frame_6.setObjectName(u"frame_6")
-        sizePolicy3.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
-        self.frame_6.setSizePolicy(sizePolicy3)
-        self.frame_6.setFrameShape(QFrame.StyledPanel)
-        self.frame_6.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_15.addWidget(self.frame_6)
-
-
-        self.verticalLayout_15.addLayout(self.horizontalLayout_15)
-
-        self.horizontalLayout_16 = QHBoxLayout()
-        self.horizontalLayout_16.setSpacing(0)
-        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.label_38 = QLabel(self.page_novo_municipe)
-        self.label_38.setObjectName(u"label_38")
-
-        self.horizontalLayout_16.addWidget(self.label_38)
-
-        self.btn_novo_cadastro = QPushButton(self.page_novo_municipe)
+        self.btn_novo_cadastro = QPushButton(self.frame_4)
         self.btn_novo_cadastro.setObjectName(u"btn_novo_cadastro")
+        self.btn_novo_cadastro.setMinimumSize(QSize(186, 33))
+        self.btn_novo_cadastro.setMaximumSize(QSize(385, 33))
         self.btn_novo_cadastro.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_novo_cadastro.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);\n"
@@ -1713,15 +1565,22 @@ class Ui_MainWindow(object):
 "    border-style: inset;\n"
 "}")
 
-        self.horizontalLayout_16.addWidget(self.btn_novo_cadastro)
-
-        self.label_27 = QLabel(self.page_novo_municipe)
-        self.label_27.setObjectName(u"label_27")
-
-        self.horizontalLayout_16.addWidget(self.label_27)
+        self.verticalLayout_7.addWidget(self.btn_novo_cadastro, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_15.addLayout(self.horizontalLayout_16)
+        self.horizontalLayout_15.addWidget(self.frame_4)
+
+        self.frame_6 = QFrame(self.page_novo_municipe)
+        self.frame_6.setObjectName(u"frame_6")
+        sizePolicy3.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
+        self.frame_6.setSizePolicy(sizePolicy3)
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_15.addWidget(self.frame_6)
+
+
+        self.verticalLayout_15.addLayout(self.horizontalLayout_15)
 
         self.stackedWidget.addWidget(self.page_novo_municipe)
         self.page_att_municipe = QWidget()
@@ -1746,7 +1605,7 @@ class Ui_MainWindow(object):
 
         self.cb_municipes_att = QComboBox(self.page_att_municipe)
         self.cb_municipes_att.setObjectName(u"cb_municipes_att")
-        self.cb_municipes_att.setFont(font6)
+        self.cb_municipes_att.setFont(font4)
         self.cb_municipes_att.setMaxVisibleItems(10)
 
         self.horizontalLayout_23.addWidget(self.cb_municipes_att)
@@ -1798,21 +1657,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_40.setObjectName(u"verticalLayout_40")
         self.horizontalLayout_58 = QHBoxLayout()
         self.horizontalLayout_58.setObjectName(u"horizontalLayout_58")
-        self.label_125 = QLabel(self.frame_18)
-        self.label_125.setObjectName(u"label_125")
-        self.label_125.setMinimumSize(QSize(61, 31))
-        self.label_125.setMaximumSize(QSize(61, 31))
-        self.label_125.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_125.setScaledContents(True)
-        self.label_125.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_58.addWidget(self.label_125)
-
         self.label_126 = QLabel(self.frame_18)
         self.label_126.setObjectName(u"label_126")
         self.label_126.setMinimumSize(QSize(131, 20))
         self.label_126.setMaximumSize(QSize(131, 20))
-        self.label_126.setFont(font5)
+        self.label_126.setFont(font3)
         self.label_126.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1828,7 +1677,7 @@ class Ui_MainWindow(object):
 
         self.le_nome_3 = QLineEdit(self.frame_18)
         self.le_nome_3.setObjectName(u"le_nome_3")
-        self.le_nome_3.setFont(font6)
+        self.le_nome_3.setFont(font4)
         self.le_nome_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1846,21 +1695,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_59 = QHBoxLayout()
         self.horizontalLayout_59.setObjectName(u"horizontalLayout_59")
-        self.label_127 = QLabel(self.frame_18)
-        self.label_127.setObjectName(u"label_127")
-        self.label_127.setMinimumSize(QSize(61, 31))
-        self.label_127.setMaximumSize(QSize(61, 31))
-        self.label_127.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_127.setScaledContents(True)
-        self.label_127.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_59.addWidget(self.label_127)
-
         self.label_128 = QLabel(self.frame_18)
         self.label_128.setObjectName(u"label_128")
         self.label_128.setMinimumSize(QSize(131, 20))
         self.label_128.setMaximumSize(QSize(131, 20))
-        self.label_128.setFont(font5)
+        self.label_128.setFont(font3)
         self.label_128.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1876,7 +1715,7 @@ class Ui_MainWindow(object):
 
         self.lv_rg_3 = QLineEdit(self.frame_18)
         self.lv_rg_3.setObjectName(u"lv_rg_3")
-        self.lv_rg_3.setFont(font6)
+        self.lv_rg_3.setFont(font4)
         self.lv_rg_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1895,21 +1734,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_60 = QHBoxLayout()
         self.horizontalLayout_60.setSpacing(6)
         self.horizontalLayout_60.setObjectName(u"horizontalLayout_60")
-        self.label_129 = QLabel(self.frame_18)
-        self.label_129.setObjectName(u"label_129")
-        self.label_129.setMinimumSize(QSize(61, 31))
-        self.label_129.setMaximumSize(QSize(61, 31))
-        self.label_129.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_129.setScaledContents(True)
-        self.label_129.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_60.addWidget(self.label_129)
-
         self.label_130 = QLabel(self.frame_18)
         self.label_130.setObjectName(u"label_130")
         self.label_130.setMinimumSize(QSize(131, 20))
         self.label_130.setMaximumSize(QSize(131, 20))
-        self.label_130.setFont(font5)
+        self.label_130.setFont(font3)
         self.label_130.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1925,7 +1754,7 @@ class Ui_MainWindow(object):
 
         self.le_cpf_3 = QLineEdit(self.frame_18)
         self.le_cpf_3.setObjectName(u"le_cpf_3")
-        self.le_cpf_3.setFont(font6)
+        self.le_cpf_3.setFont(font4)
         self.le_cpf_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1943,21 +1772,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_61 = QHBoxLayout()
         self.horizontalLayout_61.setObjectName(u"horizontalLayout_61")
-        self.label_131 = QLabel(self.frame_18)
-        self.label_131.setObjectName(u"label_131")
-        self.label_131.setMinimumSize(QSize(61, 31))
-        self.label_131.setMaximumSize(QSize(61, 31))
-        self.label_131.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_131.setScaledContents(True)
-        self.label_131.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_61.addWidget(self.label_131)
-
         self.label_132 = QLabel(self.frame_18)
         self.label_132.setObjectName(u"label_132")
         self.label_132.setMinimumSize(QSize(161, 20))
         self.label_132.setMaximumSize(QSize(161, 20))
-        self.label_132.setFont(font5)
+        self.label_132.setFont(font3)
         self.label_132.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -1973,7 +1792,7 @@ class Ui_MainWindow(object):
 
         self.de_data_nascimento_3 = QDateEdit(self.frame_18)
         self.de_data_nascimento_3.setObjectName(u"de_data_nascimento_3")
-        self.de_data_nascimento_3.setFont(font6)
+        self.de_data_nascimento_3.setFont(font4)
         self.de_data_nascimento_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -1995,21 +1814,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_62 = QHBoxLayout()
         self.horizontalLayout_62.setObjectName(u"horizontalLayout_62")
-        self.label_133 = QLabel(self.frame_18)
-        self.label_133.setObjectName(u"label_133")
-        self.label_133.setMinimumSize(QSize(61, 31))
-        self.label_133.setMaximumSize(QSize(61, 31))
-        self.label_133.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_133.setScaledContents(True)
-        self.label_133.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_62.addWidget(self.label_133)
-
         self.label_134 = QLabel(self.frame_18)
         self.label_134.setObjectName(u"label_134")
         self.label_134.setMinimumSize(QSize(131, 20))
         self.label_134.setMaximumSize(QSize(131, 20))
-        self.label_134.setFont(font5)
+        self.label_134.setFont(font3)
         self.label_134.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -2025,7 +1834,7 @@ class Ui_MainWindow(object):
 
         self.le_telefone_3 = QLineEdit(self.frame_18)
         self.le_telefone_3.setObjectName(u"le_telefone_3")
-        self.le_telefone_3.setFont(font6)
+        self.le_telefone_3.setFont(font4)
         self.le_telefone_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -2043,21 +1852,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_63 = QHBoxLayout()
         self.horizontalLayout_63.setObjectName(u"horizontalLayout_63")
-        self.label_135 = QLabel(self.frame_18)
-        self.label_135.setObjectName(u"label_135")
-        self.label_135.setMinimumSize(QSize(61, 31))
-        self.label_135.setMaximumSize(QSize(61, 31))
-        self.label_135.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_135.setScaledContents(True)
-        self.label_135.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_63.addWidget(self.label_135)
-
         self.label_136 = QLabel(self.frame_18)
         self.label_136.setObjectName(u"label_136")
         self.label_136.setMinimumSize(QSize(131, 20))
         self.label_136.setMaximumSize(QSize(131, 20))
-        self.label_136.setFont(font5)
+        self.label_136.setFont(font3)
         self.label_136.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -2073,7 +1872,7 @@ class Ui_MainWindow(object):
 
         self.le_instituicao_3 = QLineEdit(self.frame_18)
         self.le_instituicao_3.setObjectName(u"le_instituicao_3")
-        self.le_instituicao_3.setFont(font6)
+        self.le_instituicao_3.setFont(font4)
         self.le_instituicao_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -2091,21 +1890,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_64 = QHBoxLayout()
         self.horizontalLayout_64.setObjectName(u"horizontalLayout_64")
-        self.label_137 = QLabel(self.frame_18)
-        self.label_137.setObjectName(u"label_137")
-        self.label_137.setMinimumSize(QSize(61, 31))
-        self.label_137.setMaximumSize(QSize(61, 31))
-        self.label_137.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_137.setScaledContents(True)
-        self.label_137.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_64.addWidget(self.label_137)
-
         self.label_138 = QLabel(self.frame_18)
         self.label_138.setObjectName(u"label_138")
         self.label_138.setMinimumSize(QSize(131, 20))
         self.label_138.setMaximumSize(QSize(131, 20))
-        self.label_138.setFont(font5)
+        self.label_138.setFont(font3)
         self.label_138.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -2121,7 +1910,7 @@ class Ui_MainWindow(object):
 
         self.le_cep_3 = QLineEdit(self.frame_18)
         self.le_cep_3.setObjectName(u"le_cep_3")
-        self.le_cep_3.setFont(font6)
+        self.le_cep_3.setFont(font4)
         self.le_cep_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -2138,21 +1927,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_65 = QHBoxLayout()
         self.horizontalLayout_65.setObjectName(u"horizontalLayout_65")
-        self.label_139 = QLabel(self.frame_18)
-        self.label_139.setObjectName(u"label_139")
-        self.label_139.setMinimumSize(QSize(61, 31))
-        self.label_139.setMaximumSize(QSize(61, 31))
-        self.label_139.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_139.setScaledContents(True)
-        self.label_139.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_65.addWidget(self.label_139)
-
         self.label_140 = QLabel(self.frame_18)
         self.label_140.setObjectName(u"label_140")
         self.label_140.setMinimumSize(QSize(131, 20))
         self.label_140.setMaximumSize(QSize(131, 20))
-        self.label_140.setFont(font5)
+        self.label_140.setFont(font3)
         self.label_140.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -2168,7 +1947,7 @@ class Ui_MainWindow(object):
 
         self.le_endereco_3 = QLineEdit(self.frame_18)
         self.le_endereco_3.setObjectName(u"le_endereco_3")
-        self.le_endereco_3.setFont(font6)
+        self.le_endereco_3.setFont(font4)
         self.le_endereco_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -2186,21 +1965,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_66 = QHBoxLayout()
         self.horizontalLayout_66.setObjectName(u"horizontalLayout_66")
-        self.label_141 = QLabel(self.frame_18)
-        self.label_141.setObjectName(u"label_141")
-        self.label_141.setMinimumSize(QSize(61, 31))
-        self.label_141.setMaximumSize(QSize(61, 31))
-        self.label_141.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_141.setScaledContents(True)
-        self.label_141.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_66.addWidget(self.label_141)
-
         self.label_142 = QLabel(self.frame_18)
         self.label_142.setObjectName(u"label_142")
         self.label_142.setMinimumSize(QSize(131, 20))
         self.label_142.setMaximumSize(QSize(131, 20))
-        self.label_142.setFont(font5)
+        self.label_142.setFont(font3)
         self.label_142.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -2216,7 +1985,7 @@ class Ui_MainWindow(object):
 
         self.le_numero_3 = QLineEdit(self.frame_18)
         self.le_numero_3.setObjectName(u"le_numero_3")
-        self.le_numero_3.setFont(font6)
+        self.le_numero_3.setFont(font4)
         self.le_numero_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -2233,21 +2002,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_67 = QHBoxLayout()
         self.horizontalLayout_67.setObjectName(u"horizontalLayout_67")
-        self.label_143 = QLabel(self.frame_18)
-        self.label_143.setObjectName(u"label_143")
-        self.label_143.setMinimumSize(QSize(61, 31))
-        self.label_143.setMaximumSize(QSize(61, 31))
-        self.label_143.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_143.setScaledContents(True)
-        self.label_143.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_67.addWidget(self.label_143)
-
         self.label_144 = QLabel(self.frame_18)
         self.label_144.setObjectName(u"label_144")
         self.label_144.setMinimumSize(QSize(131, 20))
         self.label_144.setMaximumSize(QSize(131, 20))
-        self.label_144.setFont(font5)
+        self.label_144.setFont(font3)
         self.label_144.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -2263,7 +2022,7 @@ class Ui_MainWindow(object):
 
         self.le_bairro_3 = QLineEdit(self.frame_18)
         self.le_bairro_3.setObjectName(u"le_bairro_3")
-        self.le_bairro_3.setFont(font6)
+        self.le_bairro_3.setFont(font4)
         self.le_bairro_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -2280,21 +2039,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_68 = QHBoxLayout()
         self.horizontalLayout_68.setObjectName(u"horizontalLayout_68")
-        self.label_145 = QLabel(self.frame_18)
-        self.label_145.setObjectName(u"label_145")
-        self.label_145.setMinimumSize(QSize(61, 31))
-        self.label_145.setMaximumSize(QSize(61, 31))
-        self.label_145.setPixmap(QPixmap(u"icone agendamento.png"))
-        self.label_145.setScaledContents(True)
-        self.label_145.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_68.addWidget(self.label_145)
-
         self.label_146 = QLabel(self.frame_18)
         self.label_146.setObjectName(u"label_146")
         self.label_146.setMinimumSize(QSize(131, 20))
         self.label_146.setMaximumSize(QSize(131, 20))
-        self.label_146.setFont(font5)
+        self.label_146.setFont(font3)
         self.label_146.setStyleSheet(u"QLabel {\n"
 "	color: rgb(255, 255, 255);\n"
 "    \n"
@@ -2310,7 +2059,7 @@ class Ui_MainWindow(object):
 
         self.le_cidade_3 = QLineEdit(self.frame_18)
         self.le_cidade_3.setObjectName(u"le_cidade_3")
-        self.le_cidade_3.setFont(font7)
+        self.le_cidade_3.setFont(font5)
         self.le_cidade_3.setStyleSheet(u"QLineEdit{	\n"
 "	color: rgb(0, 0, 0);\n"
 "    border-style: outset;\n"
@@ -2326,31 +2075,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_40.addLayout(self.horizontalLayout_68)
 
-
-        self.horizontalLayout_57.addWidget(self.frame_18)
-
-        self.frame_19 = QFrame(self.page_att_municipe)
-        self.frame_19.setObjectName(u"frame_19")
-        sizePolicy3.setHeightForWidth(self.frame_19.sizePolicy().hasHeightForWidth())
-        self.frame_19.setSizePolicy(sizePolicy3)
-        self.frame_19.setFrameShape(QFrame.StyledPanel)
-        self.frame_19.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_57.addWidget(self.frame_19)
-
-
-        self.verticalLayout_19.addLayout(self.horizontalLayout_57)
-
-        self.horizontalLayout_22 = QHBoxLayout()
-        self.horizontalLayout_22.setSpacing(0)
-        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.label_39 = QLabel(self.page_att_municipe)
-        self.label_39.setObjectName(u"label_39")
-
-        self.horizontalLayout_22.addWidget(self.label_39)
-
-        self.btn_update_municipe = QPushButton(self.page_att_municipe)
+        self.btn_update_municipe = QPushButton(self.frame_18)
         self.btn_update_municipe.setObjectName(u"btn_update_municipe")
+        self.btn_update_municipe.setMinimumSize(QSize(186, 33))
+        self.btn_update_municipe.setMaximumSize(QSize(385, 33))
         self.btn_update_municipe.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_update_municipe.setStyleSheet(u"QPushButton {\n"
 "	color: rgb(255, 255, 255);\n"
@@ -2375,15 +2103,22 @@ class Ui_MainWindow(object):
 "    border-style: inset;\n"
 "}")
 
-        self.horizontalLayout_22.addWidget(self.btn_update_municipe)
-
-        self.label_40 = QLabel(self.page_att_municipe)
-        self.label_40.setObjectName(u"label_40")
-
-        self.horizontalLayout_22.addWidget(self.label_40)
+        self.verticalLayout_40.addWidget(self.btn_update_municipe, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_19.addLayout(self.horizontalLayout_22)
+        self.horizontalLayout_57.addWidget(self.frame_18)
+
+        self.frame_19 = QFrame(self.page_att_municipe)
+        self.frame_19.setObjectName(u"frame_19")
+        sizePolicy3.setHeightForWidth(self.frame_19.sizePolicy().hasHeightForWidth())
+        self.frame_19.setSizePolicy(sizePolicy3)
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_57.addWidget(self.frame_19)
+
+
+        self.verticalLayout_19.addLayout(self.horizontalLayout_57)
 
         self.stackedWidget.addWidget(self.page_att_municipe)
         self.page_sobre = QWidget()
@@ -2408,12 +2143,12 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.page_sobre)
         self.label_2.setObjectName(u"label_2")
-        font8 = QFont()
-        font8.setFamily(u"Courier New")
-        font8.setPointSize(60)
-        font8.setBold(True)
-        font8.setWeight(75)
-        self.label_2.setFont(font8)
+        font6 = QFont()
+        font6.setFamily(u"Courier New")
+        font6.setPointSize(60)
+        font6.setBold(True)
+        font6.setWeight(75)
+        self.label_2.setFont(font6)
         self.label_2.setTextFormat(Qt.MarkdownText)
         self.label_2.setScaledContents(True)
         self.label_2.setAlignment(Qt.AlignCenter)
@@ -2477,6 +2212,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_21.addWidget(self.stackedWidget)
 
         MainWindow.setCentralWidget(self.centralwidget)
+        self.toolBar = QToolBar(MainWindow)
+        self.toolBar.setObjectName(u"toolBar")
+        MainWindow.addToolBar(Qt.BottomToolBarArea, self.toolBar)
+        self.toolBar_2 = QToolBar(MainWindow)
+        self.toolBar_2.setObjectName(u"toolBar_2")
+        MainWindow.addToolBar(Qt.TopToolBarArea, self.toolBar_2)
 
         self.retranslateUi(MainWindow)
 
@@ -2532,30 +2273,9 @@ class Ui_MainWindow(object):
         self.rb_cidade.setText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
         self.rb_cpf.setText(QCoreApplication.translate("MainWindow", u"CPF", None))
         self.le_pesquisa_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Filtro", None))
-        ___qtablewidgetitem = self.tb_municipes_cadastrados.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"NOME", None));
-        ___qtablewidgetitem1 = self.tb_municipes_cadastrados.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"RG", None));
-        ___qtablewidgetitem2 = self.tb_municipes_cadastrados.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"CPF", None));
-        ___qtablewidgetitem3 = self.tb_municipes_cadastrados.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"NASCIMENTO", None));
-        ___qtablewidgetitem4 = self.tb_municipes_cadastrados.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"TELEFONE", None));
-        ___qtablewidgetitem5 = self.tb_municipes_cadastrados.horizontalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"INSTITUI\u00c7\u00c3O", None));
-        ___qtablewidgetitem6 = self.tb_municipes_cadastrados.horizontalHeaderItem(6)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"CEP", None));
-        ___qtablewidgetitem7 = self.tb_municipes_cadastrados.horizontalHeaderItem(7)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"ENDERE\u00c7O", None));
-        ___qtablewidgetitem8 = self.tb_municipes_cadastrados.horizontalHeaderItem(8)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"NUMERO", None));
-        ___qtablewidgetitem9 = self.tb_municipes_cadastrados.horizontalHeaderItem(9)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"BAIRRO", None));
-        ___qtablewidgetitem10 = self.tb_municipes_cadastrados.horizontalHeaderItem(10)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"CIDADE", None));
         self.label_14.setText("")
         self.label_15.setText("")
+        self.comboBox_municipe.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Selecione um Municipe Cadastrado", None))
         self.label_44.setText("")
         self.label_24.setText("")
         self.label_45.setText("")
@@ -2567,110 +2287,68 @@ class Ui_MainWindow(object):
         self.label_28.setText("")
         self.label_41.setText("")
         self.btn_agendar.setText(QCoreApplication.translate("MainWindow", u"AGENDAR", None))
-        ___qtablewidgetitem11 = self.tb_agendamento.horizontalHeaderItem(0)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"DATA", None));
-        ___qtablewidgetitem12 = self.tb_agendamento.horizontalHeaderItem(1)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 08:30 A 09:30", None));
-        ___qtablewidgetitem13 = self.tb_agendamento.horizontalHeaderItem(2)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 09:30 A 10:30", None));
-        ___qtablewidgetitem14 = self.tb_agendamento.horizontalHeaderItem(3)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 10:30 A 11:30", None));
-        ___qtablewidgetitem15 = self.tb_agendamento.horizontalHeaderItem(4)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 11:30 A 12:30", None));
-        ___qtablewidgetitem16 = self.tb_agendamento.horizontalHeaderItem(5)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 12:30  A 13:30", None));
-        ___qtablewidgetitem17 = self.tb_agendamento.horizontalHeaderItem(6)
-        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 13:30 A 14:30", None));
-        ___qtablewidgetitem18 = self.tb_agendamento.horizontalHeaderItem(7)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 14:30 A 15:30", None));
-        ___qtablewidgetitem19 = self.tb_agendamento.horizontalHeaderItem(8)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 15:30 A 16:30", None));
-        ___qtablewidgetitem20 = self.tb_agendamento.horizontalHeaderItem(9)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"HOR\u00c1RIO 16:30 A 17:30", None));
         self.label_4.setText("")
         self.label_12.setText("")
         self.label_19.setText("")
+        self.label_27.setText("")
         self.label_66.setText(QCoreApplication.translate("MainWindow", u"NOME", None))
         self.le_nome.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NOME", None))
-        self.label_29.setText("")
         self.label_65.setText(QCoreApplication.translate("MainWindow", u"RG", None))
         self.lv_rg.setText("")
         self.lv_rg.setPlaceholderText(QCoreApplication.translate("MainWindow", u"RG", None))
-        self.label_30.setText("")
         self.label_64.setText(QCoreApplication.translate("MainWindow", u"CPF", None))
         self.le_cpf.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CPF", None))
-        self.label_37.setText("")
         self.label_63.setText(QCoreApplication.translate("MainWindow", u"DATA DE NASCIMENTO", None))
-        self.label_42.setText("")
         self.label_62.setText(QCoreApplication.translate("MainWindow", u"TELEFONE", None))
         self.le_telefone.setPlaceholderText(QCoreApplication.translate("MainWindow", u"TELEFONE", None))
-        self.label_36.setText("")
         self.label_61.setText(QCoreApplication.translate("MainWindow", u"INSTITUI\u00c7\u00c3O", None))
         self.le_instituicao.setText("")
         self.le_instituicao.setPlaceholderText(QCoreApplication.translate("MainWindow", u"INSTITUI\u00c7\u00c3O", None))
-        self.label_31.setText("")
         self.label_60.setText(QCoreApplication.translate("MainWindow", u"CEP", None))
         self.le_cep.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CEP", None))
-        self.label_32.setText("")
         self.label_59.setText(QCoreApplication.translate("MainWindow", u"ENDERE\u00c7O", None))
         self.le_endereco.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ENDERE\u00c7O", None))
-        self.label_33.setText("")
         self.label_58.setText(QCoreApplication.translate("MainWindow", u"NUMERO", None))
         self.le_numero.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NUMERO", None))
-        self.label_34.setText("")
         self.label_57.setText(QCoreApplication.translate("MainWindow", u"BAIRRO", None))
         self.le_bairro.setText("")
         self.le_bairro.setPlaceholderText(QCoreApplication.translate("MainWindow", u"BAIRRO", None))
-        self.label_35.setText("")
         self.label_56.setText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
         self.le_cidade.setText("")
         self.le_cidade.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
-        self.label_38.setText("")
         self.btn_novo_cadastro.setText(QCoreApplication.translate("MainWindow", u"CADASTRAR", None))
-        self.label_27.setText("")
         self.label_147.setText("")
         self.label_11.setText("")
+        self.cb_municipes_att.setCurrentText("")
+        self.cb_municipes_att.setPlaceholderText(QCoreApplication.translate("MainWindow", u"...", None))
         self.btn_lupa.setText("")
         self.label_13.setText("")
-        self.label_125.setText("")
         self.label_126.setText(QCoreApplication.translate("MainWindow", u"NOME", None))
         self.le_nome_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NOME", None))
-        self.label_127.setText("")
         self.label_128.setText(QCoreApplication.translate("MainWindow", u"RG", None))
         self.lv_rg_3.setText("")
         self.lv_rg_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"RG", None))
-        self.label_129.setText("")
         self.label_130.setText(QCoreApplication.translate("MainWindow", u"CPF", None))
         self.le_cpf_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CPF", None))
-        self.label_131.setText("")
         self.label_132.setText(QCoreApplication.translate("MainWindow", u"DATA DE NASCIMENTO", None))
-        self.label_133.setText("")
         self.label_134.setText(QCoreApplication.translate("MainWindow", u"TELEFONE", None))
         self.le_telefone_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"TELEFONE", None))
-        self.label_135.setText("")
         self.label_136.setText(QCoreApplication.translate("MainWindow", u"INSTITUI\u00c7\u00c3O", None))
         self.le_instituicao_3.setText("")
         self.le_instituicao_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"INSTITUI\u00c7\u00c3O", None))
-        self.label_137.setText("")
         self.label_138.setText(QCoreApplication.translate("MainWindow", u"CEP", None))
         self.le_cep_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CEP", None))
-        self.label_139.setText("")
         self.label_140.setText(QCoreApplication.translate("MainWindow", u"ENDERE\u00c7O", None))
         self.le_endereco_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ENDERE\u00c7O", None))
-        self.label_141.setText("")
         self.label_142.setText(QCoreApplication.translate("MainWindow", u"NUMERO", None))
         self.le_numero_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NUMERO", None))
-        self.label_143.setText("")
         self.label_144.setText(QCoreApplication.translate("MainWindow", u"BAIRRO", None))
         self.le_bairro_3.setText("")
         self.le_bairro_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"BAIRRO", None))
-        self.label_145.setText("")
         self.label_146.setText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
         self.le_cidade_3.setText("")
         self.le_cidade_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CIDADE", None))
-        self.label_39.setText("")
         self.btn_update_municipe.setText(QCoreApplication.translate("MainWindow", u"ATUALIZAR", None))
-        self.label_40.setText("")
         self.label_7.setText("")
         self.label_10.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"DESENVOLVEDOR", None))
@@ -2680,5 +2358,7 @@ class Ui_MainWindow(object):
         self.label.setText("")
         self.label_6.setText("")
         self.label_5.setText("")
+        self.toolBar.setWindowTitle(QCoreApplication.translate("MainWindow", u"toolBar", None))
+        self.toolBar_2.setWindowTitle(QCoreApplication.translate("MainWindow", u"toolBar_2", None))
     # retranslateUi
 
