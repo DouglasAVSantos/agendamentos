@@ -23,9 +23,9 @@ class Login(QWidget, Ui_Form):
 
         self.btn_login.clicked.connect(self.verifica_senha)
 
-    def message_critical(self,txt):
+    def message_critical(self,title,txt):
         msg = QMessageBox(self)
-        msg.setWindowTitle('ERRO DE DADOS')
+        msg.setWindowTitle(title)
         msg.setIcon(QMessageBox.Critical)
         msg.setText(f'{txt}')
         msg.exec_()
@@ -49,10 +49,12 @@ class Login(QWidget, Ui_Form):
                 self.w.show()
                 self.close()
                 db.close_db()
-            elif self.le_usuario.text().strip() == '' or self.le_senha.text().strip() =='':
-                self.message_critical('CAMPOS VAZIOS')
+            elif self.le_usuario.text().strip() == '':
+                self.message_critical('CAMPOS VAZIOS','O CAMPO "USUARIO" ESTA VAZIO')
+            elif self.le_senha.text().strip() == '':
+                self.message_critical('CAMPOS VAZIOS','O CAMPO "SENHA" ESTA VAZIO')
             else:
-                self.message_critical('LOGIN OU SENHA INVÁLIDOS')
+                self.message_critical('CADASTRO NÃO ENCONTRADO','LOGIN OU SENHA NÃO CADASTRADO')
                 self.le_senha.setText('')
 
         # except:
@@ -364,6 +366,8 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                 self.pagina_novo_agendamentos()
                 self.de_data_do_agendamento.setDate(QDate(int(data[6:]), int(data[3:5]), int(data[:2])))
                 self.te_horario_agendamento.setTime(QTime(hora,minuto))
+            else:
+                msg.close()
 
         else:
             self.message_information('Cadastro Existente','Agendamento Já Cadastrado')
@@ -510,7 +514,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             print(self.usuario)
             db.close_db()
         except:
-            self.messagebox_critical('Usuario não encontrado')
+            self.message_critical('Usuario não encontrado','O Usuario não foi encontrado')
 
     #FUNÇÃO QUE CRIA CAIXA DE DIALOGO DE ERRO
     def message_critical(self,title,txt):
@@ -578,7 +582,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.le_numero.setText('')
             self.le_bairro.setText('')
             self.le_cidade.setText('')
-            self.message_information('CADASTRO REALIZADO COM SUCESSO!!!')
+            self.message_information('CADASTRO REALIZADO','CADASTRO REALIZADO COM SUCESSO!!!')
             self.table_reset()
             self.add_municipes_combobox()
             db.close_db()
@@ -791,7 +795,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                     self.message_critical('AGENDAMENTO EXISTENTE','O HORÁRIO JÁ FOI RESERVADO\nPESQUISE EM "AGENDADOS" OS AGENDAMENTOS JA REALIZADOS')
 
         else:
-            pass
+            msg.close()
 
         db.close_db()
 
@@ -944,11 +948,12 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                 self.le_numero_3.setText('')
                 self.le_bairro_3.setText('')
                 self.le_cidade_3.setText('')
-                self.message_information('CADASTRO ALTERADO COM SUCESSO!!!')
+                self.message_information('CADASTRO ALTERADO','CADASTRO ALTERADO COM SUCESSO!!!')
                 self.table_reset()
                 self.add_municipes_combobox()
                 db.close_db()
-
+        else:
+            msg.close()
 
     #FUNÇÃO QUE PASSA DO BANCO DE DADOS MUNICIPE PARA A TABLEVIEW DO SISTEMA
     def show_table_municipe(self):
@@ -1114,7 +1119,9 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             msg.setButtonText(QMessageBox.Yes, 'SIM')
             msg.setButtonText(QMessageBox.No, 'NÃO')
             result = msg.exec_()
-            if result == QMessageBox.No: self.le_delete_municipe.setText('')
+            if result == QMessageBox.No:
+                self.le_delete_municipe.setText('')
+                msg.close()
             else:
                 cursor.execute(f'DELETE FROM municipes WHERE ID = {id}')
                 db.conection.commit()
@@ -1140,12 +1147,12 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
         if self.le_senha_deletar.text() == self.senha and db.check_user_exists(usuario):
             db.delete_user(usuario)
-            self.message_information('USUARIO DELETADO COM SUCESSO!')
+            self.message_information('USUARIO DELETADO','USUARIO DELETADO COM SUCESSO!')
             self.le_usuario_deletar.setText('')
             self.le_senha_deletar.setText('')
             db.close_db()
         else:
-            self.message_critical('USUARIO NÃO CADASTRADO\nOU\nSENHA DE ADMINISTRADOR INVÁLIDA')
+            self.message_critical('DADOS NÃO ENCONTRADOS','USUARIO NÃO CADASTRADO\nOU\nSENHA DE ADMINISTRADOR INVÁLIDA')
             self.le_usuario_deletar.setText('')
             self.le_senha_deletar.setText('')
             db.close_db()
@@ -1160,11 +1167,11 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
 
         if senha != self.le_senha2.text().strip():
-            self.messagebox_critical('As senhas informadas não são iguais','Preencha os campos com as senhas iguais.')
+            self.message_critical('As senhas informadas não são iguais','Preencha os campos com as senhas iguais.')
             self.le_senha1.setText('')
             self.le_senha2.setText('')
         elif senha == '' or self.le_senha2.text() == '' or usuario == '' or login == '':
-            self.messagebox_critical('Campos vazios','Preencha os campos com Usuario e as senhas iguais.')
+            self.message_critical('Campos vazios','Preencha os campos com Usuario e as senhas iguais.')
             self.le_senha1.setText('')
             self.le_senha2.setText('')
         elif db.check_login_exists(login, senha):
@@ -1174,7 +1181,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             self.le_novo_usuario.setText('')
         else:
             db.insert_novo_usuario(login,usuario,senha,acess)
-            self.message_information('Senha Cadastrada com Sucesso!')
+            self.message_information('Senha Cadastrada','Senha Cadastrada com Sucesso!')
             self.le_senha1.setText('')
             self.le_novo_login.setText('')
             self.le_novo_usuario.setText('')

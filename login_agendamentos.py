@@ -1,4 +1,12 @@
+# -*- coding: utf-8 -*-
 
+################################################################################
+## Form generated from reading UI file 'login_agendamentos.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
 from PySide2.QtCore import *
 from PySide2.QtGui import *
@@ -9,12 +17,11 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(518, 314)
-        Form.setMinimumSize(QSize(518, 314))
-        Form.setMaximumSize(QSize(518, 314))
+        Form.resize(859, 579)
         icon = QIcon()
         icon.addFile(u"logo.png", QSize(), QIcon.Normal, QIcon.Off)
         Form.setWindowIcon(icon)
+        Form.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.verticalLayout = QVBoxLayout(Form)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(9, 9, 9, 9)
@@ -22,14 +29,23 @@ class Ui_Form(object):
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_3 = QVBoxLayout(self.frame)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(-10, -20, 502, 311))
-        self.label.setPixmap(QPixmap(u"Prefeitura Municipal de Sorocaba.jpg"))
-        self.label.setScaledContents(True)
+        self.label.setPixmap(QPixmap(u"pms_fundo_HOME.jpg"))
+        self.label.setScaledContents(False)
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_2.addWidget(self.label)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.le_usuario = QLineEdit(self.frame)
         self.le_usuario.setObjectName(u"le_usuario")
-        self.le_usuario.setGeometry(QRect(20, 250, 141, 20))
         self.le_usuario.setMinimumSize(QSize(141, 20))
         self.le_usuario.setMaximumSize(QSize(141, 20))
         font = QFont()
@@ -37,73 +53,61 @@ class Ui_Form(object):
         font.setPointSize(12)
         self.le_usuario.setFont(font)
         self.le_usuario.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout.addWidget(self.le_usuario, 0, Qt.AlignHCenter)
+
         self.le_senha = QLineEdit(self.frame)
         self.le_senha.setObjectName(u"le_senha")
-        self.le_senha.setGeometry(QRect(170, 250, 141, 20))
         self.le_senha.setMinimumSize(QSize(141, 20))
         self.le_senha.setMaximumSize(QSize(141, 20))
         self.le_senha.setFont(font)
         self.le_senha.setEchoMode(QLineEdit.Password)
         self.le_senha.setAlignment(Qt.AlignCenter)
-        self.label_2 = QLabel(self.frame)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(20, 20, 311, 51))
-        font1 = QFont()
-        font1.setPointSize(15)
-        self.label_2.setFont(font1)
-        self.label_2.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout.addWidget(self.le_senha, 0, Qt.AlignHCenter)
+
         self.btn_login = QPushButton(self.frame)
         self.btn_login.setObjectName(u"btn_login")
-        self.btn_login.setGeometry(QRect(330, 230, 151, 51))
-        font2 = QFont()
-        font2.setFamily(u"Courier New")
-        font2.setPointSize(15)
-        font2.setBold(False)
-        font2.setUnderline(False)
-        font2.setWeight(12)
-        font2.setStrikeOut(False)
-        self.btn_login.setFont(font2)
-        self.btn_login.setStyleSheet(u".QPushButton {\n"
-"   background: rgba(247, 0, 0, 0.54);\n"
-"   background-image: -webkit-linear-gradient(top, rgba(247, 0, 0, 0.54), #CAD01E);\n"
-"   background-image: -moz-linear-gradient(top, rgba(247, 0, 0, 0.54), #CAD01E);\n"
-"   background-image: -ms-linear-gradient(top, rgba(247, 0, 0, 0.54), #CAD01E);\n"
-"   background-image: -o-linear-gradient(top, rgba(247, 0, 0, 0.54), #CAD01E);\n"
-"   background-image: -webkit-gradient(to bottom, rgba(247, 0, 0, 0.54), #CAD01E);\n"
-"   -webkit-border-radius: 20px;\n"
-"   -moz-border-radius: 20px;\n"
-"   border-radius: 20px;\n"
-"   height: 4px;\n"
-"   line-height: 4px;\n"
-"   color: #FFFFFF;\n"
-"   font-family: Courier New;\n"
-"   width: 149px;\n"
-"   padding: 15px;\n"
-"   -webkit-box-shadow: -9px 1px 20px 0 #FFAE00;\n"
-"   -moz-box-shadow: -9px 1px 20px 0 #FFAE00;\n"
-"   box-shadow: -9px 1px 20px 0 #FFAE00;\n"
-"   text-shadow: -15px 1px 20px #000000;\n"
-"   border: solid #337FED 0;\n"
-"   text-decoration: none;\n"
-"   display: inline-block;\n"
-"   cursor: pointer;\n"
-""
-                        "   text-align: center;\n"
+        font1 = QFont()
+        font1.setFamily(u"Courier New")
+        font1.setBold(True)
+        font1.setItalic(False)
+        font1.setUnderline(False)
+        font1.setWeight(75)
+        font1.setStrikeOut(False)
+        self.btn_login.setFont(font1)
+        self.btn_login.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_login.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"    \n"
+"	background-color: rgb(144, 0, 0);\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"    min-width: 10em;\n"
+"    padding: 6px;\n"
 "}\n"
 "\n"
-".QPushButton:hover {\n"
-"   border: solid #DD380D 3px;\n"
-"   background: #CAD01E;\n"
-"   background-image: -webkit-linear-gradient(top, #CAD01E, rgba(247, 0, 0, 0.54));\n"
-"   background-image: -moz-linear-gradient(top, #CAD01E, rgba(247, 0, 0, 0.54));\n"
-"   background-image: -ms-linear-gradient(top, #CAD01E, rgba(247, 0, 0, 0.54));\n"
-"   background-image: -o-linear-gradient(top, #CAD01E, rgba(247, 0, 0, 0.54));\n"
-"   background-image: -webkit-gradient(to bottom, #CAD01E, rgba(247, 0, 0, 0.54));\n"
-"   -webkit-border-radius: 20px;\n"
-"   -moz-border-radius: 20px;\n"
-"   border-radius: 20px;\n"
-"   text-decoration: none;\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(238, 238, 0);\n"
+"    border-style: inset;\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
 "}")
+
+        self.horizontalLayout.addWidget(self.btn_login, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+
+
+        self.verticalLayout_3.addLayout(self.verticalLayout_2)
+
 
         self.verticalLayout.addWidget(self.frame)
 
@@ -114,11 +118,10 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Agendamentos JD SIMUS by. Douglas", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Sistema de Agendamento DGS", None))
         self.label.setText("")
         self.le_usuario.setPlaceholderText(QCoreApplication.translate("Form", u"USUARIO", None))
         self.le_senha.setPlaceholderText(QCoreApplication.translate("Form", u"SENHA", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"AGENDAMENTOS C.E. SIMUS", None))
         self.btn_login.setText(QCoreApplication.translate("Form", u"LOGIN", None))
     # retranslateUi
 
