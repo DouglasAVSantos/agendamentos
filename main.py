@@ -18,7 +18,7 @@ from PySide2.QtCore import Qt
 
 class Login(QWidget, Ui_Form):
     def __init__(self):
-        super(Login,self).__init__()
+        super().__init__()
         self.setupUi(self)
 
         self.btn_login.clicked.connect(self.verifica_senha)
@@ -374,7 +374,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
         # data = x.value('CPF')
         # horario = x.value()
-
 
     def mascara_cpf(self,s):
         mascara = self.le_cpf
@@ -1077,8 +1076,12 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def filtro_datas(self):
         self.show_table_agendados()
         s = self.calendarWidget.selectedDate()
-        if len(str(s.month())) <=1:
+        if len(str(s.day())) <=1 and len(str(s.month())) <=1:
+            s = f'0{s.day()}/0{s.month()}/{s.year()}'
+        elif len(str(s.month())) <=1:
             s = f'{s.day()}/0{s.month()}/{s.year()}'
+        elif len(str(s.day())) <=1:
+            s = f'0{s.day()}/{s.month()}/{s.year()}'
         else:
             s = f'{s.day()}/{s.month()}/{s.year()}'
         filter_str = f'DATA = "{s}"'
@@ -1196,9 +1199,10 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         cursor.execute(f'select {horario} from agendamentos where data = "{data}" ')
         for i in cursor.fetchall():
             if i[0] != None:
+                db.close_db()
                 return False
-        return True
         db.close_db()
+        return True
 
 
 if __name__ == '__main__':

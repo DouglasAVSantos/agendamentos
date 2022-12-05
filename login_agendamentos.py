@@ -14,7 +14,7 @@ from PySide2.QtWidgets import *
 
 
 class Ui_Form(object):
-    def setupUi(self, Form):
+    def setupUi(self, Form: object) -> object:
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(859, 579)
